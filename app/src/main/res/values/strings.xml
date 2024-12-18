@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Portukultura</string>
+    <string name="textoPresentacion"> Aplikazio honetan hainbat joko interaktibo eskaintzen ditu, xedearekin historia, kultur ondarea eta ezagutzeko Portugaleteko tradizioak modu atsegin eta dibertigarrian.
+    </string>
+    <string name="botonPresentacion">Erregistratu</string>
+    <string name="onena">onena</string>
+    <string name="jarrillero">jarrillero</string>
+    <string name="ospetsua">ospetsua</string>
+    <string name="portugalete">portugalete</string>
+    <string name="ardoa">ardoa</string>
+</resources>
