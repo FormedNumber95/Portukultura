@@ -13,6 +13,11 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.icjardinapps.dm2.portukultura.databinding.MapaBinding
 
+/**
+ * Actividad que gestiona el mapa y la interacción con los marcadores.
+ * Cada marcador tiene una actividad asociada, que solo se ejecuta si el marcador es de color amarillo.
+ */
+
 class Mapa : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
@@ -31,13 +36,20 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
     // Mapa para asociar cada marcador con su actividad correspondiente
     private val markerActivityMap = mapOf(
         //"Areilza" to OtroActivity::class.java,
-        //"Rialia" to Puzle::class.java,
-        //"Zubia" to OtroActivity::class.java,
+        // "Rialia" to Puzle::class.java,
+        // "Zubia" to OtroActivity::class.java,
         "Jarrilla" to SopaDeLetras::class.java,
-        //"Arrautza" to OtraActividad::class.java,
-        //"Tren" to OtraActividad::class.java,
-        //"LaGia" to OtraActividad::class.java
-    )
+        // "Arrautza" to OtraActividad::class.java,
+        // "Tren" to OtraActividad::class.java,
+        // "LaGia" to OtraActividad::class.java
+        )
+
+    /**
+     * Metodo llamado cuando se crea la actividad.
+     * Configura el mapa y establece los marcadores.
+     *
+     * @param savedInstanceState El estado guardado de la actividad (si existe).
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +62,13 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
+
+    /**
+     * Metodo que se llama cuando el mapa está listo para ser utilizado.
+     * Crea los marcadores, asigna colores y los agrega al mapa.
+     *
+     * @param googleMap El objeto de GoogleMap que representa el mapa.
+     */
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
@@ -75,8 +94,8 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         markerColors[zubiMarker] = BitmapDescriptorFactory.HUE_RED
 
         jarrillaMarker = mMap.addMarker(MarkerOptions().position(jarrilla).title("Jarrilla")
-            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))!!
-        markerColors[jarrillaMarker] = BitmapDescriptorFactory.HUE_RED
+            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)))!!
+        markerColors[jarrillaMarker] = BitmapDescriptorFactory.HUE_YELLOW
 
         arrautzaMarker = mMap.addMarker(MarkerOptions().position(XXmendekoArrautza).title("Arrautza"))!!
         markerColors[arrautzaMarker] = BitmapDescriptorFactory.HUE_RED
@@ -91,17 +110,55 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
 
         // Configurar el evento onClick para los marcadores
         mMap.setOnMarkerClickListener { marker ->
-            if (markerColors[marker] == BitmapDescriptorFactory.HUE_YELLOW) {
-                val activityClass = markerActivityMap[marker.title]
+            // Si el marcador no es amarillo, no hacer nada (ni mostrar su título ni hacer la acción)
+            if (markerColors[marker] != BitmapDescriptorFactory.HUE_YELLOW) {
+                return@setOnMarkerClickListener false
+            }
 
-                if (activityClass != null) {
-                    // Lanzar la actividad correspondiente
-                    val intent = Intent(this, activityClass)
-                    startActivity(intent)
-                    return@setOnMarkerClickListener true  // Indicar que hemos manejado el evento
+            // Si el marcador es amarillo, obtener la actividad correspondiente
+            val activityClass = markerActivityMap[marker.title]
+
+            if (activityClass != null) {
+                // Lanzar la actividad correspondiente
+                val intent = Intent(this, activityClass)
+                startActivity(intent)
+                return@setOnMarkerClickListener true  // Indicar que hemos manejado el evento
+            }
+
+            false  // Si no hay actividad asociada, devolver false
+        }
+
+        // Evitar que se muestren los títulos de los marcadores no amarillos
+        mMap.setInfoWindowAdapter(object : GoogleMap.InfoWindowAdapter {
+            /**
+             * Metodo para personalizar la ventana de información de los marcadores.
+             *
+             * @param marker El marcador cuya ventana de información se está solicitando.
+             * @return La vista que debe mostrarse en la ventana de información.
+             */
+            override fun getInfoWindow(marker: Marker): android.view.View? {
+                // No mostrar información de la ventana de los marcadores que no sean amarillos
+                return if (markerColors[marker] == BitmapDescriptorFactory.HUE_YELLOW) {
+                    null  // Mostrar el contenido por defecto si es amarillo
+                } else {
+                    android.view.View(this@Mapa)  // No mostrar nada si no es amarillo
                 }
             }
-            false // Si no se cumple la condición del color amarillo o no hay actividad asociada, devolver false
-        }
+
+            /**
+             * Metodo para obtener los contenidos de la ventana de información de los marcadores.
+             *
+             * @param marker El marcador cuya información se está solicitando.
+             * @return La vista que debe mostrarse en la ventana de información.
+             */
+            override fun getInfoContents(marker: Marker): android.view.View? {
+                // Devolver null para evitar que se muestre el título de los marcadores no amarillos
+                return if (markerColors[marker] == BitmapDescriptorFactory.HUE_YELLOW) {
+                    null  // Mostrar el contenido por defecto si es amarillo
+                } else {
+                    android.view.View(this@Mapa)  // No mostrar nada si no es amarillo
+                }
+            }
+        })
     }
 }
