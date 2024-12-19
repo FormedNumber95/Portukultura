@@ -13,7 +13,7 @@ class Presentacion : AppCompatActivity() {
         setContentView(R.layout.presentacion)
         val boton=findViewById<Button>(R.id.btnRegistrarse)//El boton de registrarse ahora no va a llevar a registrarse
         boton.setOnClickListener{
-            val intent= Intent(this@Presentacion,PruebaSopaDeLetras::class.java)
+            val intent= Intent(this@Presentacion,Mapa::class.java)
             startActivity(intent)
         }
     }
