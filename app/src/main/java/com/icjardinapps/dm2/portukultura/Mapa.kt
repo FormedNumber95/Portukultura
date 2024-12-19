@@ -25,13 +25,27 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var trenGeltokiaMarker: Marker
     private lateinit var laGiaMarker: Marker
 
+    // Mapa para almacenar los colores de los marcadores
+    private val markerColors = HashMap<Marker, Float>()
+
+    // Mapa para asociar cada marcador con su actividad correspondiente
+    private val markerActivityMap = mapOf(
+        //"Areilza" to OtroActivity::class.java,
+        //"Rialia" to Puzle::class.java,
+        //"Zubia" to OtroActivity::class.java,
+        "Jarrilla" to SopaDeLetras::class.java,
+        //"Arrautza" to OtraActividad::class.java,
+        //"Tren" to OtraActividad::class.java,
+        //"LaGia" to OtraActividad::class.java
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = MapaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        // Obtener el SupportMapFragment y esperar a que el mapa esté listo
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -47,42 +61,47 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         val canillakoTrenGeltokia = LatLng(43.31860888436704, -3.015193226072288)
         val laGiakoJaia = LatLng(43.32065891272269, -3.0178038091884094)
 
-        areilzaMarker=mMap.addMarker(
+        // Crear marcadores con colores y almacenarlos
+        areilzaMarker = mMap.addMarker(
             MarkerOptions().position(areilzaParkea).title("Areilza")
-                .icon(BitmapDescriptorFactory.defaultMarker(
-                    BitmapDescriptorFactory.HUE_YELLOW))
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
         )!!
-        rialiaMarker=mMap.addMarker(
-            MarkerOptions().position(rialiaMuseoa).title("Rialia")
-        )!!
-        zubiMarker=mMap.addMarker(
-            MarkerOptions().position(portugaletekoZubiEsekia).title("Zubia")
-        )!!
-        jarrillaMarker=mMap.addMarker(
-            MarkerOptions().position(jarrilla).title("Jarrilla")
-        )!!
-        arrautzaMarker=mMap.addMarker(
-            MarkerOptions().position(XXmendekoArrautza).title("Arrautza")
-        )!!
-        trenGeltokiaMarker=mMap.addMarker(
-            MarkerOptions().position(canillakoTrenGeltokia).title("Tren")
-        )!!
-        laGiaMarker=mMap.addMarker(
-            MarkerOptions().position(laGiakoJaia).title("LaGia")
-        )!!
+        markerColors[areilzaMarker] = BitmapDescriptorFactory.HUE_YELLOW
+
+        rialiaMarker = mMap.addMarker(MarkerOptions().position(rialiaMuseoa).title("Rialia"))!!
+        markerColors[rialiaMarker] = BitmapDescriptorFactory.HUE_RED
+
+        zubiMarker = mMap.addMarker(MarkerOptions().position(portugaletekoZubiEsekia).title("Zubia"))!!
+        markerColors[zubiMarker] = BitmapDescriptorFactory.HUE_RED
+
+        jarrillaMarker = mMap.addMarker(MarkerOptions().position(jarrilla).title("Jarrilla")
+            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))!!
+        markerColors[jarrillaMarker] = BitmapDescriptorFactory.HUE_RED
+
+        arrautzaMarker = mMap.addMarker(MarkerOptions().position(XXmendekoArrautza).title("Arrautza"))!!
+        markerColors[arrautzaMarker] = BitmapDescriptorFactory.HUE_RED
+
+        trenGeltokiaMarker = mMap.addMarker(MarkerOptions().position(canillakoTrenGeltokia).title("Tren"))!!
+        markerColors[trenGeltokiaMarker] = BitmapDescriptorFactory.HUE_RED
+
+        laGiaMarker = mMap.addMarker(MarkerOptions().position(laGiakoJaia).title("LaGia"))!!
+        markerColors[laGiaMarker] = BitmapDescriptorFactory.HUE_RED
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(laGiakoJaia, 15f))
 
         // Configurar el evento onClick para los marcadores
         mMap.setOnMarkerClickListener { marker ->
-            if (marker == jarrillaMarker) {
-                // Lanzar la actividad SopaDeLetras
-                val intent = Intent(this, SopaDeLetras::class.java)
-                startActivity(intent)
-                true // Indicar que hemos manejado el evento
-            } else {
-                false // Permitir que el mapa maneje otros eventos de marcador
+            if (markerColors[marker] == BitmapDescriptorFactory.HUE_YELLOW) {
+                val activityClass = markerActivityMap[marker.title]
+
+                if (activityClass != null) {
+                    // Lanzar la actividad correspondiente
+                    val intent = Intent(this, activityClass)
+                    startActivity(intent)
+                    return@setOnMarkerClickListener true  // Indicar que hemos manejado el evento
+                }
             }
+            false // Si no se cumple la condición del color amarillo o no hay actividad asociada, devolver false
         }
     }
 }
