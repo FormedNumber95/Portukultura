@@ -9,4 +9,5 @@
     <string name="portugalete">portugalete</string>
     <string name="ardoa">ardoa</string>
     <string name="title_activity_mapa">Mapa</string>
+    <string name="moverAdyacentes">Hutsunearen ondoan dauden piezak bakarrik mugi ditzakezu.</string>
 </resources>

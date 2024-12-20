@@ -75,7 +75,7 @@ class Puzzle : AppCompatActivity() {
             updateGrid()
             checkIfSolved()
         } else {
-            Toast.makeText(this, "Solo puedes mover piezas adyacentes", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.moverAdyacentes), Toast.LENGTH_SHORT).show()
         }
     }
 
