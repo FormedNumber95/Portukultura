@@ -5,14 +5,23 @@ import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-
+/**
+ * Actividad para gestionar un juego de puzzle interactivo en una cuadrícula.
+ * La actividad permite mover las piezas del puzzle de forma que el jugador
+ * pueda resolverlo moviendo las piezas adyacentes al espacio vacío.
+ */
 class Puzzle : AppCompatActivity() {
 
     private lateinit var puzzleGrid: GridLayout
     private lateinit var imagenFondo:ImageView
     private val puzzlePieces = Array(16) { 0 } // Almacena las imágenes de las piezas
     private var emptyIndex = 15 // Comienza con el índice del espacio vacío
-
+    /**
+     * Metodo que se ejecuta al crear la actividad.
+     * Inicializa el puzzle y configura los elementos de la interfaz.
+     *
+     * @param savedInstanceState El estado guardado de la actividad (si lo hay).
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.puzzle)
@@ -22,7 +31,10 @@ class Puzzle : AppCompatActivity() {
 
         initializePuzzle() // Configura el puzzle al iniciar
     }
-
+    /**
+     * Inicializa el puzzle cargando las piezas de las imágenes, mezclándolas y configurando
+     * el espacio vacío en su posición inicial.
+     */
     private fun initializePuzzle() {
         // Carga las imágenes de las piezas
         for (i in 0 until 15) {
@@ -42,7 +54,10 @@ class Puzzle : AppCompatActivity() {
 
         updateGrid()
     }
-
+    /**
+     * Actualiza la cuadrícula del puzzle mostrando las piezas en la interfaz de usuario.
+     * Cada pieza es representada como un ImageView.
+     */
     private fun updateGrid() {
         puzzleGrid.removeAllViews()
         for (i in 0 until 16) {
@@ -65,7 +80,12 @@ class Puzzle : AppCompatActivity() {
             puzzleGrid.addView(imageView)
         }
     }
-
+    /**
+     * Metodo que se llama cuando una pieza del puzzle es tocada.
+     * Si la pieza está adyacente al espacio vacío, se intercambian.
+     *
+     * @param index El índice de la pieza que fue tocada.
+     */
     private fun onTileClick(index: Int) {
         if (isAdjacentToEmpty(index)) {
             // Intercambia la pieza con el hueco vacío
@@ -78,7 +98,12 @@ class Puzzle : AppCompatActivity() {
             Toast.makeText(this, getString(R.string.moverAdyacentes), Toast.LENGTH_SHORT).show()
         }
     }
-
+    /**
+     * Verifica si la pieza en el índice proporcionado está adyacente al espacio vacío.
+     *
+     * @param index El índice de la pieza.
+     * @return `true` si la pieza está adyacente al espacio vacío, `false` en caso contrario.
+     */
     private fun isAdjacentToEmpty(index: Int): Boolean {
         val row = index / 4
         val col = index % 4
@@ -88,7 +113,10 @@ class Puzzle : AppCompatActivity() {
         return (row == emptyRow && Math.abs(col - emptyCol) == 1) ||
                 (col == emptyCol && Math.abs(row - emptyRow) == 1)
     }
-
+    /**
+     * Verifica si el puzzle ha sido resuelto correctamente comparando el estado actual
+     * de las piezas con la disposición correcta.
+     */
     private fun checkIfSolved() {
         for (i in 0 until 15) {
             val correctResourceId = resources.getIdentifier("puzle_${i + 1}", "drawable", packageName)
@@ -97,7 +125,14 @@ class Puzzle : AppCompatActivity() {
         finish()
     }
 
-    // Verifica si el estado actual del puzzle es resolvible
+    /**
+     * Verifica si el estado actual del puzzle es resolvible. Un puzzle es resolvible si
+     * el número de inversiones (pares de piezas que están en el orden incorrecto) es par
+     * y en el caso de una cuadrícula de 4x4, también depende de la fila del espacio vacío.
+     *
+     * @param pieces El arreglo de piezas del puzzle.
+     * @return `true` si el puzzle es resolvible, `false` en caso contrario.
+     */
     private fun isSolvable(pieces: Array<Int>): Boolean {
         var inversions = 0
         val pieceIds = pieces.filter { it != R.drawable.puzle_blanco }
