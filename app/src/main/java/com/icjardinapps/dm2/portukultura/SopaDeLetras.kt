@@ -4,12 +4,11 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.MotionEvent
-import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.gridlayout.widget.GridLayout
 
-class PruebaSopaDeLetras : AppCompatActivity() {
+class SopaDeLetras : AppCompatActivity() {
 
     // La sopa de letras
     private val sopaDeLetras: Array<Array<Char>> = arrayOf(
@@ -36,7 +35,7 @@ class PruebaSopaDeLetras : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_prueba_sopa_de_letras)
+        setContentView(R.layout.sopa_de_letras)
         cargarSopaDeLetras()
     }
 
