@@ -13,43 +13,21 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.icjardinapps.dm2.portukultura.databinding.MapaBinding
 
-/**
- * Actividad que gestiona el mapa y la interacción con los marcadores.
- * Cada marcador tiene una actividad asociada, que solo se ejecuta si el marcador es de color amarillo.
- */
-
 class Mapa : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: MapaBinding
-    private lateinit var areilzaMarker: Marker
-    private lateinit var rialiaMarker: Marker
-    private lateinit var zubiMarker: Marker
-    private lateinit var jarrillaMarker: Marker
-    private lateinit var arrautzaMarker: Marker
-    private lateinit var trenGeltokiaMarker: Marker
-    private lateinit var laGiaMarker: Marker
 
-    // Mapa para almacenar los colores de los marcadores
     private val markerColors = HashMap<Marker, Float>()
 
-    // Mapa para asociar cada marcador con su actividad correspondiente
-    private val markerActivityMap = mapOf(
-        //"Areilza" to OtroActivity::class.java,
-        // "Rialia" to Puzle::class.java,
-        // "Zubia" to OtroActivity::class.java,
-        "Jarrilla" to SopaDeLetras::class.java,
-        // "Arrautza" to OtraActividad::class.java,
-        // "Tren" to OtraActividad::class.java,
-        // "LaGia" to OtraActividad::class.java
-        )
+    // Lista ordenada de marcadores
+    private var markersList: MutableList<Marker> = mutableListOf()
 
-    /**
-     * Metodo llamado cuando se crea la actividad.
-     * Configura el mapa y establece los marcadores.
-     *
-     * @param savedInstanceState El estado guardado de la actividad (si existe).
-     */
+    // Índice del marcador activo
+    private var activeMarkerIndex = 0
+
+    // Mapa de actividades asociadas a cada marcador
+    private lateinit var markerActivities: Map<Marker, Class<out AppCompatActivity>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,108 +35,112 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         binding = MapaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Obtener el SupportMapFragment y esperar a que el mapa esté listo
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
-    /**
-     * Metodo que se llama cuando el mapa está listo para ser utilizado.
-     * Crea los marcadores, asigna colores y los agrega al mapa.
-     *
-     * @param googleMap El objeto de GoogleMap que representa el mapa.
-     */
-
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val areilzaParkea = LatLng(43.32499609828457, -3.020763949816549)
-        val rialiaMuseoa = LatLng(43.31871964219722, -3.013891264960716)
-        val portugaletekoZubiEsekia = LatLng(43.32327983515113, -3.0171740054884357)
-        val jarrilla = LatLng(43.321473128061704, -3.0171637139280474)
-        val XXmendekoArrautza = LatLng(43.32027889068112, -3.015688498966755)
-        val canillakoTrenGeltokia = LatLng(43.31860888436704, -3.015193226072288)
-        val laGiakoJaia = LatLng(43.32065891272269, -3.0178038091884094)
 
-        // Crear marcadores con colores y almacenarlos
-        areilzaMarker = mMap.addMarker(
-            MarkerOptions().position(areilzaParkea).title("Areilza")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
-        )!!
-        markerColors[areilzaMarker] = BitmapDescriptorFactory.HUE_YELLOW
+        // Coordenadas de los marcadores
+        val markerLocations = listOf(
+            LatLng(43.32499609828457, -3.020763949816549) to "Areilza",
+            LatLng(43.31871964219722, -3.013891264960716) to "Rialia",
+            LatLng(43.32327983515113, -3.0171740054884357) to "Zubia",
+            LatLng(43.321473128061704, -3.0171637139280474) to "Jarrilla",
+            LatLng(43.32027889068112, -3.015688498966755) to "Arrautza",
+            LatLng(43.31860888436704, -3.015193226072288) to "Tren",
+            LatLng(43.32065891272269, -3.0178038091884094) to "LaGia"
+        )
 
-        rialiaMarker = mMap.addMarker(MarkerOptions().position(rialiaMuseoa).title("Rialia"))!!
-        markerColors[rialiaMarker] = BitmapDescriptorFactory.HUE_RED
+        // Crear y configurar marcadores
+        markersList = markerLocations.mapIndexed { index, (location, title) ->
+            val hue = if (index == 0) BitmapDescriptorFactory.HUE_YELLOW else BitmapDescriptorFactory.HUE_RED
+            val marker = mMap.addMarker(
+                MarkerOptions().position(location).title(title)
+                    .icon(BitmapDescriptorFactory.defaultMarker(hue))
+            )!!
+            markerColors[marker] = hue
+            marker
+        }.toMutableList()
 
-        zubiMarker = mMap.addMarker(MarkerOptions().position(portugaletekoZubiEsekia).title("Zubia"))!!
-        markerColors[zubiMarker] = BitmapDescriptorFactory.HUE_RED
+        // Mapa de actividades para los marcadores
+        markerActivities = markersList.mapIndexed { index, marker ->
+            val activity = when (index) {
+                0 -> SopaDeLetras::class.java
+                1 -> Presentacion::class.java
+                2 -> SopaDeLetras::class.java
+                3 -> SopaDeLetras::class.java
+                4 -> SopaDeLetras::class.java
+                5 -> SopaDeLetras::class.java
+                6 -> SopaDeLetras::class.java
+                else -> Class.forName("com.icjardinapps.dm2.portukultura.Ejemplo${index}") as Class<out AppCompatActivity>
+            }
+            marker to activity
+        }.toMap()
 
-        jarrillaMarker = mMap.addMarker(MarkerOptions().position(jarrilla).title("Jarrilla")
-            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)))!!
-        markerColors[jarrillaMarker] = BitmapDescriptorFactory.HUE_YELLOW
 
-        arrautzaMarker = mMap.addMarker(MarkerOptions().position(XXmendekoArrautza).title("Arrautza"))!!
-        markerColors[arrautzaMarker] = BitmapDescriptorFactory.HUE_RED
-
-        trenGeltokiaMarker = mMap.addMarker(MarkerOptions().position(canillakoTrenGeltokia).title("Tren"))!!
-        markerColors[trenGeltokiaMarker] = BitmapDescriptorFactory.HUE_RED
-
-        laGiaMarker = mMap.addMarker(MarkerOptions().position(laGiakoJaia).title("LaGia"))!!
-        markerColors[laGiaMarker] = BitmapDescriptorFactory.HUE_RED
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(laGiakoJaia, 15f))
+        // Mover la cámara al primer marcador
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLocations[0].first, 15f))
 
         // Configurar el evento onClick para los marcadores
         mMap.setOnMarkerClickListener { marker ->
-            // Si el marcador no es amarillo, no hacer nada (ni mostrar su título ni hacer la acción)
-            if (markerColors[marker] != BitmapDescriptorFactory.HUE_YELLOW) {
-                return@setOnMarkerClickListener false
+            val markerHue = markerColors[marker]
+
+            if (markerHue == BitmapDescriptorFactory.HUE_YELLOW) {
+                // Lanzar actividad si el marcador es amarillo
+                val activityClass = markerActivities[marker]
+                if (activityClass != null) {
+                    val intent = Intent(this, activityClass)
+                    startActivity(intent)
+                }
+                true
+            } else {
+                // No hacer nada si el marcador no es amarillo
+                false
             }
-
-            // Si el marcador es amarillo, obtener la actividad correspondiente
-            val activityClass = markerActivityMap[marker.title]
-
-            if (activityClass != null) {
-                // Lanzar la actividad correspondiente
-                val intent = Intent(this, activityClass)
-                startActivity(intent)
-                return@setOnMarkerClickListener true  // Indicar que hemos manejado el evento
-            }
-
-            false  // Si no hay actividad asociada, devolver false
         }
 
-        // Evitar que se muestren los títulos de los marcadores no amarillos
+        // Configurar para evitar mostrar los títulos de los marcadores no amarillos
         mMap.setInfoWindowAdapter(object : GoogleMap.InfoWindowAdapter {
-            /**
-             * Metodo para personalizar la ventana de información de los marcadores.
-             *
-             * @param marker El marcador cuya ventana de información se está solicitando.
-             * @return La vista que debe mostrarse en la ventana de información.
-             */
             override fun getInfoWindow(marker: Marker): android.view.View? {
-                // No mostrar información de la ventana de los marcadores que no sean amarillos
-                return if (markerColors[marker] == BitmapDescriptorFactory.HUE_YELLOW) {
-                    null  // Mostrar el contenido por defecto si es amarillo
-                } else {
-                    android.view.View(this@Mapa)  // No mostrar nada si no es amarillo
-                }
+                return if (markerColors[marker] == BitmapDescriptorFactory.HUE_YELLOW) null
+                else android.view.View(this@Mapa)
             }
 
-            /**
-             * Metodo para obtener los contenidos de la ventana de información de los marcadores.
-             *
-             * @param marker El marcador cuya información se está solicitando.
-             * @return La vista que debe mostrarse en la ventana de información.
-             */
             override fun getInfoContents(marker: Marker): android.view.View? {
-                // Devolver null para evitar que se muestre el título de los marcadores no amarillos
-                return if (markerColors[marker] == BitmapDescriptorFactory.HUE_YELLOW) {
-                    null  // Mostrar el contenido por defecto si es amarillo
-                } else {
-                    android.view.View(this@Mapa)  // No mostrar nada si no es amarillo
-                }
+                return if (markerColors[marker] == BitmapDescriptorFactory.HUE_YELLOW) null
+                else android.view.View(this@Mapa)
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Verificar si la lista ya está cargada antes de modificar los marcadores
+        if (markersList.isNotEmpty()) {
+            // Cambiar el color del marcador activo a verde
+            val activeMarker = markersList[activeMarkerIndex]
+            activeMarker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+            markerColors[activeMarker] = BitmapDescriptorFactory.HUE_GREEN
+
+            // Mover al siguiente marcador en la lista
+            activeMarkerIndex = (activeMarkerIndex + 1) % markersList.size
+            val nextMarker = markersList[activeMarkerIndex]
+            nextMarker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
+            markerColors[nextMarker] = BitmapDescriptorFactory.HUE_YELLOW
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("activeMarkerIndex", activeMarkerIndex)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        activeMarkerIndex = savedInstanceState.getInt("activeMarkerIndex", 0)
     }
 }
