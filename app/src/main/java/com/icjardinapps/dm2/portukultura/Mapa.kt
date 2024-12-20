@@ -13,22 +13,40 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.icjardinapps.dm2.portukultura.databinding.MapaBinding
 
+/**
+ * Actividad que muestra un mapa interactivo con marcadores. Cada marcador está asociado a una actividad que se
+ * lanza al hacer clic sobre un marcador de color amarillo.
+ * Los marcadores cambian de color para indicar el marcador activo.
+ */
 class Mapa : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: MapaBinding
-
+    /**
+     * Mapa de marcadores y su color asociado.
+     */
     private val markerColors = HashMap<Marker, Float>()
 
-    // Lista ordenada de marcadores
+    /**
+     * Lista ordenada de los marcadores en el mapa.
+     */
     private var markersList: MutableList<Marker> = mutableListOf()
 
-    // Índice del marcador activo
+    /**
+     * Índice del marcador activo, usado para cambiar de marcador.
+     */
     private var activeMarkerIndex = 0
 
-    // Mapa de actividades asociadas a cada marcador
+    /**
+     * Mapa de actividades asociadas a cada marcador.
+     */
     private lateinit var markerActivities: Map<Marker, Class<out AppCompatActivity>>
-
+    /**
+     * Metodo llamado al crear la actividad.
+     * Inicializa el mapa y configura el fragmento del mapa.
+     *
+     * @param savedInstanceState Estado guardado de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -39,7 +57,12 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
-
+    /**
+     * Metodo llamado cuando el mapa está listo para ser utilizado.
+     * Configura los marcadores en el mapa y establece la lógica para interactuar con ellos.
+     *
+     * @param googleMap El mapa de Google.
+     */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
@@ -75,6 +98,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                 4 -> SopaDeLetras::class.java
                 5 -> SopaDeLetras::class.java
                 6 -> SopaDeLetras::class.java
+                //Nunca se va a dar este caso
                 else -> Class.forName("com.icjardinapps.dm2.portukultura.Ejemplo${index}") as Class<out AppCompatActivity>
             }
             marker to activity
@@ -115,7 +139,10 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
             }
         })
     }
-
+    /**
+     * Metodo llamado cuando la actividad vuelve a estar en primer plano.
+     * Actualiza el color del marcador activo y cambia al siguiente marcador.
+     */
     override fun onResume() {
         super.onResume()
 
@@ -133,12 +160,22 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
             markerColors[nextMarker] = BitmapDescriptorFactory.HUE_YELLOW
         }
     }
-
+    /**
+     * Metodo para guardar el estado de la actividad antes de que sea destruida.
+     * Guarda el índice del marcador activo.
+     *
+     * @param outState Estado guardado.
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt("activeMarkerIndex", activeMarkerIndex)
     }
-
+    /**
+     * Metodo para restaurar el estado de la actividad después de que haya sido destruida.
+     * Restaura el índice del marcador activo.
+     *
+     * @param savedInstanceState Estado guardado.
+     */
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         activeMarkerIndex = savedInstanceState.getInt("activeMarkerIndex", 0)
