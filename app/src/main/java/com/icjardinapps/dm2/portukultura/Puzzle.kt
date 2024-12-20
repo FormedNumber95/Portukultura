@@ -9,13 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 class Puzzle : AppCompatActivity() {
 
     private lateinit var puzzleGrid: GridLayout
+    private lateinit var imagenFondo:ImageView
     private val puzzlePieces = Array(16) { 0 } // Almacena las imágenes de las piezas
     private var emptyIndex = 15 // Comienza con el índice del espacio vacío
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.puzzle)
-
+        imagenFondo=findViewById(R.id.backgroundImage)
+        imagenFondo.scaleType=ImageView.ScaleType.FIT_XY
         puzzleGrid = findViewById(R.id.puzzleGrid)
 
         initializePuzzle() // Configura el puzzle al iniciar
@@ -50,11 +52,16 @@ class Puzzle : AppCompatActivity() {
             } else {
                 imageView.setImageResource(puzzlePieces[i])
             }
-            imageView.layoutParams = GridLayout.LayoutParams().apply {
-                width = 250 // Ancho fijo
-                height = 250 // Alto fijo
-            }
             imageView.setOnClickListener { onTileClick(i) }
+            val params: GridLayout.LayoutParams = GridLayout.LayoutParams().apply {
+                width = 0 // Esto es para que se ajuste proporcionalmente en el Grid
+                height = 0 // Igual para la altura
+                columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)  // Ajuste proporcional de columna
+                rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)  // Ajuste proporcional de fila
+            }
+
+            imageView.layoutParams=params
+            imageView.scaleType=ImageView.ScaleType.FIT_XY
             puzzleGrid.addView(imageView)
         }
     }
@@ -87,7 +94,7 @@ class Puzzle : AppCompatActivity() {
             val correctResourceId = resources.getIdentifier("puzle_${i + 1}", "drawable", packageName)
             if (puzzlePieces[i] != correctResourceId) return
         }
-        Toast.makeText(this, "¡Felicidades! Has completado el puzzle", Toast.LENGTH_LONG).show()
+        finish()
     }
 
     // Verifica si el estado actual del puzzle es resolvible
