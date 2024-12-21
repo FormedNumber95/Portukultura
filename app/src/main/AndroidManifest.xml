@@ -20,6 +20,9 @@
             android:exported="false"
             android:label="@string/title_activity_mapa" />
         <activity
+            android:name=".Puzzle"
+            android:exported="false" />
+        <activity
             android:name=".SopaDeLetras"
             android:exported="false" />
         <activity

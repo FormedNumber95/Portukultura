@@ -92,7 +92,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         markerActivities = markersList.mapIndexed { index, marker ->
             val activity = when (index) {
                 0 -> SopaDeLetras::class.java
-                1 -> Presentacion::class.java
+                1 -> Puzzle::class.java
                 2 -> SopaDeLetras::class.java
                 3 -> SopaDeLetras::class.java
                 4 -> SopaDeLetras::class.java
