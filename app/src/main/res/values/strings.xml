@@ -11,9 +11,11 @@
     <string name="ardoa">ardoa</string>
     <string name="title_activity_mapa">Mapa</string>
     <!-- Cadenas añadidas -->
-    <string name="dialog_title">Introduzca sus datos</string>
-    <string name="dialog_comenzar">Comenzar</string>
-    <string name="dialog_cancelar">Cancelar</string>
-    <string name="error_campos_vacios">Por favor, rellene todos los campos.</string>
-    <string name="datos_guardados">Datos guardados:</string>
+    <string name="dialog_title">Zure datuak sartu</string>
+    <string name="dialog_comenzar">Hasi</string>
+    <string name="dialog_cancelar">Atzera</string>
+    <string name="error_campos_vacios">Mezedez, zure datuak bete.</string>
+    <string name="datos_guardados">Datuak gordeta:</string>
+    <string name="nombre">Izena</string>
+    <string name="apellido">Abizena</string>
 </resources>

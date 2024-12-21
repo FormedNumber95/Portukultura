@@ -52,9 +52,9 @@ class Presentacion : AppCompatActivity() {
         // Crear el cuadro de diálogo
         val builder = AlertDialog.Builder(this)
         builder.setView(dialogView)
-        builder.setTitle("Introduzca sus datos")
-        builder.setPositiveButton("Comenzar", null) // Listener configurado después para validación
-        builder.setNegativeButton("Cancelar") { dialog, _ ->
+        builder.setTitle(getString(R.string.dialog_title))
+        builder.setPositiveButton(getString(R.string.dialog_comenzar), null) // Listener configurado después para validación
+        builder.setNegativeButton(getString(R.string.dialog_cancelar)) { dialog, _ ->
             dialog.dismiss() // Cierra el cuadro de diálogo si se cancela
         }
 
@@ -69,10 +69,10 @@ class Presentacion : AppCompatActivity() {
 
                 if (nombre.isEmpty() || apellido.isEmpty()) {
                     // Mostrar un mensaje de error si los campos están vacíos
-                    Toast.makeText(this, "Por favor, rellene todos los campos.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.error_campos_vacios), Toast.LENGTH_SHORT).show()
                 } else {
                     // Mostrar un mensaje de éxito con los datos ingresados
-                    Toast.makeText(this, "Datos guardados: $nombre $apellido", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.datos_guardados) +"$nombre $apellido", Toast.LENGTH_SHORT).show()
 
                     // Crear un Intent para iniciar la actividad Mapa
                     val intent = Intent(this, Mapa::class.java)
