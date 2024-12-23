@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.RadioButton
@@ -29,7 +30,8 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
                     selectedOption3 == R.id.radBai
 
             if (isCorrect) {
-                Toast.makeText(this, "¡Respuestas correctas!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, TrenGeltokiaAsmakizunak::class.java)
+                startActivity(intent)
             } else {
                 Toast.makeText(this, "Algunas respuestas son incorrectas.", Toast.LENGTH_SHORT).show()
             }
