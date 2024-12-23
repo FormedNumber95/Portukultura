@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrenGeltokiaGalderaErrepikagarriak">
+
+    <RadioGroup
+        android:id="@+id/radioGroupPregunta1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintBottom_toTopOf="@id/segundaPregunta"
+        app:layout_constraintTop_toBottomOf="@+id/primeraPregunta">
+
+        <RadioButton
+            android:id="@+id/rad1890"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_1890" />
+
+        <RadioButton
+            android:id="@+id/rad1889"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_1889" />
+
+        <RadioButton
+            android:id="@+id/rad1888"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_1888" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroupPregunta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintBottom_toTopOf="@id/terceraPregunta"
+        app:layout_constraintTop_toBottomOf="@+id/segundaPregunta">
+
+        <RadioButton
+            android:id="@+id/radAldeZaharrean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alde_zaharrean" />
+
+        <RadioButton
+            android:id="@+id/radZubian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zubian" />
+
+        <RadioButton
+            android:id="@+id/radAurrekoAukerakEzDiraEgokiak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aurreko_aukerak_ez_dira_egokiak" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroupPregunta3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btnAurrera"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@id/terceraPregunta">
+
+
+    <RadioButton
+            android:id="@+id/radBai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bai" />
+
+        <RadioButton
+            android:id="@+id/radEz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ez" />
+
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/primeraPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/primeraPregunta3_2"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintBottom_toTopOf="@id/radioGroupPregunta1"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+    <TextView
+        android:id="@+id/segundaPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/non_dago_canilla_kolokatuta"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupPregunta1"
+        app:layout_constraintBottom_toTopOf="@id/radioGroupPregunta2"
+        tools:layout_editor_absoluteY="73dp" />
+
+    <TextView
+        android:id="@+id/terceraPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/turismo_ofizina_bat_izan_zen"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/radioGroupPregunta2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupPregunta2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnAurrera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aurrera"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupPregunta3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

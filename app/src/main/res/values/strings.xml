@@ -18,4 +18,16 @@
     <string name="nombre">Izena</string>
     <string name="apellido">Abizena</string>
     <string name="moverAdyacentes">Hutsunearen ondoan dauden piezak bakarrik mugi ditzakezu.</string>
+    <string name="primeraPregunta3_2">Noiz inauguratu egin zen?</string>
+    <string name="_1890">1890</string>
+    <string name="_1889">1889</string>
+    <string name="_1888">1888</string>
+    <string name="non_dago_canilla_kolokatuta">Non dago canilla kolokatuta?</string>
+    <string name="alde_zaharrean">Alde zaharrean</string>
+    <string name="zubian">Zubian</string>
+    <string name="aurreko_aukerak_ez_dira_egokiak">Aurreko aukerak ez dira egokiak</string>
+    <string name="turismo_ofizina_bat_izan_zen">Turismo ofizina bat izan zen?</string>
+    <string name="bai">Bai</string>
+    <string name="ez">Ez</string>
+    <string name="aurrera">Aurrera</string>
 </resources>
