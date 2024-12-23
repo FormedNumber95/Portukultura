@@ -1,14 +1,38 @@
 package com.icjardinapps.dm2.portukultura
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tren_geltokia_galdera_errepikagarriak)
+
+        val btnAurrera = findViewById<Button>(R.id.btnAurrera)
+        val radioGroupPregunta1 = findViewById<RadioGroup>(R.id.radioGroupPregunta1)
+        val radioGroupPregunta2 = findViewById<RadioGroup>(R.id.radioGroupPregunta2)
+        val radioGroupPregunta3 = findViewById<RadioGroup>(R.id.radioGroupPregunta3)
+
+        btnAurrera.setOnClickListener {
+            // Obtener el ID del RadioButton seleccionado en cada RadioGroup
+            val selectedOption1 = radioGroupPregunta1.checkedRadioButtonId
+            val selectedOption2 = radioGroupPregunta2.checkedRadioButtonId
+            val selectedOption3 = radioGroupPregunta3.checkedRadioButtonId
+
+            // Verificar si los IDs seleccionados coinciden con los correctos
+            val isCorrect = selectedOption1 == R.id.rad1888 &&
+                    selectedOption2 == R.id.radAldeZaharrean &&
+                    selectedOption3 == R.id.radBai
+
+            if (isCorrect) {
+                Toast.makeText(this, "¡Respuestas correctas!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Algunas respuestas son incorrectas.", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

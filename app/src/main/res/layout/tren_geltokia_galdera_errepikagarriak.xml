@@ -159,7 +159,7 @@
         android:layout_height="wrap_content"
         android:text="@string/turismo_ofizina_bat_izan_zen"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/radioGroupPregunta2"
+        app:layout_constraintBottom_toTopOf="@id/radioGroupPregunta3"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
