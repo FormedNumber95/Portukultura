@@ -6,8 +6,15 @@ import android.widget.Button
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-
+/**
+ * Actividad principal para gestionar un cuestionario con preguntas.
+ */
 class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
+    /**
+     * Configura la actividad al crearse.
+     *
+     * @param savedInstanceState estado guardado de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tren_geltokia_galdera_errepikagarriak)

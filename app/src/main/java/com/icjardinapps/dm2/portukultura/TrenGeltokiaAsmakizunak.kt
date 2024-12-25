@@ -7,19 +7,37 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-
+/**
+ * Actividad principal que implementa un juego de emparejar.
+ */
 class TrenGeltokiaAsmakizunak : AppCompatActivity() {
+    /**
+     * Referencias a los elementos de asmakizunak (adivinanzas).
+     */
     private lateinit var asmakizuna1: TextView
     private lateinit var asmakizuna2: TextView
     private lateinit var asmakizuna3: TextView
     private lateinit var asmakizuna4: TextView
+    /**
+     * Referencias a los elementos de objetos donde se pueden soltar las adivinanzas.
+     */
     private lateinit var objeto1: TextView
     private lateinit var objeto2: TextView
     private lateinit var objeto3: TextView
     private lateinit var objeto4: TextView
+    /**
+     * Contenedor principal de la actividad.
+     */
     private lateinit var mainLayout: ConstraintLayout
+    /**
+     * Número de pares restantes para completar el juego.
+     */
     private var remainingPairs = 4
-
+    /**
+     * Configura la actividad al crearse.
+     *
+     * @param savedInstanceState estado guardado de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tren_geltokia_asmakizunak)
@@ -45,7 +63,11 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
         setDroppable(objeto3, asmakizuna1)
         setDroppable(objeto4, asmakizuna3)
     }
-
+    /**
+     * Hace que un TextView sea arrastrable.
+     *
+     * @param view la vista que será arrastrable.
+     */
     private fun setDraggable(view: TextView) {
         view.setOnTouchListener { v, event ->
             val clipData = ClipData.newPlainText("", "")
@@ -54,6 +76,12 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
             true
         }
     }
+    /**
+     * Hace que un TextView sea un receptor de arrastre y lo empareja con una vista específica.
+     *
+     * @param target        el TextView que actúa como receptor de arrastre.
+     * @param matchingView  la vista que debe emparejarse con el receptor.
+     */
     private fun setDroppable(target: TextView, matchingView: TextView) {
         target.setOnDragListener { v, event ->
             when (event.action) {
@@ -86,7 +114,10 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
             }
         }
     }
-
+    /**
+     * Verifica si todos los pares han sido emparejados correctamente.
+     * Si es así, cierra la actividad.
+     */
     private fun checkCompletion() {
         if (remainingPairs == 0) {
             // Si no quedan pares, cerramos la actividad
