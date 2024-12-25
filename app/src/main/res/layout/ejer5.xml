@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Espacio superior -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="314dp" />
+
+        <!-- Pregunta 1 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/zer_lotzen_du_portugaleteko_zubi_esekiak"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/question1_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/q1_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/a_konektatu_bi_kontinente" />
+
+            <RadioButton
+                android:id="@+id/q1_correct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b_portugalete_eta_getxo_lotzen_ditu" />
+
+            <RadioButton
+                android:id="@+id/q1_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/c_ibai_bat_eta_laku_bat_lotzen_ditu" />
+        </RadioGroup>
+
+        <!-- Espaciado -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Pregunta 2 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/zer_egitura_mota_du_portugaleteko_zubi_esekiak"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/question2_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/q2_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/a_lurpeko_zubi_bat" />
+
+            <RadioButton
+                android:id="@+id/q2_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/b_zubi_flotatzaile_bat" />
+
+            <RadioButton
+                android:id="@+id/q2_correct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/c_zubi_transbordadore_bat" />
+        </RadioGroup>
+
+
+
+    </LinearLayout>
+</ScrollView>
