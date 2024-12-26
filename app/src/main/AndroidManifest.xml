@@ -12,9 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Portukultura"
         tools:targetApi="31">
+        <activity
+            android:name=".TrenGeltokiaAsmakizunak"
+            android:exported="false" />
+        <activity
+            android:name=".TrenGeltokiaGalderaErrepikagarriak"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
+
         <activity
             android:name=".Mapa"
             android:exported="false"
