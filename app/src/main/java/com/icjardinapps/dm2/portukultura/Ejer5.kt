@@ -7,41 +7,61 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+ * Clase principal de la aplicación que representa un quiz con dos preguntas.
+ * Reproduce un sonido y muestra un mensaje en caso de respuesta incorrecta.
+ */
 class Ejer5 : AppCompatActivity() {
 
+    /**
+     * Metodo llamado al crear la actividad. Configura los grupos de preguntas y el manejo de respuestas.
+     * @param savedInstanceState Estado guardado previamente de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ejer5)
 
+        // Cargar el archivo de sonido para respuestas incorrectas
         val incorrectSound = MediaPlayer.create(this, R.raw.txarto_egin)
 
-
+        // Referencia al grupo de botones de la primera pregunta
         val question1Group = findViewById<RadioGroup>(R.id.question1_group)
+        // Referencia al grupo de botones de la segunda pregunta
         val question2Group = findViewById<RadioGroup>(R.id.question2_group)
 
+        // Configurar listener para las respuestas de la primera pregunta
         question1Group.setOnCheckedChangeListener { group, checkedId ->
             val selectedOption = findViewById<RadioButton>(checkedId)
             if (selectedOption != null) {
                 if (selectedOption.id == R.id.q1_correct) {
+                    // Mostrar mensaje de respuesta correcta
                     Toast.makeText(this, "Pregunta 1: ¡Correcto!", Toast.LENGTH_SHORT).show()
                 } else {
+                    // Reproducir sonido y mostrar mensaje de error
                     playIncorrectSound(incorrectSound)
                 }
             }
         }
 
+        // Configurar listener para las respuestas de la segunda pregunta
         question2Group.setOnCheckedChangeListener { group, checkedId ->
             val selectedOption = findViewById<RadioButton>(checkedId)
             if (selectedOption != null) {
                 if (selectedOption.id == R.id.q2_correct) {
+                    // Mostrar mensaje de respuesta correcta
                     Toast.makeText(this, "Pregunta 2: ¡Correcto!", Toast.LENGTH_SHORT).show()
                 } else {
+                    // Reproducir sonido y mostrar mensaje de error
                     playIncorrectSound(incorrectSound)
                 }
             }
         }
     }
 
+    /**
+     * Reproduce un sonido de error y muestra un mensaje indicando una respuesta incorrecta.
+     * @param mediaPlayer Instancia del reproductor de medios con el sonido cargado.
+     */
     private fun playIncorrectSound(mediaPlayer: MediaPlayer) {
         mediaPlayer.start()
         Toast.makeText(this, "Txarto egin duzu. Saiatu berriro.", Toast.LENGTH_SHORT).show()
