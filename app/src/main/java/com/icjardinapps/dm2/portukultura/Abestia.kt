@@ -6,7 +6,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-
+/**
+ * Actividad principal para gestionar la edición y validación de textos en un entorno interactivo.
+ */
 class Abestia : AppCompatActivity() {
 
     private lateinit var subeArriba: TextView
@@ -16,7 +18,11 @@ class Abestia : AppCompatActivity() {
     private lateinit var startButton: Button
 
     private var isEditing = false
-
+    /**
+     * Configura la actividad al crearse.
+     *
+     * @param savedInstanceState estado guardado de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.abestia)
@@ -35,7 +41,9 @@ class Abestia : AppCompatActivity() {
             }
         }
     }
-
+    /**
+     * Cambia los TextView a EditText para permitir la edición de textos.
+     */
     private fun switchToEditMode() {
         replaceTextViewWithEditText(subeArriba, "1")
         replaceTextViewWithEditText(queMeMareo, "2")
@@ -45,7 +53,11 @@ class Abestia : AppCompatActivity() {
         startButton.text = getString(R.string.comprobar)
         isEditing = true
     }
-
+    /**
+     * Valida los textos ingresados por el usuario.
+     *
+     * Muestra un mensaje de éxito si los textos son correctos; de lo contrario, muestra un mensaje de error.
+     */
     private fun validateInputs() {
         val subeArribaInput = findViewById<EditText>(pantorrilla.id).text.toString()
         val queMeMareoInput = findViewById<EditText>(chiquitin.id).text.toString()
@@ -61,7 +73,12 @@ class Abestia : AppCompatActivity() {
             Toast.makeText(this, "Error en los textos, inténtalo de nuevo.", Toast.LENGTH_SHORT).show()
         }
     }
-
+    /**
+     * Reemplaza un TextView con un EditText en el diseño.
+     *
+     * @param textView el TextView que se reemplazará.
+     * @param hint el texto de sugerencia para el EditText.
+     */
     private fun replaceTextViewWithEditText(textView: TextView, hint: String) {
         val parent = textView.parent as ConstraintLayout
         val editText = EditText(this)
