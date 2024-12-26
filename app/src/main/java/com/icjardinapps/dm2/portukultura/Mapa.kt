@@ -93,7 +93,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
             val activity = when (index) {
                 0 -> Abestia::class.java
                 1 -> Puzzle::class.java
-                2 -> SopaDeLetras::class.java
+                2 -> TrenGeltokiaGalderaErrepikagarriak::class.java
                 3 -> SopaDeLetras::class.java
                 4 -> SopaDeLetras::class.java
                 5 -> SopaDeLetras::class.java

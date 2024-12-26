@@ -16,7 +16,7 @@
         app:layout_constraintGuide_percent="0.1"
         app:layout_constraintStart_toStartOf="parent" />
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gVer2"
+        android:id="@+id/gVer4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -57,7 +57,7 @@
         android:layout_height="0dp"
         app:columnCount="11"
         app:layout_constraintBottom_toTopOf="@+id/gHor2"
-        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
         app:layout_constraintTop_toTopOf="@+id/gHor1"
         app:rowCount="11">
@@ -93,7 +93,7 @@
         android:layout_height="wrap_content"
         android:text="@string/ospetsua"
         app:layout_constraintBottom_toTopOf="@+id/portugalete"
-        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
         app:layout_constraintStart_toEndOf="@id/jarrillero"
         app:layout_constraintTop_toTopOf="@+id/gHor2" />
 
@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:text="@string/ardoa"
         app:layout_constraintBottom_toTopOf="@+id/gHor3"
-        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
         app:layout_constraintStart_toEndOf="@id/portugalete"
         app:layout_constraintTop_toBottomOf="@+id/jarrillero" />
 

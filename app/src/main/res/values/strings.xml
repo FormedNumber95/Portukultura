@@ -24,4 +24,24 @@
     <string name="chiquitin">Chiquitin</string>
     <string name="cancion">El otro día cuando llovía,\nle vi a mi novia la (1)\ny yo le dije, con gran salero:\nTápate eso, tápate eso,\nque me mareo.\nTengo un novio (2)\nque se llama Nicolás:\nsi lo quieres conocer,\n(3) y lo verás.\nParabapapapapá……\nUn señorito me dijo anoche\nque si quería pasear en coche.\ny yo le dije con gran salero\nno quiero coche, no quiero coche..\n(4)!</string>
     <string name="comprobar">Conprobatu</string>
+    <string name="primeraPregunta3_2">Noiz inauguratu egin zen?</string>
+    <string name="_1890">1890</string>
+    <string name="_1889">1889</string>
+    <string name="_1888">1888</string>
+    <string name="non_dago_canilla_kolokatuta">Non dago canilla kolokatuta?</string>
+    <string name="alde_zaharrean">Alde zaharrean</string>
+    <string name="zubian">Zubian</string>
+    <string name="aurreko_aukerak_ez_dira_egokiak">Aurreko aukerak ez dira egokiak</string>
+    <string name="turismo_ofizina_bat_izan_zen">Turismo ofizina bat izan zen?</string>
+    <string name="bai">Bai</string>
+    <string name="ez">Ez</string>
+    <string name="aurrera">Aurrera</string>
+    <string name="asmakizuna1">\t\tLa Canillatik tren asko abiatu ziren. Begira nasara, bidaiariak eta bidaiariak beti egon diren lekura. Zer objektuk gidatzen ditu irteerak eta etorrerak? Tik-tak bidez, markatu zer ordu igaro diren</string>
+    <string name="asmakizuna2">\t\tBi lerro paralelo, distiratsuak eta luzeak, iraganeko istorioak garraiatzen dituzte. Zer dira, tren azkarrak eta bagoi kargatuak daramatzatela?</string>
+    <string name="asmakizuna3">\t\tEhunka lagunek bidaiatu dute nire barruan, gurpil gainean ibili naiz geltoki bakoitzean. Metalez, egurrez eta lurrunez egina nago, nor naiz ni leku honetan?</string>
+    <string name="asmakizuna4">\t\tUrrutira edo gertura bidaiatu nahi baduzu, joan aurretik, nigana etorri behar duzu. Nigan zure dirua pase berezi batengatik aldatzen duzu, parekorik gabeko tren batean ibiltzeko.</string>
+    <string name="leihatila">LEIHATILA</string>
+    <string name="tren_bagoi_bat">TREN BAGOI BAT</string>
+    <string name="erlojua">ERLOJUA</string>
+    <string name="trenbidea">TRENBIDEA</string>
 </resources>
