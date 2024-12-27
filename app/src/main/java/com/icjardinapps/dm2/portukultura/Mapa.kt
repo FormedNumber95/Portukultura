@@ -97,7 +97,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                 3 -> SopaDeLetras::class.java
                 4 -> SopaDeLetras::class.java
                 5 -> SopaDeLetras::class.java
-                6 -> SopaDeLetras::class.java
+                6 -> Abestia::class.java
                 //Nunca se va a dar este caso
                 else -> Class.forName("com.icjardinapps.dm2.portukultura.Ejemplo${index}") as Class<out AppCompatActivity>
             }
