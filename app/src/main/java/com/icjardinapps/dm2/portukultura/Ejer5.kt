@@ -13,8 +13,11 @@ import androidx.appcompat.app.AppCompatActivity
  */
 class Ejer5 : AppCompatActivity() {
 
+    private var question1AnsweredCorrectly = false
+    private var question2AnsweredCorrectly = false
+
     /**
-     * Metodo llamado al crear la actividad. Configura los grupos de preguntas y el manejo de respuestas.
+     * Método llamado al crear la actividad. Configura los grupos de preguntas y el manejo de respuestas.
      * @param savedInstanceState Estado guardado previamente de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +37,9 @@ class Ejer5 : AppCompatActivity() {
             val selectedOption = findViewById<RadioButton>(checkedId)
             if (selectedOption != null) {
                 if (selectedOption.id == R.id.q1_correct) {
-                    // Mostrar mensaje de respuesta correcta
-                    Toast.makeText(this, "Pregunta 1: ¡Correcto!", Toast.LENGTH_SHORT).show()
+                    // Marcar la primera pregunta como respondida correctamente
+                    question1AnsweredCorrectly = true
+                    checkAllQuestionsCorrect()
                 } else {
                     // Reproducir sonido y mostrar mensaje de error
                     playIncorrectSound(incorrectSound)
@@ -48,13 +52,24 @@ class Ejer5 : AppCompatActivity() {
             val selectedOption = findViewById<RadioButton>(checkedId)
             if (selectedOption != null) {
                 if (selectedOption.id == R.id.q2_correct) {
-                    // Mostrar mensaje de respuesta correcta
-                    Toast.makeText(this, "Pregunta 2: ¡Correcto!", Toast.LENGTH_SHORT).show()
+                    // Marcar la segunda pregunta como respondida correctamente
+                    question2AnsweredCorrectly = true
+                    checkAllQuestionsCorrect()
                 } else {
                     // Reproducir sonido y mostrar mensaje de error
                     playIncorrectSound(incorrectSound)
                 }
             }
+        }
+    }
+
+    /**
+     * Verifica si ambas preguntas han sido respondidas correctamente y cierra la actividad si es el caso.
+     */
+    private fun checkAllQuestionsCorrect() {
+        if (question1AnsweredCorrectly && question2AnsweredCorrectly) {
+            Toast.makeText(this, "¡Todas las respuestas son correctas!", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 
