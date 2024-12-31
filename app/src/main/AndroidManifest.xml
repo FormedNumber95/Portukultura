@@ -36,6 +36,9 @@
             android:name=".Puzzle"
             android:exported="false" />
         <activity
+            android:name=".Ejer5"
+            android:exported="false" />
+        <activity
             android:name=".SopaDeLetras"
             android:exported="false" />
         <activity
