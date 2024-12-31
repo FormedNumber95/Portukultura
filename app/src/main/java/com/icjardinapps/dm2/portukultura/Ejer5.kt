@@ -17,7 +17,7 @@ class Ejer5 : AppCompatActivity() {
     private var question2AnsweredCorrectly = false
 
     /**
-     * Método llamado al crear la actividad. Configura los grupos de preguntas y el manejo de respuestas.
+     * Metodo llamado al crear la actividad. Configura los grupos de preguntas y el manejo de respuestas.
      * @param savedInstanceState Estado guardado previamente de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
