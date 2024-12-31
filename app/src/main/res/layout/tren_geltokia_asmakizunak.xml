@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrenGeltokiaAsmakizunak">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.45"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.55"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Asmakizuna1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/asmakizuna1"
+        app:layout_constraintBottom_toTopOf="@id/Asmakizuna2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+    <TextView
+        android:id="@+id/Asmakizuna2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/asmakizuna2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintBottom_toTopOf="@id/Asmakizuna3"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@+id/Asmakizuna1" />
+
+    <TextView
+        android:id="@+id/Asmakizuna3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/asmakizuna3"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintBottom_toTopOf="@id/Asmakizuna4"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@+id/Asmakizuna2" />
+
+    <TextView
+        android:id="@+id/Asmakizuna4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/asmakizuna4"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@+id/Asmakizuna3" />
+
+    <TextView
+        android:id="@+id/objeto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/leihatila"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintBottom_toTopOf="@id/objeto2"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+    <TextView
+        android:id="@+id/objeto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tren_bagoi_bat"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintBottom_toTopOf="@id/objeto3"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toBottomOf="@id/objeto1" />
+
+    <TextView
+        android:id="@+id/objeto3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/erlojua"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintBottom_toTopOf="@id/objeto4"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toBottomOf="@id/objeto2" />
+
+    <TextView
+        android:id="@+id/objeto4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/gHor2"
+        android:text="@string/trenbidea"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toBottomOf="@id/objeto3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
