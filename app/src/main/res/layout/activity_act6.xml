@@ -1,0 +1,165 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Imagen inicial -->
+    <ImageView
+        android:id="@+id/imagenInicial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/Texto6"
+        android:contentDescription="Imagen inicial"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Botón para continuar -->
+    <Button
+        android:id="@+id/botonContinuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continuar"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Contenedor para las preguntas -->
+    <LinearLayout
+        android:id="@+id/contenedorPreguntas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="· Non dago taberna ospetsua?"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="· Zein dira osagaiak?"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="· Zein da saltza berezia?"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="· Zeren ondoan dago taberna kokatuta?"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contenedorEjercicio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <!-- Columna de imágenes -->
+        <ImageView
+            android:id="@+id/imagen1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/pan"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Imagen 1" />
+
+        <ImageView
+            android:id="@+id/imagen2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/terraza6"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Imagen 2" />
+
+        <ImageView
+            android:id="@+id/imagen3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/equipo6"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Imagen 3" />
+
+        <ImageView
+            android:id="@+id/imagen4"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/casa6"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Imagen 4" />
+    </LinearLayout>
+
+    <!-- Columna de textos -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/texto1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Arrautz ospetsu hau pilota forma du, eta ogiarekin zerbitzatzen da."
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:background="#E0E0E0"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/texto2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Taberna honen aurrean Canillako Tren Geltokia dago."
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:background="#E0E0E0"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/texto3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Taberna honen jabeak, beraien bezeroak oso ondo zaintzeaz ospea dute."
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:background="#E0E0E0"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/texto4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Taberna hau Santa Maria Basilikaren beheko aldean kokatuta dago."
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:background="#E0E0E0"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+    </LinearLayout>
+
+    <!-- Contenedor para el resultado final -->
+    <ImageView
+        android:id="@+id/imagenFinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/e"/>
+    </LinearLayout>
+
+
+
