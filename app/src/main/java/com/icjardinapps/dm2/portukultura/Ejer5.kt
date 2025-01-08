@@ -68,7 +68,6 @@ class Ejer5 : AppCompatActivity() {
      */
     private fun checkAllQuestionsCorrect() {
         if (question1AnsweredCorrectly && question2AnsweredCorrectly) {
-            Toast.makeText(this, "¡Todas las respuestas son correctas!", Toast.LENGTH_SHORT).show()
             finish()
         }
     }
