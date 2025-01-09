@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Portukultura</string>
-    <string name="textoPresentacion"> Aplikazio honetan hainbat joko interaktibo eskaintzen ditu, xedearekin historia, kultur ondarea eta ezagutzeko Portugaleteko tradizioak modu atsegin eta dibertigarrian.
+    <string name="textoPresentacion">
+        Aplikazio honetan hainbat joko interaktibo eskaintzen ditu, xedearekin historia, kultur ondarea eta ezagutzeko Portugaleteko tradizioak modu atsegin eta dibertigarrian.
     </string>
     <string name="botonPresentacion">Erregistratu</string>
     <string name="onena">onena</string>
@@ -9,4 +10,46 @@
     <string name="portugalete">portugalete</string>
     <string name="ardoa">ardoa</string>
     <string name="title_activity_mapa">Mapa</string>
+    <string name="dialog_title">Zure datuak sartu</string>
+    <string name="dialog_comenzar">Hasi</string>
+    <string name="dialog_cancelar">Atzera</string>
+    <string name="error_campos_vacios">Mezedez, zure datuak bete.</string>
+    <string name="datos_guardados">Datuak gordeta:</string>
+    <string name="nombre">Izena</string>
+    <string name="apellido">Abizena</string>
+    <string name="zer_lotzen_du_portugaleteko_zubi_esekiak">Zer lotzen du Portugaleteko Zubi Esekiak?</string>
+    <string name="a_konektatu_bi_kontinente">a) Konektatu bi kontinente</string>
+    <string name="b_portugalete_eta_getxo_lotzen_ditu">b) Portugalete eta Getxo lotzen ditu</string>
+    <string name="c_ibai_bat_eta_laku_bat_lotzen_ditu">c) Ibai bat eta laku bat lotzen ditu</string>
+    <string name="zer_egitura_mota_du_portugaleteko_zubi_esekiak">Zer egitura mota du Portugaleteko Zubi Esekiak?</string>
+    <string name="a_lurpeko_zubi_bat">a) Lurpeko zubi bat</string>
+    <string name="b_zubi_flotatzaile_bat">b) Zubi flotatzaile bat</string>
+    <string name="c_zubi_transbordadore_bat">c) Zubi transbordadore bat</string>
+    <string name="moverAdyacentes">Hutsunearen ondoan dauden piezak bakarrik mugi ditzakezu.</string>
+    <string name="que_me_mareo">Que me mareo</string>
+    <string name="sube_arriba">Sube arriba</string>
+    <string name="pantorrilla">Pantorrilla</string>
+    <string name="chiquitin">Chiquitin</string>
+    <string name="cancion">El otro día cuando llovía,\nle vi a mi novia la (1)\ny yo le dije, con gran salero:\nTápate eso, tápate eso,\nque me mareo.\nTengo un novio (2)\nque se llama Nicolás:\nsi lo quieres conocer,\n(3) y lo verás.\nParabapapapapá……\nUn señorito me dijo anoche\nque si quería pasear en coche.\ny yo le dije con gran salero\nno quiero coche, no quiero coche..\n(4)!</string>
+    <string name="comprobar">Conprobatu</string>
+    <string name="primeraPregunta3_2">Noiz inauguratu egin zen?</string>
+    <string name="_1890">1890</string>
+    <string name="_1889">1889</string>
+    <string name="_1888">1888</string>
+    <string name="non_dago_canilla_kolokatuta">Non dago canilla kolokatuta?</string>
+    <string name="alde_zaharrean">Alde zaharrean</string>
+    <string name="zubian">Zubian</string>
+    <string name="aurreko_aukerak_ez_dira_egokiak">Aurreko aukerak ez dira egokiak</string>
+    <string name="turismo_ofizina_bat_izan_zen">Turismo ofizina bat izan zen?</string>
+    <string name="bai">Bai</string>
+    <string name="ez">Ez</string>
+    <string name="aurrera">Aurrera</string>
+    <string name="asmakizuna1">\t\tLa Canillatik tren asko abiatu ziren. Begira nasara, bidaiariak eta bidaiariak beti egon diren lekura. Zer objektuk gidatzen ditu irteerak eta etorrerak? Tik-tak bidez, markatu zer ordu igaro diren</string>
+    <string name="asmakizuna2">\t\tBi lerro paralelo, distiratsuak eta luzeak, iraganeko istorioak garraiatzen dituzte. Zer dira, tren azkarrak eta bagoi kargatuak daramatzatela?</string>
+    <string name="asmakizuna3">\t\tEhunka lagunek bidaiatu dute nire barruan, gurpil gainean ibili naiz geltoki bakoitzean. Metalez, egurrez eta lurrunez egina nago, nor naiz ni leku honetan?</string>
+    <string name="asmakizuna4">\t\tUrrutira edo gertura bidaiatu nahi baduzu, joan aurretik, nigana etorri behar duzu. Nigan zure dirua pase berezi batengatik aldatzen duzu, parekorik gabeko tren batean ibiltzeko.</string>
+    <string name="leihatila">LEIHATILA</string>
+    <string name="tren_bagoi_bat">TREN BAGOI BAT</string>
+    <string name="erlojua">ERLOJUA</string>
+    <string name="trenbidea">TRENBIDEA</string>
 </resources>

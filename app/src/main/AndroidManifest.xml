@@ -18,17 +18,17 @@
         <activity
             android:name=".act1"
             android:exported="false" />
-        <!--
-             TODO: Before you run your application, you need a Google Maps API key.
+        <activity
+            android:name=".Abestia"
+            android:exported="false" />
 
-             To get one, follow the directions here:
+        <activity
+            android:name=".TrenGeltokiaAsmakizunak"
+            android:exported="false" />
+        <activity
+            android:name=".TrenGeltokiaGalderaErrepikagarriak"
+            android:exported="false" />
 
-                https://developers.google.com/maps/documentation/android-sdk/get-api-key
-
-             Once you have your API key (it starts with "AIza"), define a new property in your
-             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
@@ -38,7 +38,13 @@
             android:exported="false"
             android:label="@string/title_activity_mapa" />
         <activity
-            android:name=".PruebaSopaDeLetras"
+            android:name=".Puzzle"
+            android:exported="false" />
+        <activity
+            android:name=".Ejer5"
+            android:exported="false" />
+        <activity
+            android:name=".SopaDeLetras"
             android:exported="false" />
         <activity
             android:name=".Presentacion"
