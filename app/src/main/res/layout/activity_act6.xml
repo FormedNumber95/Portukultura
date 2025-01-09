@@ -10,7 +10,7 @@
         android:id="@+id/imagenInicial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/Texto6"
+        android:src="@drawable/texto6"
         android:contentDescription="Imagen inicial"
         android:scaleType="fitCenter"
         android:layout_marginBottom="16dp" />

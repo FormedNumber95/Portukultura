@@ -52,4 +52,9 @@
     <string name="tren_bagoi_bat">TREN BAGOI BAT</string>
     <string name="erlojua">ERLOJUA</string>
     <string name="trenbidea">TRENBIDEA</string>
+    <string name="iturria">Iturria</string>
+    <string name="etxea">Etxea</string>
+    <string name="hontza">Hontza</string>
+    <string name="palmondoak_eta_zuhaitzak">Palmondoak eta zuhaitzak</string>
+    <string name="tximinoak">Tximinoak</string>
 </resources>

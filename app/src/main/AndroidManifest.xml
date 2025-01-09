@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Portukultura"
         tools:targetApi="31">
         <activity
-            android:name=".act6"
+            android:name=".Act6"
             android:exported="false" />
         <activity
-            android:name=".act1"
+            android:name=".Act1"
             android:exported="false" />
         <activity
             android:name=".Abestia"
