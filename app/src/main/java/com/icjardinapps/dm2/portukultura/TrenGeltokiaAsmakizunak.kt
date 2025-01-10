@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -121,7 +122,21 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
     private fun checkCompletion() {
         if (remainingPairs == 0) {
             // Si no quedan pares, cerramos la actividad
-            finish()
+
+            setContentView(R.layout.letra) // Cambiar al diseño letra.xml
+
+            // Modificar el texto de textLetra si está vacío
+            val textLetra = findViewById<TextView>(R.id.textLetra)
+            if (textLetra.text.isEmpty()) {
+                textLetra.text = "D LORTU DUZUE"
+            }
+
+            // Configurar listener para el botón mapa
+            val mapaButton = findViewById<Button>(R.id.mapa)
+            mapaButton.setOnClickListener {
+                finish() // Cierra la actividad
+            }
+
         }
     }
 
