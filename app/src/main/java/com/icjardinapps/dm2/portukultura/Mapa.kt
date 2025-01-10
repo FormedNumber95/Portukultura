@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -179,5 +180,9 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         activeMarkerIndex = savedInstanceState.getInt("activeMarkerIndex", 0)
+    }
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }
