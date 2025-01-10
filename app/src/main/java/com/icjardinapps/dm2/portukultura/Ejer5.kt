@@ -84,6 +84,7 @@ class Ejer5 : AppCompatActivity() {
         mapaButton.setOnClickListener {
             finish() // Cierra la actividad
         }
+
     }
     /**
      * Reproduce un sonido de error y muestra un mensaje indicando una respuesta incorrecta.
