@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.os.Bundle
 import android.view.DragEvent
@@ -124,5 +125,8 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
             finish()
         }
     }
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
 
+    }
 }
