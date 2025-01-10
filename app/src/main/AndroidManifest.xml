@@ -13,10 +13,11 @@
         android:theme="@style/Theme.Portukultura"
         tools:targetApi="31">
         <activity
-
+            android:name=".OrdenarPalabra"
+            android:exported="false" />
+        <activity
             android:name=".Abestia"
             android:exported="false" />
-
         <activity
             android:name=".TrenGeltokiaAsmakizunak"
             android:exported="false" />

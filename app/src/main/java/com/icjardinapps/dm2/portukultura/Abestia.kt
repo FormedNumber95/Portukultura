@@ -1,4 +1,5 @@
 package com.icjardinapps.dm2.portukultura
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -68,7 +69,9 @@ class Abestia : AppCompatActivity() {
             pantorrillaInput.trim().lowercase().equals("pantorrilla") && chiquitinInput.trim().lowercase().equals("chiquitin")) {
 
             Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
-            //Lanzar la siguiente actividad y no hacer finish
+            val intent = Intent(this, OrdenarPalabra::class.java)
+            startActivity(intent)
+            finish()
         } else {
             Toast.makeText(this, "Error en los textos, inténtalo de nuevo.", Toast.LENGTH_SHORT).show()
         }
