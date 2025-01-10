@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.RadioButton
@@ -79,5 +80,9 @@ class Ejer5 : AppCompatActivity() {
     private fun playIncorrectSound(mediaPlayer: MediaPlayer) {
         mediaPlayer.start()
         Toast.makeText(this, "Txarto egin duzu. Saiatu berriro.", Toast.LENGTH_SHORT).show()
+    }
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }
