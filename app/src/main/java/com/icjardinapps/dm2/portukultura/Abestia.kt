@@ -1,4 +1,5 @@
 package com.icjardinapps.dm2.portukultura
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -88,5 +89,9 @@ class Abestia : AppCompatActivity() {
 
         parent.removeView(textView)
         parent.addView(editText)
+    }
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }

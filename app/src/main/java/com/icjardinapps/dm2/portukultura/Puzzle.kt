@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.GridLayout
 import android.widget.ImageView
@@ -152,5 +153,9 @@ class Puzzle : AppCompatActivity() {
         } else {
             isEvenInversions
         }
+    }
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }

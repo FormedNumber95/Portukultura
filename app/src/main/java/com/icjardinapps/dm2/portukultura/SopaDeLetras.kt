@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
@@ -138,5 +139,9 @@ class SopaDeLetras : AppCompatActivity() {
 
     private fun tacharPalabra(texto: TextView) {
         texto.paintFlags = texto.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+    }
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }
