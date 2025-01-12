@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Portukultura"
         tools:targetApi="31">
         <activity
+            android:name=".QR"
+            android:exported="false" />
+        <activity
             android:name=".OrdenarPalabra"
             android:exported="false" />
         <activity
