@@ -69,6 +69,20 @@ class Abestia : AppCompatActivity() {
             pantorrillaInput.trim().lowercase().equals("pantorrilla") && chiquitinInput.trim().lowercase().equals("chiquitin")) {
 
             Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
+            setContentView(R.layout.letra) // Cambiar al diseño letra.xml
+
+            // Modificar el texto de textLetra si está vacío
+            val textLetra = findViewById<TextView>(R.id.textLetra)
+            if (textLetra.text.isEmpty()) {
+                textLetra.text = "D LORTU DUZUE"
+            }
+
+            // Configurar listener para el botón mapa
+            val mapaButton = findViewById<Button>(R.id.mapa)
+            mapaButton.setOnClickListener {
+                finish() // Cierra la actividad
+            }
+
             //Lanzar la siguiente actividad y no hacer finish
         } else {
             Toast.makeText(this, "Error en los textos, inténtalo de nuevo.", Toast.LENGTH_SHORT).show()
