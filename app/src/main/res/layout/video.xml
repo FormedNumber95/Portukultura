@@ -72,4 +72,14 @@
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
         app:layout_constraintTop_toTopOf="@+id/gHor2" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@id/gVer2"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@+id/txtTiempo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
