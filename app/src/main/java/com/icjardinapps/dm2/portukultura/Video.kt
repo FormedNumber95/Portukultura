@@ -7,13 +7,19 @@ import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
-
+/**
+ * Clase que gestiona la reproducción de videos y la ejecución de temporizadores para realizar diferentes actividades.
+ * El comportamiento del temporizador y la acción del botón varían según el índice del marcador recibido.
+ */
 class Video : AppCompatActivity() {
 
     private lateinit var timerController: TimerController
     private lateinit var btnAurrera: Button
     private lateinit var videoView:VideoView
-
+    /**
+     * Metodo que se ejecuta al crear la actividad.
+     * @param savedInstanceState instancia previa de la actividad (si la hay).
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.video)
@@ -46,6 +52,9 @@ class Video : AppCompatActivity() {
 
     /**
      * Devuelve la configuración del temporizador, la acción del botón y el video según el índice del marcador.
+     *
+     * @param markerIndex índice del marcador que determina el video y la actividad a realizar.
+     * @return una instancia de [TimerConfig] con la duración del temporizador y la acción del botón.
      */
     private fun getTimerConfig(markerIndex: Int): TimerConfig {
         val videoResId = when (markerIndex) {
@@ -66,7 +75,7 @@ class Video : AppCompatActivity() {
         return when (markerIndex) {
             //Actividad 1
             0 -> TimerConfig(
-                timeMillis = 6000, // 6 segundos
+                timeMillis = 71000, // 71 segundos = 1min 11s
                 buttonAction = {
                     val intent = Intent(this, SopaDeLetras::class.java)
                     startActivity(intent)
@@ -75,7 +84,7 @@ class Video : AppCompatActivity() {
             )
             //Actividad 2
             1 -> TimerConfig(
-                timeMillis = 10000, // 10 segundos
+                timeMillis = 93000, // 93 segundos = 1min 33s
                 buttonAction = {
                     val intent = Intent(this, Puzzle::class.java)
                     startActivity(intent)
@@ -84,7 +93,7 @@ class Video : AppCompatActivity() {
             )
             //Actividad 3
             2 -> TimerConfig(
-                timeMillis = 15000, // 15 segundos
+                timeMillis = 555000, // 555 segundos = 9min 15s
                 buttonAction = {
                     val intent = Intent(this, TrenGeltokiaGalderaErrepikagarriak::class.java)
                     startActivity(intent)
@@ -93,7 +102,7 @@ class Video : AppCompatActivity() {
             )
             //Actividad 5
             4 -> TimerConfig(
-                timeMillis = 12000, // 12 segundos
+                timeMillis = 330000, // 330 segundos = 5min 30s
                 buttonAction = {
                     val intent = Intent(this, Ejer5::class.java)
                     startActivity(intent)
@@ -102,7 +111,7 @@ class Video : AppCompatActivity() {
             )
             //Actividad 7
             else -> TimerConfig(
-                timeMillis = 20000, // 20 segundos
+                timeMillis = 145000, // 145 segundos = 2min 25s
                 buttonAction = {
                     val intent = Intent(this, Abestia::class.java)
                     startActivity(intent)
