@@ -77,9 +77,23 @@
         android:id="@+id/videoView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/gHor2"
         app:layout_constraintEnd_toStartOf="@id/gVer2"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
-        app:layout_constraintTop_toBottomOf="@+id/txtTiempo" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTiempo"
+        app:layout_constraintVertical_bias="0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAurrera"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@+id/videoView"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/navegante_ae" />
 </androidx.constraintlayout.widget.ConstraintLayout>
