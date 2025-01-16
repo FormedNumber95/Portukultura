@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -64,6 +65,7 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
         setDroppable(objeto2, asmakizuna2)
         setDroppable(objeto3, asmakizuna1)
         setDroppable(objeto4, asmakizuna3)
+        configurarAyuda()
     }
     /**
      * Hace que un TextView sea arrastrable.
@@ -138,6 +140,25 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
                 finish() // Cierra la actividad
             }
 
+        }
+    }
+    private fun configurarAyuda() {
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text = "Joko honek testua dagokion esaldira arrastatzea du helburu."
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
         }
     }
     @SuppressLint("MissingSuperCall")
