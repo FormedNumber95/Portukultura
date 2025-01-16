@@ -33,6 +33,7 @@ class Puzzle : AppCompatActivity() {
         puzzleGrid = findViewById(R.id.puzzleGrid)
 
         initializePuzzle() // Configura el puzzle al iniciar
+        configurarAyuda()
     }
     /**
      * Inicializa el puzzle cargando las piezas de las imágenes, mezclándolas y configurando
@@ -168,6 +169,26 @@ class Puzzle : AppCompatActivity() {
             (emptyRow % 2 == 0) == !isEvenInversions
         } else {
             isEvenInversions
+        }
+    }
+    private fun configurarAyuda() {
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text = "Joko honek irudi baten puzzle bat osatzen du. Zure helburua puzzleko piezak ondo ordenatzea da irudia osatzeko. Pieza bat mugitzen baduzu, besterik gabe, egin klik zuriaren ondoan dagoen irudian, eta automatikoki bere tokian jarriko da."
+
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
         }
     }
     @SuppressLint("MissingSuperCall")
