@@ -1,8 +1,11 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Button
 import android.widget.GridLayout
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 /**
@@ -122,7 +125,21 @@ class Puzzle : AppCompatActivity() {
             val correctResourceId = resources.getIdentifier("puzle_${i + 1}", "drawable", packageName)
             if (puzzlePieces[i] != correctResourceId) return
         }
-        finish()
+
+        setContentView(R.layout.letra) // Cambiar al diseño letra.xml
+
+        // Modificar el texto de textLetra si está vacío
+        val textLetra = findViewById<TextView>(R.id.textLetra)
+        if (textLetra.text.isEmpty()) {
+            textLetra.text = "N LORTU DUZUE"
+        }
+
+        // Configurar listener para el botón mapa
+        val mapaButton = findViewById<Button>(R.id.mapa)
+        mapaButton.setOnClickListener {
+            finish() // Cierra la actividad
+        }
+
     }
 
     /**
@@ -152,5 +169,9 @@ class Puzzle : AppCompatActivity() {
         } else {
             isEvenInversions
         }
+    }
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }

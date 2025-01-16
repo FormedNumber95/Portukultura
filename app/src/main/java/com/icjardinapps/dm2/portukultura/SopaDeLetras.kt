@@ -1,9 +1,11 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.MotionEvent
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.gridlayout.widget.GridLayout
@@ -127,7 +129,21 @@ class SopaDeLetras : AppCompatActivity() {
             }
             if (palabras.isEmpty()) {
                 // Todas las palabras encontradas, volver a la actividad anterior
-                finish()
+                //finish()
+                setContentView(R.layout.letra) // Cambiar al diseño letra.xml
+
+                // Modificar el texto de textLetra si está vacío
+                val textLetra = findViewById<TextView>(R.id.textLetra)
+                if (textLetra.text.isEmpty()) {
+                    textLetra.text = "A LORTU DUZUE"
+                }
+
+                // Configurar listener para el botón mapa
+                val mapaButton = findViewById<Button>(R.id.mapa)
+                mapaButton.setOnClickListener {
+                    finish() // Cierra la actividad
+                }
+
             }
         } else {
             // Si no coincide, limpiar selección
@@ -138,5 +154,9 @@ class SopaDeLetras : AppCompatActivity() {
 
     private fun tacharPalabra(texto: TextView) {
         texto.paintFlags = texto.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+    }
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }
