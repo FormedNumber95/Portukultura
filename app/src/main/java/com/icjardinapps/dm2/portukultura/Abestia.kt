@@ -3,6 +3,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -41,6 +42,7 @@ class Abestia : AppCompatActivity() {
                 validateInputs()
             }
         }
+        configurarAyuda()
     }
     /**
      * Cambia los TextView a EditText para permitir la edición de textos.
@@ -103,6 +105,25 @@ class Abestia : AppCompatActivity() {
 
         parent.removeView(textView)
         parent.addView(editText)
+    }
+    private fun configurarAyuda() {
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text = "Abestia: Testua ondo irakurri eta ondoren agertzen diren hitz desordenatuak. Irakurri ondoren, 'Hasi' botoian klik egin dezakezu hutsuneak hitz egokiekin betetzeko."
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
+        }
     }
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {

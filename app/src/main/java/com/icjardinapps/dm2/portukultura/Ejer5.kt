@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
@@ -64,6 +65,7 @@ class Ejer5 : AppCompatActivity() {
                 }
             }
         }
+        configurarAyuda()
     }
 
 
@@ -94,6 +96,27 @@ class Ejer5 : AppCompatActivity() {
     private fun playIncorrectSound(mediaPlayer: MediaPlayer) {
         mediaPlayer.start()
         Toast.makeText(this, "Txarto egin duzu. Saiatu berriro.", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun configurarAyuda() {
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text = "Irakurri galderak arretaz eta aukeratu zure iritziz egokiena den aukera."
+
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
+        }
     }
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
