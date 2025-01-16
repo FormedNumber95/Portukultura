@@ -1,165 +1,163 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    tools:context=".TrenGeltokiaAsmakizunak">
 
-    <!-- Imagen inicial -->
-    <ImageView
-        android:id="@+id/imagenInicial"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/texto6"
-        android:contentDescription="Imagen inicial"
-        android:scaleType="fitCenter"
-        android:layout_marginBottom="16dp" />
+        android:layout_height="wrap_content">
 
-    <!-- Botón para continuar -->
-    <Button
-        android:id="@+id/botonContinuar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Continuar"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Contenedor para las preguntas -->
-    <LinearLayout
-        android:id="@+id/contenedorPreguntas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="match_parent"
+        <!-- Pantalla principal -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gVer1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="· Non dago taberna ospetsua?"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.1"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gVer2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="· Zein dira osagaiak?"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.17"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gVer3"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="· Zein da saltza berezia?"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.55"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gVer4"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="· Zeren ondoan dago taberna kokatuta?"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
-    </LinearLayout>
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/contenedorEjercicio"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <!-- Columna de imágenes -->
-        <ImageView
-            android:id="@+id/imagen1"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/pan"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="Imagen 1" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gHor1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gHor2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.9"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imagen2"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/terraza6"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="Imagen 2" />
+            android:id="@+id/pan"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toTopOf="@id/terraza"
+            app:layout_constraintEnd_toStartOf="@+id/gVer2"
+            app:layout_constraintHorizontal_bias="0.206"
+            app:layout_constraintStart_toStartOf="@+id/gVer1"
+            app:layout_constraintTop_toTopOf="@+id/gHor1"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@drawable/pan" />
 
         <ImageView
-            android:id="@+id/imagen3"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/equipo6"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="Imagen 3" />
+            android:id="@+id/terraza"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toTopOf="@id/equipo"
+            app:layout_constraintEnd_toStartOf="@+id/gVer2"
+            app:layout_constraintHorizontal_bias="0.206"
+            app:layout_constraintStart_toStartOf="@+id/gVer1"
+            app:layout_constraintTop_toBottomOf="@+id/pan"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@drawable/terraza6" />
 
         <ImageView
-            android:id="@+id/imagen4"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/casa6"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="Imagen 4" />
-    </LinearLayout>
+            android:id="@+id/equipo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toTopOf="@id/casa"
+            app:layout_constraintEnd_toStartOf="@+id/gVer2"
+            app:layout_constraintHorizontal_bias="0.206"
+            app:layout_constraintStart_toStartOf="@+id/gVer1"
+            app:layout_constraintTop_toBottomOf="@+id/terraza"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@drawable/equipo6" />
 
-    <!-- Columna de textos -->
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/texto1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Arrautz ospetsu hau pilota forma du, eta ogiarekin zerbitzatzen da."
-            android:textSize="18sp"
-            android:padding="16dp"
-            android:background="#E0E0E0"
-            android:gravity="center"
-            android:layout_marginBottom="16dp" />
+        <ImageView
+            android:id="@+id/casa"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toTopOf="@+id/gHor2"
+            app:layout_constraintEnd_toStartOf="@+id/gVer2"
+            app:layout_constraintHorizontal_bias="0.206"
+            app:layout_constraintStart_toStartOf="@+id/gVer1"
+            app:layout_constraintTop_toBottomOf="@+id/equipo"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@drawable/casa6" />
 
         <TextView
-            android:id="@+id/texto2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Taberna honen aurrean Canillako Tren Geltokia dago."
-            android:textSize="18sp"
-            android:padding="16dp"
-            android:background="#E0E0E0"
-            android:gravity="center"
-            android:layout_marginBottom="16dp" />
+            android:id="@+id/arrautz_ospetsu_hau_pilota_forma_du_eta_ogiarekin_zerbitzatzen_da"
+            android:layout_width="185dp"
+            android:layout_height="112dp"
+            android:text="@string/arrautz_ospetsu_hau_pilota_forma_du_eta_ogiarekin_zerbitzatzen_da"
+            app:layout_constraintBottom_toTopOf="@id/taberna_honen_aurrean_canillako_tren_geltokia_dago"
+            app:layout_constraintEnd_toStartOf="@+id/gVer4"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="@+id/gVer3"
+            app:layout_constraintTop_toTopOf="@+id/gHor1" />
 
         <TextView
-            android:id="@+id/texto3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Taberna honen jabeak, beraien bezeroak oso ondo zaintzeaz ospea dute."
-            android:textSize="18sp"
-            android:padding="16dp"
-            android:background="#E0E0E0"
-            android:gravity="center"
-            android:layout_marginBottom="16dp" />
+            android:id="@+id/taberna_honen_aurrean_canillako_tren_geltokia_dago"
+            android:layout_width="175dp"
+            android:layout_height="68dp"
+            android:text="@string/taberna_honen_aurrean_canillako_tren_geltokia_dago"
+            app:layout_constraintBottom_toTopOf="@id/taberna_honen_aurrean_canillako_tren_geltokia_dago"
+            app:layout_constraintEnd_toStartOf="@+id/gVer4"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/gVer3"
+            app:layout_constraintTop_toBottomOf="@id/arrautz_ospetsu_hau_pilota_forma_du_eta_ogiarekin_zerbitzatzen_da" />
 
         <TextView
-            android:id="@+id/texto4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Taberna hau Santa Maria Basilikaren beheko aldean kokatuta dago."
-            android:textSize="18sp"
-            android:padding="16dp"
-            android:background="#E0E0E0"
-            android:gravity="center"
-            android:layout_marginBottom="16dp" />
-    </LinearLayout>
+            android:id="@+id/taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute"
+            android:layout_width="186dp"
+            android:layout_height="70dp"
+            android:text="@string/taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute"
+            app:layout_constraintBottom_toTopOf="@id/taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago"
+            app:layout_constraintEnd_toStartOf="@+id/gVer4"
+            app:layout_constraintStart_toStartOf="@+id/gVer3"
+            app:layout_constraintTop_toBottomOf="@id/taberna_honen_aurrean_canillako_tren_geltokia_dago" />
 
-    <!-- Contenedor para el resultado final -->
-    <ImageView
-        android:id="@+id/imagenFinal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/e"/>
-    </LinearLayout>
+        <TextView
+            android:id="@+id/taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago"
+            android:layout_width="185dp"
+            android:layout_height="70dp"
+            android:text="@string/taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago"
+            app:layout_constraintBottom_toTopOf="@id/gHor2"
+            app:layout_constraintEnd_toStartOf="@+id/gVer4"
+            app:layout_constraintStart_toStartOf="@+id/gVer3"
+            app:layout_constraintTop_toBottomOf="@id/taberna_honen_aurrean_canillako_tren_geltokia_dago" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
 
 

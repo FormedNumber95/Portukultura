@@ -4,44 +4,34 @@ import android.content.ClipData
 import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
-import android.widget.ImageView
 
 /**
- * Clase que representa la actividad principal del juego de emparejar imágenes con conceptos.
- * Configura los elementos interactivos y maneja la lógica de arrastrar y soltar.
+ * Clase que implementa una actividad de juego basada en arrastrar y soltar.
+ * Configura los elementos interactivos y la lógica del juego.
  *
  * @author Diego
  */
-class Act1 : AppCompatActivity() {
+class Act6DnD : AppCompatActivity() {
 
-    // Referencias a las imágenes y los textos
-    private lateinit var fuente: ImageView
-    private lateinit var palmeras: ImageView
-    private lateinit var buho: ImageView
-    private lateinit var monos: ImageView
-    private lateinit var jardin: ImageView
-    private lateinit var tximinoak: TextView
-    private lateinit var palmondoak: TextView
-    private lateinit var hontza: TextView
-    private lateinit var etxea: TextView
-    private lateinit var iturria: TextView
-
-    /**
-     * Contenedor principal de la actividad.
-     *
-     * @author Diego
-     */
-    private lateinit var mainLayout: ConstraintLayout
+    // Referencias a las imágenes y textos
+    private lateinit var pan: ImageView
+    private lateinit var terraza: ImageView
+    private lateinit var equipo: ImageView
+    private lateinit var casa: ImageView
+    private lateinit var arrautz: TextView
+    private lateinit var canillako: TextView
+    private lateinit var jabeak: TextView
+    private lateinit var santa_maria: TextView
 
     /**
      * Número de pares restantes para completar el juego.
      *
      * @author Diego
      */
-    private var remainingPairs = 5
+    private var remainingPairs = 4
 
     /**
      * Inicializa la actividad y configura los elementos interactivos.
@@ -51,32 +41,27 @@ class Act1 : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_act1)
-        fuente = findViewById(R.id.fuente)
-        palmeras = findViewById(R.id.palmeras)
-        buho = findViewById(R.id.buho)
-        monos = findViewById(R.id.monos)
-        jardin = findViewById(R.id.jardin)
-        tximinoak = findViewById(R.id.tximinoak)
-        palmondoak = findViewById(R.id.palmondoak)
-        hontza = findViewById(R.id.hontza)
-        etxea = findViewById(R.id.etxea)
-        iturria = findViewById(R.id.iturria)
-        mainLayout = findViewById(R.id.main)
+        setContentView(R.layout.activity_act6)
 
-        // Configuramos el arrastre
-        setDraggable(fuente)
-        setDraggable(palmeras)
-        setDraggable(buho)
-        setDraggable(monos)
-        setDraggable(jardin)
+        pan = findViewById(R.id.pan)
+        terraza = findViewById(R.id.terraza)
+        equipo = findViewById(R.id.equipo)
+        casa = findViewById(R.id.casa)
+        arrautz = findViewById(R.id.arrautz_ospetsu_hau_pilota_forma_du_eta_ogiarekin_zerbitzatzen_da)
+        canillako = findViewById(R.id.taberna_honen_aurrean_canillako_tren_geltokia_dago)
+        jabeak = findViewById(R.id.taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute)
+        santa_maria = findViewById(R.id.taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago)
 
-        // Configuramos los receptores
-        setDroppable(iturria, fuente)
-        setDroppable(palmondoak, palmeras)
-        setDroppable(hontza, buho)
-        setDroppable(tximinoak, monos)
-        setDroppable(etxea, jardin)
+        // Configurar drag-and-drop
+        setDraggable(pan)
+        setDraggable(terraza)
+        setDraggable(equipo)
+        setDraggable(casa)
+
+        setDroppable(santa_maria, pan)
+        setDroppable(canillako, terraza)
+        setDroppable(jabeak, equipo)
+        setDroppable(arrautz, casa)
     }
 
     /**
@@ -98,7 +83,7 @@ class Act1 : AppCompatActivity() {
      * Configura un área de destino para aceptar elementos arrastrados.
      *
      * @param target la vista de texto que aceptará el elemento arrastrado.
-     * @param matchingView la vista de la imagen que debe ser arrastrada y coincidir.
+     * @param matchingView la vista de la imagen que debe coincidir al ser arrastrada.
      * @author Diego
      */
     private fun setDroppable(target: TextView, matchingView: ImageView) {
@@ -106,18 +91,17 @@ class Act1 : AppCompatActivity() {
             when (event.action) {
                 DragEvent.ACTION_DRAG_STARTED -> true
                 DragEvent.ACTION_DRAG_ENTERED -> {
-                    v.alpha = 0.5f // Indicar que se puede soltar
+                    v.alpha = 0.5f
                     true
                 }
                 DragEvent.ACTION_DRAG_EXITED -> {
-                    v.alpha = 1.0f // Restaurar opacidad
+                    v.alpha = 1.0f
                     true
                 }
                 DragEvent.ACTION_DROP -> {
                     v.alpha = 1.0f
                     val draggedView = event.localState as? View
                     if (draggedView == matchingView) {
-                        // Si coincide, ocultamos ambas vistas
                         draggedView?.visibility = View.GONE
                         v.visibility = View.GONE
                         remainingPairs--
@@ -142,8 +126,8 @@ class Act1 : AppCompatActivity() {
      */
     private fun checkCompletion() {
         if (remainingPairs == 0) {
-            // Si no quedan pares, cerramos la actividad
             finish()
         }
     }
 }
+

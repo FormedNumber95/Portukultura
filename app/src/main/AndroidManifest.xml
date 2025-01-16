@@ -13,7 +13,13 @@
         android:theme="@style/Theme.Portukultura"
         tools:targetApi="31">
         <activity
-            android:name=".Act6"
+            android:name=".Act6Preguntas"
+            android:exported="false" />
+        <activity
+            android:name=".Act6Imagen"
+            android:exported="false" />
+        <activity
+            android:name=".Act6DnD"
             android:exported="false" />
         <activity
             android:name=".Act1"
@@ -21,7 +27,6 @@
         <activity
             android:name=".Abestia"
             android:exported="false" />
-
         <activity
             android:name=".TrenGeltokiaAsmakizunak"
             android:exported="false" />
@@ -55,7 +60,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

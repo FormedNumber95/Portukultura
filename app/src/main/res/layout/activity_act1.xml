@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.1"
+            app:layout_constraintGuide_percent="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -75,104 +75,111 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imagen1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/act1_1"
-            app:layout_constraintBottom_toTopOf="@id/imagen2"
+            android:id="@+id/fuente"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toTopOf="@id/palmeras"
             app:layout_constraintEnd_toStartOf="@+id/gVer2"
             app:layout_constraintStart_toStartOf="@+id/gVer1"
-            app:layout_constraintTop_toTopOf="@+id/gHor1" />
+            app:layout_constraintTop_toTopOf="@+id/gHor1"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@drawable/fuente" />
 
         <ImageView
-            android:id="@+id/imagen2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/act1_2"
+            android:id="@+id/palmeras"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/palmeras"
             app:layout_constraintEnd_toStartOf="@+id/gVer2"
-            app:layout_constraintBottom_toTopOf="@id/imagen3"
+            app:layout_constraintBottom_toTopOf="@id/buho"
             app:layout_constraintStart_toStartOf="@+id/gVer1"
-            app:layout_constraintTop_toBottomOf="@+id/imagen1" />
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/fuente" />
 
         <ImageView
-            android:id="@+id/imagen3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/act1_3"
+            android:id="@+id/buho"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/buho"
             app:layout_constraintEnd_toStartOf="@+id/gVer2"
-            app:layout_constraintBottom_toTopOf="@id/imagen4"
+            app:layout_constraintBottom_toTopOf="@id/monos"
             app:layout_constraintStart_toStartOf="@+id/gVer1"
-            app:layout_constraintTop_toBottomOf="@+id/imagen2" />
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/palmeras" />
 
         <ImageView
-            android:id="@+id/imagen4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/act1_4"
+            android:id="@+id/monos"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/monos"
             app:layout_constraintEnd_toStartOf="@+id/gVer2"
-            app:layout_constraintBottom_toTopOf="@id/imagen5"
+            app:layout_constraintBottom_toTopOf="@id/jardin"
             app:layout_constraintStart_toStartOf="@+id/gVer1"
-            app:layout_constraintTop_toBottomOf="@+id/imagen3" />
+            app:layout_constraintTop_toBottomOf="@+id/buho"
+            android:layout_marginBottom="8dp" />
 
         <ImageView
-            android:id="@+id/imagen5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/act1_5"
+            android:id="@+id/jardin"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
             app:layout_constraintBottom_toTopOf="@+id/gHor2"
             app:layout_constraintEnd_toStartOf="@+id/gVer2"
             app:layout_constraintStart_toStartOf="@+id/gVer1"
-            app:layout_constraintTop_toBottomOf="@+id/imagen4" />
+            app:layout_constraintTop_toBottomOf="@+id/monos"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@drawable/jardin" />
 
         <TextView
-            android:id="@+id/texto1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/tximinoak"
+            android:layout_width="206dp"
+            android:layout_height="27dp"
             android:text="@string/tximinoak"
+            app:layout_constraintBottom_toTopOf="@id/palmondoak"
             app:layout_constraintEnd_toStartOf="@+id/gVer5"
+            app:layout_constraintHorizontal_bias="0.567"
             app:layout_constraintStart_toStartOf="@+id/gVer4"
-            app:layout_constraintBottom_toTopOf="@id/texto2"
             app:layout_constraintTop_toTopOf="@+id/gHor1" />
 
         <TextView
-            android:id="@+id/texto2"
+            android:id="@+id/palmondoak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/palmondoak_eta_zuhaitzak"
             app:layout_constraintEnd_toStartOf="@+id/gVer4"
-            app:layout_constraintBottom_toTopOf="@id/texto3"
+            app:layout_constraintBottom_toTopOf="@id/hontza"
             app:layout_constraintStart_toStartOf="@+id/gVer3"
-            app:layout_constraintTop_toBottomOf="@id/texto1" />
+            app:layout_constraintTop_toBottomOf="@id/tximinoak" />
 
         <TextView
-            android:id="@+id/texto3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/hontza"
+            android:layout_width="191dp"
+            android:layout_height="56dp"
             android:text="@string/hontza"
+            app:layout_constraintBottom_toTopOf="@id/etxea"
             app:layout_constraintEnd_toStartOf="@+id/gVer5"
-            app:layout_constraintBottom_toTopOf="@id/texto4"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/gVer4"
-            app:layout_constraintTop_toBottomOf="@id/texto2" />
+            app:layout_constraintTop_toBottomOf="@id/palmondoak" />
 
         <TextView
-            android:id="@+id/texto4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/etxea"
+            android:layout_width="186dp"
+            android:layout_height="53dp"
             android:text="@string/etxea"
+            app:layout_constraintBottom_toTopOf="@id/iturria"
             app:layout_constraintEnd_toStartOf="@+id/gVer5"
-            app:layout_constraintBottom_toTopOf="@id/texto5"
             app:layout_constraintStart_toStartOf="@+id/gVer4"
-            app:layout_constraintTop_toBottomOf="@id/texto3" />
+            app:layout_constraintTop_toBottomOf="@id/hontza" />
 
         <TextView
-            android:id="@+id/texto5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/gHor2"
+            android:id="@+id/iturria"
+            android:layout_width="185dp"
+            android:layout_height="27dp"
             android:text="@string/iturria"
+            app:layout_constraintBottom_toTopOf="@id/gHor2"
             app:layout_constraintEnd_toStartOf="@+id/gVer5"
             app:layout_constraintStart_toStartOf="@+id/gVer4"
-            app:layout_constraintTop_toBottomOf="@id/texto4" />
+            app:layout_constraintTop_toBottomOf="@id/etxea" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
