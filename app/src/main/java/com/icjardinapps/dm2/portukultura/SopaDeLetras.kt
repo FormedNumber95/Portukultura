@@ -10,6 +10,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.gridlayout.widget.GridLayout
 
+/**
+ * Esta clase representa la actividad de una sopa de letras en una aplicación Android.
+ * Permite a los usuarios interactuar con una sopa de letras para buscar palabras específicas
+ * y realiza diversas acciones según las palabras encontradas.
+ *
+ * @author Aketza
+ */
 class SopaDeLetras : AppCompatActivity() {
 
     // La sopa de letras
@@ -35,12 +42,23 @@ class SopaDeLetras : AppCompatActivity() {
 
     private lateinit var grid: GridLayout
 
+    /**
+     * Metodo de inicialización que configura la actividad y carga la sopa de letras.
+     *
+     * @author Aketza
+     * @param savedInstanceState estado guardado de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sopa_de_letras)
         cargarSopaDeLetras()
     }
 
+    /**
+     * Carga la sopa de letras en el GridLayout y configura el listener de interacción táctil.
+     *
+     * @author Aketza
+     */
     private fun cargarSopaDeLetras() {
         grid = findViewById(R.id.gridSopaLetras)
         for (fila: Array<Char> in sopaDeLetras) {
@@ -68,6 +86,13 @@ class SopaDeLetras : AppCompatActivity() {
         grid.setOnTouchListener { _, event -> manejarTouch(event) }
     }
 
+    /**
+     * Maneja los eventos táctiles para la interacción con la sopa de letras.
+     *
+     * @author Aketza
+     * @param event el evento táctil detectado.
+     * @return true si se procesa el evento, false en caso contrario.
+     */
     private fun manejarTouch(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
@@ -84,6 +109,12 @@ class SopaDeLetras : AppCompatActivity() {
         return true
     }
 
+    /**
+     * Detecta la letra seleccionada durante la interacción táctil.
+     *
+     * @author Aketza
+     * @param event el evento táctil detectado.
+     */
     private fun detectarLetra(event: MotionEvent) {
         val x = event.rawX
         val y = event.rawY
@@ -105,11 +136,23 @@ class SopaDeLetras : AppCompatActivity() {
         }
     }
 
+    /**
+     * Marca un TextView como seleccionado y lo agrega a la lista de seleccionados.
+     *
+     * @author Aketza
+     * @param view el TextView seleccionado.
+     */
     private fun seleccionarLetra(view: TextView) {
         view.setBackgroundColor(Color.YELLOW)
         seleccionados.add(view)
     }
 
+    /**
+     * Verifica si la palabra formada por las letras seleccionadas está en la lista de palabras.
+     * Si la palabra es válida, la elimina de la lista y realiza las acciones correspondientes.
+     *
+     * @author Aketza
+     */
     private fun verificarPalabra() {
         val palabraSeleccionada = seleccionados.joinToString("") { it.text.toString() }.lowercase()
 
@@ -152,9 +195,20 @@ class SopaDeLetras : AppCompatActivity() {
         seleccionados.clear()
     }
 
+    /**
+     * Tacha una palabra encontrada en la lista de palabras mostrada al usuario.
+     *
+     * @author Aketza
+     * @param texto el TextView correspondiente a la palabra.
+     */
     private fun tacharPalabra(texto: TextView) {
         texto.paintFlags = texto.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
     }
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
 

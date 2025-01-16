@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -18,8 +19,8 @@ class Act6Preguntas : AppCompatActivity() {
     /**
      * Inicializa la actividad y configura el botón de continuar.
      *
-     * @param savedInstanceState estado guardado de la actividad.
      * @author Diego
+     * @param savedInstanceState estado guardado de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,4 +36,10 @@ class Act6Preguntas : AppCompatActivity() {
             finish()
         }
     }
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {}
 }
