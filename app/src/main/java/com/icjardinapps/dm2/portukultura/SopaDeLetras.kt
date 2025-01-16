@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.gridlayout.widget.GridLayout
@@ -39,6 +40,9 @@ class SopaDeLetras : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sopa_de_letras)
         cargarSopaDeLetras()
+        // Configurar la funcionalidad de ayuda
+        configurarAyuda()
+
     }
 
     private fun cargarSopaDeLetras() {
@@ -151,6 +155,27 @@ class SopaDeLetras : AppCompatActivity() {
         }
         seleccionados.clear()
     }
+    @SuppressLint("SetTextI18n")
+    private fun configurarAyuda() {
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text = "HITZ ZOPA: Aurkitu hitz zopan dauden hitzak. Aurkitzen duzun bakoitzean, marraztuta agertuko da."
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
+        }
+    }
+
 
     private fun tacharPalabra(texto: TextView) {
         texto.paintFlags = texto.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
