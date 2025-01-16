@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".Presentacion">
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
@@ -75,5 +76,16 @@
         app:layout_constraintTop_toTopOf="@+id/textView"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/navegante_ae" />
+
+    <ImageView
+        android:id="@+id/ayuda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gHor1"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_help" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
