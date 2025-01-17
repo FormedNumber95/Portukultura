@@ -96,7 +96,7 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
      */
     private fun playIncorrectSound(mediaPlayer: MediaPlayer) {
         mediaPlayer.start()
-        Toast.makeText(this, "Txarto egin duzu. Saiatu berriro.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.txarto_egin_duzu_saiatu_berriro), Toast.LENGTH_SHORT).show()
     }
 
     /**

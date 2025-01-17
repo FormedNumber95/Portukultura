@@ -73,27 +73,26 @@ class Abestia : AppCompatActivity() {
         val chiquitinInput = findViewById<EditText>(queMeMareo.id).text.toString()
 
         if (subeArribaInput.trim().lowercase().equals("sube arriba") && queMeMareoInput.trim().lowercase().equals("que me mareo") &&
-            pantorrillaInput.trim().lowercase().equals("pantorrilla") && chiquitinInput.trim().lowercase().equals("chiquitin")) {
+            pantorrillaInput.trim().lowercase().equals("pantorrilla") && (chiquitinInput.trim().lowercase().equals("chiquitin")||chiquitinInput.trim().lowercase().equals("chiquitín"))) {
 
-            Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
             setContentView(R.layout.letra) // Cambiar al diseño letra.xml
 
             // Modificar el texto de textLetra si está vacío
             val textLetra = findViewById<TextView>(R.id.textLetra)
             if (textLetra.text.isEmpty()) {
-                textLetra.text = "D LORTU DUZUE"
+                textLetra.text = getString(R.string.a_lortu_duzue)
             }
 
             // Configurar listener para el botón mapa
             val mapaButton = findViewById<Button>(R.id.mapa)
-            mapaButton.text=""
+            mapaButton.text= getString(R.string.hitza_osatu)
             mapaButton.setOnClickListener {
                 val intent = Intent(this, OrdenarPalabra::class.java)
                 startActivity(intent)
                 finish()
             }
         } else {
-            Toast.makeText(this, "Error en los textos, inténtalo de nuevo.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.txarto_egin_duzu_saiatu_berriro), Toast.LENGTH_SHORT).show()
         }
     }
     /**

@@ -136,7 +136,7 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
             // Modificar el texto de textLetra si está vacío
             val textLetra = findViewById<TextView>(R.id.textLetra)
             if (textLetra.text.isEmpty()) {
-                textLetra.text = "D LORTU DUZUE"
+                textLetra.text = getString(R.string.d_lortu_duzue)
             }
 
             // Configurar listener para el botón mapa

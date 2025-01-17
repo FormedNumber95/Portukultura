@@ -78,13 +78,14 @@ class Ejer5 : AppCompatActivity() {
             // Modificar el texto de textLetra si está vacío
             val textLetra = findViewById<TextView>(R.id.textLetra)
             if (textLetra.text.isEmpty()) {
-                textLetra.text = "R LORTU DUZUE"
+                textLetra.text = getString(R.string.r_lortu_duzue)
+                // Configurar listener para el botón mapa
+                val mapaButton = findViewById<Button>(R.id.mapa)
+                mapaButton.setOnClickListener {
+                    finish() // Cierra la actividad
+                }
             }
-            // Configurar listener para el botón mapa
-            val mapaButton = findViewById<Button>(R.id.mapa)
-            mapaButton.setOnClickListener {
-                finish() // Cierra la actividad
-            }
+
 
         }
 

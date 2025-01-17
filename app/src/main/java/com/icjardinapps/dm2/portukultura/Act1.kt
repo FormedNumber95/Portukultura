@@ -152,7 +152,7 @@ class Act1 : AppCompatActivity() {
             // Modificar el texto de textLetra si está vacío
             val textLetra = findViewById<TextView>(R.id.textLetra)
             if (textLetra.text.isEmpty()) {
-                textLetra.text = "O LORTU DUZUE"
+                textLetra.text = getString(R.string.o_lortu_duzue)
             }
 
             // Configurar listener para el botón mapa

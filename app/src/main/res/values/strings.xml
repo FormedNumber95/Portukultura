@@ -72,4 +72,11 @@
     <string name="erantzun">Erantzun</string>
     <string name="mapa">Mapa</string>
     <string name="txarto_egin_duzu_saiatu_berriro">Txarto egin duzu. Saiatu berriro.</string>
+    <string name="hitza_osatu">Hitza osatu</string>
+    <string name="a_lortu_duzue">A LORTU DUZUE</string>
+    <string name="o_lortu_duzue">O LORTU DUZUE</string>
+    <string name="n_lortu_duzue">N LORTU DUZUE</string>
+    <string name="d_lortu_duzue">D LORTU DUZUE</string>
+    <string name="r_lortu_duzue">R LORTU DUZUE</string>
+    <string name="e_lortu_duzue">E LORTU DUZUE</string>
 </resources>

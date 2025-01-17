@@ -178,7 +178,7 @@ class SopaDeLetras : AppCompatActivity() {
                 // Modificar el texto de textLetra si está vacío
                 val textLetra = findViewById<TextView>(R.id.textLetra)
                 if (textLetra.text.isEmpty()) {
-                    textLetra.text = "A LORTU DUZUE"
+                    textLetra.text = getString(R.string.a_lortu_duzue)
                 }
 
                 // Configurar listener para el botón mapa

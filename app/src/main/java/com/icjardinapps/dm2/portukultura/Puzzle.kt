@@ -141,7 +141,7 @@ class Puzzle : AppCompatActivity() {
         // Modificar el texto de textLetra si está vacío
         val textLetra = findViewById<TextView>(R.id.textLetra)
         if (textLetra.text.isEmpty()) {
-            textLetra.text = "N LORTU DUZUE"
+            textLetra.text = getString(R.string.n_lortu_duzue)
         }
 
         // Configurar listener para el botón mapa
