@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -80,9 +81,9 @@ class Video : AppCompatActivity() {
         return when (markerIndex) {
             //Actividad 1
             0 -> TimerConfig(
-                timeMillis = 71000, // 71 segundos = 1min 11s
+                timeMillis = 81000, // 81 segundos = 1min 21s
                 buttonAction = {
-                    val intent = Intent(this, SopaDeLetras::class.java)
+                    val intent = Intent(this, Act1::class.java)
                     startActivity(intent)
                     finish()
                 }
@@ -125,4 +126,11 @@ class Video : AppCompatActivity() {
             )
         }
     }
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {}
 }
