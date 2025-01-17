@@ -1,92 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".Ejer5">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+
+    <TextView
+        android:id="@+id/question1_text"
+        android:layout_width="291dp"
+        android:layout_height="50dp"
+        android:paddingBottom="8dp"
+        android:text="@string/zer_lotzen_du_portugaleteko_zubi_esekiak"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@id/gHor1" />
+
+    <RadioGroup
+        android:id="@+id/question1_group"
+        android:layout_width="307dp"
+        android:layout_height="161dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/question1_text">
+
+        <RadioButton
+            android:id="@+id/q1_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/a_konektatu_bi_kontinente" />
+
+        <RadioButton
+            android:id="@+id/q1_correct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b_portugalete_eta_getxo_lotzen_ditu" />
+
+        <RadioButton
+            android:id="@+id/q1_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/c_ibai_bat_eta_laku_bat_lotzen_ditu" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/question2_text"
+        android:layout_width="296dp"
+        android:layout_height="60dp"
+        android:paddingBottom="8dp"
+        android:text="@string/zer_egitura_mota_du_portugaleteko_zubi_esekiak"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@+id/question1_group"
+        app:layout_constraintVertical_bias="0.039" />
+
+    <RadioGroup
+        android:id="@+id/question2_group"
+        android:layout_width="284dp"
+        android:layout_height="161dp"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@id/question2_text"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RadioButton
+            android:id="@+id/q2_a"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:text="@string/a_lurpeko_zubi_bat" />
+
+        <RadioButton
+            android:id="@+id/q2_b"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:text="@string/b_zubi_flotatzaile_bat" />
+
+        <RadioButton
+            android:id="@+id/q2_correct"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:text="@string/c_zubi_transbordadore_bat" />
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Espacio superior -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="314dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Pregunta 1 -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/zer_lotzen_du_portugaleteko_zubi_esekiak"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <RadioGroup
-            android:id="@+id/question1_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <RadioButton
-                android:id="@+id/q1_a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/a_konektatu_bi_kontinente" />
+    <ImageView
+        android:id="@+id/ayuda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gHor1"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_help" />
 
-            <RadioButton
-                android:id="@+id/q1_correct"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/b_portugalete_eta_getxo_lotzen_ditu" />
-
-            <RadioButton
-                android:id="@+id/q1_c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/c_ibai_bat_eta_laku_bat_lotzen_ditu" />
-        </RadioGroup>
-
-        <!-- Espaciado -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <!-- Pregunta 2 -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/zer_egitura_mota_du_portugaleteko_zubi_esekiak"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
-
-        <RadioGroup
-            android:id="@+id/question2_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/q2_a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/a_lurpeko_zubi_bat" />
-
-            <RadioButton
-                android:id="@+id/q2_b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="@string/b_zubi_flotatzaile_bat" />
-
-            <RadioButton
-                android:id="@+id/q2_correct"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/c_zubi_transbordadore_bat" />
-        </RadioGroup>
-
-
-
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
