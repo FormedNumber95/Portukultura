@@ -72,4 +72,11 @@
     <string name="erantzun">Erantzun</string>
     <string name="mapa">Mapa</string>
     <string name="txarto_egin_duzu_saiatu_berriro">Txarto egin duzu. Saiatu berriro.</string>
+    <string name="irakurri_testua_eta_klikatu_hurrengo_botoian_jarraitzeko">Irakurri testua eta klikatu hurrengo botoian jarraitzeko.</string>
+    <string name="irakurri_galderak_arretaz_eta_erantzun_hauei">Irakurri galderak arretaz eta erantzun hauei.</string>
+    <string name="antolatu_letra_hauek_zuzenean_hitza_lortzeko">Antolatu letra hauek zuzenean hitza lortzeko.</string>
+    <string name="d_lortu_duzue">D LORTU DUZUE</string>
+    <string name="helburu_finalerako_letra_bat_lortu_duzu_itzuli_mapa_atzera_nahi_baduzu_sakatu_mapa_botoia">Helburu finalerako letra bat lortu duzu. Itzuli mapa atzera nahi baduzu, sakatu \'Mapa\' botoia.</string>
+    <string name="bideoa_ikusi_ondoren_hasieratu_botoia_aktibatuko_da_hasteko">"Bideoa ikusi ondoren, 'Hasieratu' botoia aktibatuko da hasteko. "</string>
+    <string name="qr_a_klikatu_behar_du_irudia_ikusteko">" QR-a klikatu behar du irudia ikusteko."</string>
 </resources>
