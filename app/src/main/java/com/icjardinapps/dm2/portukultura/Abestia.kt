@@ -90,6 +90,8 @@ class Abestia : AppCompatActivity() {
             mapaButton.text= getString(R.string.hitza_osatu)
             mapaButton.setOnClickListener {
                 val intent = Intent(this, OrdenarPalabra::class.java)
+                intent.putExtra("nombre",intent.getStringExtra("nombre").toString())
+                intent.putExtra("apelldio",intent.getStringExtra("apellido").toString())
                 startActivity(intent)
                 finish()
             }

@@ -88,7 +88,7 @@ class OrdenarPalabra : AppCompatActivity() {
                 DragEvent.ACTION_DROP -> {
                     v.alpha = 1.0f
                     val draggedView = event.localState as? TextView
-                    if (draggedView?.text == matchingText) {
+                    if (draggedView?.text == matchingText&&(v as TextView).text=="_") {
                         // Si el texto coincide, ocultamos ambas vistas
                         (v as TextView).text=draggedView.text
                         draggedView.text=""
@@ -114,6 +114,8 @@ class OrdenarPalabra : AppCompatActivity() {
         if (remainingPairs == 0) {
             // Si no quedan pares, cerramos la actividad
             val intent = Intent(this, QR::class.java)
+            intent.putExtra("nombre",intent.getStringExtra("nombre").toString())
+            intent.putExtra("apelldio",intent.getStringExtra("apellido").toString())
             startActivity(intent)
             finish()
         }
