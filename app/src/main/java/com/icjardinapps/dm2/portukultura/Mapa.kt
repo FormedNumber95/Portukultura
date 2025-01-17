@@ -103,6 +103,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                 4 -> Ejer5::class.java
                 5 -> Act6Imagen::class.java
                 6 -> Abestia::class.java
+
                 //Nunca se va a dar este caso
                 else -> Class.forName("com.icjardinapps.dm2.portukultura.Ejemplo${index}") as Class<out AppCompatActivity>
             }
@@ -121,7 +122,10 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                 // Lanzar actividad si el marcador es amarillo
                 val activityClass = markerActivities[marker]
                 if (activityClass != null) {
-                    val intent = Intent(this, activityClass)
+                    val markerIndex = markersList.indexOf(marker)
+                    val intent = Intent(this, activityClass).apply {
+                        putExtra("MARKER_INDEX", markerIndex) // Enviar el índice del marcador
+                    }
                     startActivity(intent)
                 }
                 true

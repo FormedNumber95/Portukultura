@@ -13,10 +13,15 @@
         android:theme="@style/Theme.Portukultura"
         tools:targetApi="31">
         <activity
+            android:name=".Video"
+            android:exported="false" />
+         <activity
             android:name=".QR"
             android:exported="false" />
         <activity
             android:name=".OrdenarPalabra"
+            android:exported="false" />
+         <activity
             android:name=".Act6Preguntas"
             android:exported="false" />
         <activity
