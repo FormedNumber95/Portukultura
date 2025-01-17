@@ -1,15 +1,20 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 /**
  * Clase principal de la aplicación que representa un quiz con dos preguntas.
  * Reproduce un sonido y muestra un mensaje en caso de respuesta incorrecta.
+ *
+ * @author Intissar
  */
 class Ejer5 : AppCompatActivity() {
 
@@ -18,6 +23,8 @@ class Ejer5 : AppCompatActivity() {
 
     /**
      * Metodo llamado al crear la actividad. Configura los grupos de preguntas y el manejo de respuestas.
+     *
+     * @author Intissar
      * @param savedInstanceState Estado guardado previamente de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,21 +70,42 @@ class Ejer5 : AppCompatActivity() {
         }
     }
 
-    /**
-     * Verifica si ambas preguntas han sido respondidas correctamente y cierra la actividad si es el caso.
-     */
+
     private fun checkAllQuestionsCorrect() {
         if (question1AnsweredCorrectly && question2AnsweredCorrectly) {
-            finish()
-        }
-    }
+            setContentView(R.layout.letra) // Cambiar al diseño letra.xml
 
+            // Modificar el texto de textLetra si está vacío
+            val textLetra = findViewById<TextView>(R.id.textLetra)
+            if (textLetra.text.isEmpty()) {
+                textLetra.text = "R LORTU DUZUE"
+            }
+            // Configurar listener para el botón mapa
+            val mapaButton = findViewById<Button>(R.id.mapa)
+            mapaButton.setOnClickListener {
+                finish() // Cierra la actividad
+            }
+
+        }
+
+    }
     /**
      * Reproduce un sonido de error y muestra un mensaje indicando una respuesta incorrecta.
+     *
+     * @author Intissar
      * @param mediaPlayer Instancia del reproductor de medios con el sonido cargado.
      */
     private fun playIncorrectSound(mediaPlayer: MediaPlayer) {
         mediaPlayer.start()
-        Toast.makeText(this, "Txarto egin duzu. Saiatu berriro.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.txarto_egin_duzu_saiatu_berriro), Toast.LENGTH_SHORT).show()
+    }
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }
