@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 /**
  * Actividad principal que implementa un juego de emparejar.
+ *
+ * @author Aketza
  */
 class TrenGeltokiaAsmakizunak : AppCompatActivity() {
     /**
@@ -38,6 +40,7 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
     /**
      * Configura la actividad al crearse.
      *
+     * @author Aketza
      * @param savedInstanceState estado guardado de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +71,7 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
     /**
      * Hace que un TextView sea arrastrable.
      *
+     * @author Aketza
      * @param view la vista que será arrastrable.
      */
     private fun setDraggable(view: TextView) {
@@ -81,6 +85,7 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
     /**
      * Hace que un TextView sea un receptor de arrastre y lo empareja con una vista específica.
      *
+     * @author Aketza
      * @param target        el TextView que actúa como receptor de arrastre.
      * @param matchingView  la vista que debe emparejarse con el receptor.
      */
@@ -119,6 +124,8 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
     /**
      * Verifica si todos los pares han sido emparejados correctamente.
      * Si es así, cierra la actividad.
+     *
+     * @author Aketza
      */
     private fun checkCompletion() {
         if (remainingPairs == 0) {
@@ -140,6 +147,11 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
 
         }
     }
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
 
