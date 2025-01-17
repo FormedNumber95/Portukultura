@@ -17,6 +17,16 @@
             android:exported="false" />
         <activity
             android:name=".OrdenarPalabra"
+            android:name=".Act6Preguntas"
+            android:exported="false" />
+        <activity
+            android:name=".Act6Imagen"
+            android:exported="false" />
+        <activity
+            android:name=".Act6DnD"
+            android:exported="false" />
+        <activity
+            android:name=".Act1"
             android:exported="false" />
         <activity
             android:name=".Abestia"

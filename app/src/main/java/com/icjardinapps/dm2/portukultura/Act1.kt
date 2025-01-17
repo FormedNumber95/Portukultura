@@ -9,72 +9,85 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.ImageView
+
 /**
- * Actividad principal que implementa un juego de emparejar.
+ * Clase que representa la actividad principal del juego de emparejar imágenes con conceptos.
+ * Configura los elementos interactivos y maneja la lógica de arrastrar y soltar.
  *
- * @author Aketza
+ * @author Diego
  */
-class TrenGeltokiaAsmakizunak : AppCompatActivity() {
-    /**
-     * Referencias a los elementos de asmakizunak (adivinanzas).
-     */
-    private lateinit var asmakizuna1: TextView
-    private lateinit var asmakizuna2: TextView
-    private lateinit var asmakizuna3: TextView
-    private lateinit var asmakizuna4: TextView
-    /**
-     * Referencias a los elementos de objetos donde se pueden soltar las adivinanzas.
-     */
-    private lateinit var objeto1: TextView
-    private lateinit var objeto2: TextView
-    private lateinit var objeto3: TextView
-    private lateinit var objeto4: TextView
+class Act1 : AppCompatActivity() {
+
+    // Referencias a las imágenes y los textos
+    private lateinit var fuente: ImageView
+    private lateinit var palmeras: ImageView
+    private lateinit var buho: ImageView
+    private lateinit var monos: ImageView
+    private lateinit var jardin: ImageView
+    private lateinit var tximinoak: TextView
+    private lateinit var palmondoak: TextView
+    private lateinit var hontza: TextView
+    private lateinit var etxea: TextView
+    private lateinit var iturria: TextView
+
     /**
      * Contenedor principal de la actividad.
+     *
+     * @author Diego
      */
     private lateinit var mainLayout: ConstraintLayout
+
     /**
      * Número de pares restantes para completar el juego.
-     */
-    private var remainingPairs = 4
-    /**
-     * Configura la actividad al crearse.
      *
-     * @author Aketza
+     * @author Diego
+     */
+    private var remainingPairs = 5
+
+    /**
+     * Inicializa la actividad y configura los elementos interactivos.
+     *
+     * @author Diego
      * @param savedInstanceState estado guardado de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.tren_geltokia_asmakizunak)
-        asmakizuna1 = findViewById(R.id.Asmakizuna1)
-        asmakizuna2 = findViewById(R.id.Asmakizuna2)
-        asmakizuna3 = findViewById(R.id.Asmakizuna3)
-        asmakizuna4 = findViewById(R.id.Asmakizuna4)
-        objeto1 = findViewById(R.id.objeto1)
-        objeto2 = findViewById(R.id.objeto2)
-        objeto3 = findViewById(R.id.objeto3)
-        objeto4 = findViewById(R.id.objeto4)
+        setContentView(R.layout.activity_act1)
+        fuente = findViewById(R.id.fuente)
+        palmeras = findViewById(R.id.palmeras)
+        buho = findViewById(R.id.buho)
+        monos = findViewById(R.id.monos)
+        jardin = findViewById(R.id.jardin)
+        tximinoak = findViewById(R.id.tximinoak)
+        palmondoak = findViewById(R.id.palmondoak)
+        hontza = findViewById(R.id.hontza)
+        etxea = findViewById(R.id.etxea)
+        iturria = findViewById(R.id.iturria)
         mainLayout = findViewById(R.id.main)
 
         // Configuramos el arrastre
-        setDraggable(asmakizuna1)
-        setDraggable(asmakizuna2)
-        setDraggable(asmakizuna3)
-        setDraggable(asmakizuna4)
+        setDraggable(fuente)
+        setDraggable(palmeras)
+        setDraggable(buho)
+        setDraggable(monos)
+        setDraggable(jardin)
 
         // Configuramos los receptores
-        setDroppable(objeto1, asmakizuna4)
-        setDroppable(objeto2, asmakizuna2)
-        setDroppable(objeto3, asmakizuna1)
-        setDroppable(objeto4, asmakizuna3)
+        setDroppable(iturria, fuente)
+        setDroppable(palmondoak, palmeras)
+        setDroppable(hontza, buho)
+        setDroppable(tximinoak, monos)
+        setDroppable(etxea, jardin)
     }
+
     /**
-     * Hace que un TextView sea arrastrable.
+     * Hace que una imagen sea arrastrable.
      *
-     * @author Aketza
-     * @param view la vista que será arrastrable.
+     * @author Diego
+     * @param view la vista de la imagen que será arrastrable.
      */
-    private fun setDraggable(view: TextView) {
+    private fun setDraggable(view: ImageView) {
         view.setOnTouchListener { v, event ->
             val clipData = ClipData.newPlainText("", "")
             val shadow = View.DragShadowBuilder(v)
@@ -82,14 +95,15 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
             true
         }
     }
+
     /**
-     * Hace que un TextView sea un receptor de arrastre y lo empareja con una vista específica.
+     * Configura un área de destino para aceptar elementos arrastrados.
      *
-     * @author Aketza
-     * @param target        el TextView que actúa como receptor de arrastre.
-     * @param matchingView  la vista que debe emparejarse con el receptor.
+     * @author Diego
+     * @param target la vista de texto que aceptará el elemento arrastrado.
+     * @param matchingView la vista de la imagen que debe ser arrastrada y coincidir.
      */
-    private fun setDroppable(target: TextView, matchingView: TextView) {
+    private fun setDroppable(target: TextView, matchingView: ImageView) {
         target.setOnDragListener { v, event ->
             when (event.action) {
                 DragEvent.ACTION_DRAG_STARTED -> true
@@ -121,22 +135,24 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
             }
         }
     }
+
     /**
      * Verifica si todos los pares han sido emparejados correctamente.
-     * Si es así, cierra la actividad.
+     * Si no quedan pares, finaliza la actividad.
      *
-     * @author Aketza
+     * @author Diego
      */
     private fun checkCompletion() {
         if (remainingPairs == 0) {
-            // Si no quedan pares, cerramos la actividad
+            setContentView(R.layout.letra) // Cambiar al diseño letra.xml
 
+            // Modificar el texto de textLetra si está vacío
             setContentView(R.layout.letra) // Cambiar al diseño letra.xml
 
             // Modificar el texto de textLetra si está vacío
             val textLetra = findViewById<TextView>(R.id.textLetra)
             if (textLetra.text.isEmpty()) {
-                textLetra.text = "D LORTU DUZUE"
+                textLetra.text = "O LORTU DUZUE"
             }
 
             // Configurar listener para el botón mapa
@@ -144,7 +160,6 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
             mapaButton.setOnClickListener {
                 finish() // Cierra la actividad
             }
-
         }
     }
 
@@ -153,7 +168,5 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
      * @author Intissar
      */
     @SuppressLint("MissingSuperCall")
-    override fun onBackPressed() {
-
-    }
+    override fun onBackPressed() {}
 }

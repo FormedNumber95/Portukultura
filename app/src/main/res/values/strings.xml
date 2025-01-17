@@ -53,4 +53,23 @@
     <string name="erlojua">ERLOJUA</string>
     <string name="trenbidea">TRENBIDEA</string>
     <string name="barrabaja">_</string>
+    <string name="iturria">Iturria</string>
+    <string name="etxea">Etxea</string>
+    <string name="hontza">Hontza</string>
+    <string name="palmondoak_eta_zuhaitzak">Palmondoak eta zuhaitzak</string>
+    <string name="tximinoak">Tximinoak</string>
+    <string name="arrautz_ospetsu_hau_pilota_forma_du_eta_ogiarekin_zerbitzatzen_da">Arrautz ospetsu hau pilota forma du, eta ogiarekin zerbitzatzen da.</string>
+    <string name="taberna_honen_aurrean_canillako_tren_geltokia_dago">Taberna honen aurrean Canillako Tren Geltokia dago.</string>
+    <string name="taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute">Taberna honen jabeak, beraien bezeroak oso ondo zaintzeaz ospea dute.</string>
+    <string name="taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago">Taberna hau Santa Maria Basilikaren beheko aldean kokatuta dago.</string>
+    <string name="continuar">Continuar</string>
+    <string name="galderak">GALDERAK</string>
+    <string name="continuar2">Continuar</string>
+    <string name="non_dago_taberna_ospetsua">Non dago taberna ospetsua?</string>
+    <string name="zein_dira_osagaiak">Zein dira osagaiak?</string>
+    <string name="zein_da_saltza_berezia">Zein da saltza berezia?</string>
+    <string name="zeren_ondoan_dago_taberna_kokatuta">Zeren ondoan dago taberna kokatuta?</string>
+    <string name="erantzun">Erantzun</string>
+    <string name="mapa">Mapa</string>
+    <string name="txarto_egin_duzu_saiatu_berriro">Txarto egin duzu. Saiatu berriro.</string>
 </resources>

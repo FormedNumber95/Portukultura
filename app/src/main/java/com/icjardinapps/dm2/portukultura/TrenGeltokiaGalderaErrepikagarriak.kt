@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -10,6 +11,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 /**
  * Actividad principal para gestionar un cuestionario con preguntas.
+ *
+ * @author Aketza
  */
 class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
 
@@ -20,6 +23,7 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
     /**
      * Configura la actividad al crearse.
      *
+     * @author Aketza
      * @param savedInstanceState estado guardado de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,6 +77,8 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
 
     /**
      * Verifica si ambas preguntas han sido respondidas correctamente y cierra la actividad si es el caso.
+     *
+     * @author Aketza
      */
     private fun checkAllQuestionsCorrect() {
         if (radio1Ok && radio2Ok && radio3Ok) {
@@ -84,10 +90,21 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
 
     /**
      * Reproduce un sonido de error y muestra un mensaje indicando una respuesta incorrecta.
+     *
+     * @author Aketza
      * @param mediaPlayer Instancia del reproductor de medios con el sonido cargado.
      */
     private fun playIncorrectSound(mediaPlayer: MediaPlayer) {
         mediaPlayer.start()
         Toast.makeText(this, "Txarto egin duzu. Saiatu berriro.", Toast.LENGTH_SHORT).show()
+    }
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }

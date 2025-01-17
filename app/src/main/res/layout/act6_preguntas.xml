@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Act6Preguntas">
+
+    <TextView
+        android:id="@+id/galderak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/galderak"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnContinuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="@string/aurrera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.18"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.16"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/non_dago_taberna_ospetsua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/non_dago_taberna_ospetsua"
+        android:textSize="25sp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toTopOf="@id/erantzun_taberna"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.353"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+    <EditText
+        android:id="@+id/erantzun_taberna"
+        android:layout_width="176dp"
+        android:layout_height="44dp"
+        android:hint="@string/erantzun"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@id/zein_dira_osagaiak"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.358"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toBottomOf="@id/non_dago_taberna_ospetsua"
+        app:layout_constraintTop_toTopOf="@+id/gHor1"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <TextView
+        android:id="@+id/zein_dira_osagaiak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zein_dira_osagaiak"
+        android:textSize="25sp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toTopOf="@id/erantzun_osagaiak"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toBottomOf="@id/erantzun_taberna" />
+
+    <EditText
+        android:id="@+id/erantzun_osagaiak"
+        android:layout_width="176dp"
+        android:layout_height="44dp"
+        android:hint="@string/erantzun"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toTopOf="@id/zein_da_saltza_berezia"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toBottomOf="@id/zein_dira_osagaiak"
+        app:layout_constraintVertical_bias="0.859" />
+
+    <TextView
+        android:id="@+id/zein_da_saltza_berezia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zein_da_saltza_berezia"
+        android:textSize="25sp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toTopOf="@id/zein_da_saltza_berezia"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toBottomOf="@id/erantzun_osagaiak" />
+
+    <EditText
+        android:id="@+id/erantzun_berezia"
+        android:layout_width="176dp"
+        android:layout_height="44dp"
+        android:hint="@string/erantzun"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toTopOf="@id/zeren_ondoan_dago_taberna_kokatuta"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.358"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toBottomOf="@id/zein_da_saltza_berezia"
+        app:layout_constraintVertical_bias="0.851" />
+
+    <TextView
+        android:id="@+id/zeren_ondoan_dago_taberna_kokatuta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zeren_ondoan_dago_taberna_kokatuta"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toTopOf="@id/erantzun_kokatua"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toBottomOf="@id/erantzun_berezia" />
+
+    <EditText
+        android:id="@+id/erantzun_kokatua"
+        android:layout_width="176dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/erantzun"
+        android:inputType="text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.358"
+        app:layout_constraintStart_toStartOf="@+id/gVer3"
+        app:layout_constraintTop_toBottomOf="@id/zeren_ondoan_dago_taberna_kokatuta" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

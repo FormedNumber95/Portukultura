@@ -1,14 +1,19 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Button
 import android.widget.GridLayout
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 /**
  * Actividad para gestionar un juego de puzzle interactivo en una cuadrícula.
  * La actividad permite mover las piezas del puzzle de forma que el jugador
  * pueda resolverlo moviendo las piezas adyacentes al espacio vacío.
+ *
+ * @author Intissar
  */
 class Puzzle : AppCompatActivity() {
 
@@ -19,7 +24,7 @@ class Puzzle : AppCompatActivity() {
     /**
      * Metodo que se ejecuta al crear la actividad.
      * Inicializa el puzzle y configura los elementos de la interfaz.
-     *
+     * @author Intissar
      * @param savedInstanceState El estado guardado de la actividad (si lo hay).
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +39,8 @@ class Puzzle : AppCompatActivity() {
     /**
      * Inicializa el puzzle cargando las piezas de las imágenes, mezclándolas y configurando
      * el espacio vacío en su posición inicial.
+     *
+     * @author Intissar
      */
     private fun initializePuzzle() {
         // Carga las imágenes de las piezas
@@ -57,6 +64,8 @@ class Puzzle : AppCompatActivity() {
     /**
      * Actualiza la cuadrícula del puzzle mostrando las piezas en la interfaz de usuario.
      * Cada pieza es representada como un ImageView.
+     *
+     * @author Intissar
      */
     private fun updateGrid() {
         puzzleGrid.removeAllViews()
@@ -84,6 +93,7 @@ class Puzzle : AppCompatActivity() {
      * Metodo que se llama cuando una pieza del puzzle es tocada.
      * Si la pieza está adyacente al espacio vacío, se intercambian.
      *
+     * @author Intissar
      * @param index El índice de la pieza que fue tocada.
      */
     private fun onTileClick(index: Int) {
@@ -101,6 +111,7 @@ class Puzzle : AppCompatActivity() {
     /**
      * Verifica si la pieza en el índice proporcionado está adyacente al espacio vacío.
      *
+     * @author Intissar
      * @param index El índice de la pieza.
      * @return `true` si la pieza está adyacente al espacio vacío, `false` en caso contrario.
      */
@@ -116,13 +127,29 @@ class Puzzle : AppCompatActivity() {
     /**
      * Verifica si el puzzle ha sido resuelto correctamente comparando el estado actual
      * de las piezas con la disposición correcta.
+     *
+     * @author Intissar
      */
     private fun checkIfSolved() {
         for (i in 0 until 15) {
             val correctResourceId = resources.getIdentifier("puzle_${i + 1}", "drawable", packageName)
             if (puzzlePieces[i] != correctResourceId) return
         }
-        finish()
+
+        setContentView(R.layout.letra) // Cambiar al diseño letra.xml
+
+        // Modificar el texto de textLetra si está vacío
+        val textLetra = findViewById<TextView>(R.id.textLetra)
+        if (textLetra.text.isEmpty()) {
+            textLetra.text = "N LORTU DUZUE"
+        }
+
+        // Configurar listener para el botón mapa
+        val mapaButton = findViewById<Button>(R.id.mapa)
+        mapaButton.setOnClickListener {
+            finish() // Cierra la actividad
+        }
+
     }
 
     /**
@@ -130,6 +157,7 @@ class Puzzle : AppCompatActivity() {
      * el número de inversiones (pares de piezas que están en el orden incorrecto) es par
      * y en el caso de una cuadrícula de 4x4, también depende de la fila del espacio vacío.
      *
+     * @author Intissar
      * @param pieces El arreglo de piezas del puzzle.
      * @return `true` si el puzzle es resolvible, `false` en caso contrario.
      */
@@ -152,5 +180,14 @@ class Puzzle : AppCompatActivity() {
         } else {
             isEvenInversions
         }
+    }
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }
