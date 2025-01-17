@@ -1,9 +1,12 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -63,16 +66,27 @@ class Ejer5 : AppCompatActivity() {
         }
     }
 
-    /**
-     * Verifica si ambas preguntas han sido respondidas correctamente y cierra la actividad si es el caso.
-     */
+
     private fun checkAllQuestionsCorrect() {
         if (question1AnsweredCorrectly && question2AnsweredCorrectly) {
-            Toast.makeText(this, "¡Todas las respuestas son correctas!", Toast.LENGTH_SHORT).show()
-            finish()
-        }
-    }
+            setContentView(R.layout.letra) // Cambiar al diseño letra.xml
 
+            // Modificar el texto de textLetra si está vacío
+            val textLetra = findViewById<TextView>(R.id.textLetra)
+            if (textLetra.text.isEmpty()) {
+                textLetra.text = "R LORTU DUZUE"
+            }
+
+        }
+
+
+        // Configurar listener para el botón mapa
+        val mapaButton = findViewById<Button>(R.id.mapa)
+        mapaButton.setOnClickListener {
+            finish() // Cierra la actividad
+        }
+
+    }
     /**
      * Reproduce un sonido de error y muestra un mensaje indicando una respuesta incorrecta.
      * @param mediaPlayer Instancia del reproductor de medios con el sonido cargado.
@@ -80,5 +94,9 @@ class Ejer5 : AppCompatActivity() {
     private fun playIncorrectSound(mediaPlayer: MediaPlayer) {
         mediaPlayer.start()
         Toast.makeText(this, "Txarto egin duzu. Saiatu berriro.", Toast.LENGTH_SHORT).show()
+    }
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }
