@@ -185,7 +185,8 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
             ayudaDialog.show()
             // Cambiar el texto en el layout de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text = "Joko honek testua dagokion esaldira arrastatzea du helburu."
+            textoAyuda.text =
+                getString(R.string.joko_honek_testua_dagokion_esaldira_arrastatzea_du_helburu)
             // Configurar el botón "cerrar" para cerrar la ventana emergente
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
             cerrar.setOnClickListener {

@@ -182,7 +182,7 @@ class SopaDeLetras : AppCompatActivity() {
                 // Modificar el texto de textLetra si está vacío
                 val textLetra = findViewById<TextView>(R.id.textLetra)
                 if (textLetra.text.isEmpty()) {
-                    textLetra.text = "A LORTU DUZUE"
+                    textLetra.text = getString(R.string.a_lortu_duzue)
                 }
 
                 // Configurar listener para el botón mapa
@@ -235,7 +235,8 @@ class SopaDeLetras : AppCompatActivity() {
             ayudaDialog.show()
             // Cambiar el texto en el layout de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text = "HITZ ZOPA: Aurkitu hitz zopan dauden hitzak. Aurkitzen duzun bakoitzean, marraztuta agertuko da."
+            textoAyuda.text =
+                getString(R.string.hitz_zopa_aurkitu_hitz_zopan_dauden_hitzak_aurkitzen_duzun_bakoitzean_marraztuta_agertuko_da)
             // Configurar el botón "cerrar" para cerrar la ventana emergente
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
             cerrar.setOnClickListener {

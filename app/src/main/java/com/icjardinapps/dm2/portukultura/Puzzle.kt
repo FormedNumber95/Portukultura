@@ -142,7 +142,7 @@ class Puzzle : AppCompatActivity() {
         // Modificar el texto de textLetra si está vacío
         val textLetra = findViewById<TextView>(R.id.textLetra)
         if (textLetra.text.isEmpty()) {
-            textLetra.text = "N LORTU DUZUE"
+            textLetra.text = getString(R.string.n_lortu_duzue)
         }
 
         // Configurar listener para el botón mapa
@@ -218,7 +218,8 @@ class Puzzle : AppCompatActivity() {
             ayudaDialog.show()
             // Cambiar el texto en el layout de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text = "Joko honek irudi baten puzzle bat osatzen du. Zure helburua puzzleko piezak ondo ordenatzea da irudia osatzeko. Pieza bat mugitzen baduzu, besterik gabe, egin klik zuriaren ondoan dagoen irudian, eta automatikoki bere tokian jarriko da."
+            textoAyuda.text =
+                getString(R.string.joko_honek_irudi_baten_puzzle_bat_osatzen_du_zure_helburua_puzzleko_piezak_ondo_ordenatzea_da_irudia_osatzeko_pieza_bat_mugitzen_baduzu_besterik_gabe_egin_klik_zuriaren_ondoan_dagoen_irudian_eta_automatikoki_bere_tokian_jarriko_da)
 
             // Configurar el botón "cerrar" para cerrar la ventana emergente
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)

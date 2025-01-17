@@ -138,7 +138,12 @@ class Abestia : AppCompatActivity() {
         parent.removeView(textView)
         parent.addView(editText)
     }
-    
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {
@@ -150,7 +155,8 @@ class Abestia : AppCompatActivity() {
             ayudaDialog.show()
             // Cambiar el texto en el layout de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text = "Abestia: Testua ondo irakurri eta ondoren agertzen diren hitz desordenatuak. Irakurri ondoren, 'Hasi' botoian klik egin dezakezu hutsuneak hitz egokiekin betetzeko."
+            textoAyuda.text =
+                getString(R.string.abestia_testua_ondo_irakurri_eta_ondoren_agertzen_diren_hitz_desordenatuak_irakurri_ondoren_hasi_botoian_klik_egin_dezakezu_hutsuneak_hitz_egokiekin_betetzeko)
             // Configurar el botón "cerrar" para cerrar la ventana emergente
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
             cerrar.setOnClickListener {

@@ -141,7 +141,7 @@ class Act1 : AppCompatActivity() {
      * Verifica si todos los pares han sido emparejados correctamente.
      * Si no quedan pares, finaliza la actividad.
      *
-     * @author Diego
+     * @author Diego, Intissar
      */
     private fun checkCompletion() {
         if (remainingPairs == 0) {
@@ -153,7 +153,7 @@ class Act1 : AppCompatActivity() {
             // Modificar el texto de textLetra si está vacío
             val textLetra = findViewById<TextView>(R.id.textLetra)
             if (textLetra.text.isEmpty()) {
-                textLetra.text = "O LORTU DUZUE"
+                textLetra.text = getString(R.string.o_lortu_duzue)
             }
 
             // Configurar listener para el botón mapa
@@ -183,6 +183,12 @@ class Act1 : AppCompatActivity() {
             }
         }
     }
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {
@@ -194,7 +200,7 @@ class Act1 : AppCompatActivity() {
             ayudaDialog.show()
             // Cambiar el texto en el layout de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text = "Abestia: Testua ondo irakurri eta ondoren agertzen diren hitz desordenatuak. Irakurri ondoren, 'Hasi' botoian klik egin dezakezu hutsuneak hitz egokiekin betetzeko."
+            textoAyuda.text = getString(R.string.arrastatu_irudiak_dagokien_hitzera)
             // Configurar el botón "cerrar" para cerrar la ventana emergente
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
             cerrar.setOnClickListener {
