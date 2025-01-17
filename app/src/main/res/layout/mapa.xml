@@ -22,7 +22,7 @@
         android:layout_below="@id/textViewTop" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ayuda"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/map"
