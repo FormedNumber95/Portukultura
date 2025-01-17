@@ -1,4 +1,5 @@
 package com.icjardinapps.dm2.portukultura
+import android.content.Intent
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
@@ -87,10 +88,10 @@ class Abestia : AppCompatActivity() {
             val mapaButton = findViewById<Button>(R.id.mapa)
             mapaButton.text=""
             mapaButton.setOnClickListener {
-                finish() // Cierra la actividad
+                val intent = Intent(this, OrdenarPalabra::class.java)
+                startActivity(intent)
+                finish()
             }
-
-            //Lanzar la siguiente actividad y no hacer finish
         } else {
             Toast.makeText(this, "Error en los textos, inténtalo de nuevo.", Toast.LENGTH_SHORT).show()
         }
