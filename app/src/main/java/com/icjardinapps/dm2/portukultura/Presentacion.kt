@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -38,6 +40,8 @@ class Presentacion : AppCompatActivity() {
         boton.setOnClickListener {
             showInputDialog()
         }
+        // Configurar la funcionalidad de ayuda
+        configurarAyuda()
     }
 
     /**
@@ -94,12 +98,31 @@ class Presentacion : AppCompatActivity() {
         dialog.show()
     }
 
+    private fun configurarAyuda() {
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text = "Ongi etorri jokoaren aurkezpenera. Testua irakurri eta ulertu ondoren, 'Erregistratu' botoian klik egin dezakezu jolasten hasi eta puntu irabazteko."
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
+        }
+    }
+
     /**
      * Funcion vacia que elimina el uso del boton  de retroceso
      * @author Intissar
      */
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
-
     }
 }

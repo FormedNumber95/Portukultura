@@ -8,7 +8,6 @@
     tools:context=".Puzzle">
 
 
-        <!-- Fondo del GridLayout -->
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="0dp"
@@ -21,7 +20,6 @@
         app:layout_constraintStart_toEndOf="@id/gVer1"
         app:layout_constraintTop_toBottomOf="@id/gHor1" />
 
-        <!-- GridLayout para el puzle -->
     <GridLayout
         android:id="@+id/puzzleGrid"
         android:layout_width="0dp"
@@ -76,6 +74,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.9"
         app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/ayuda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gHor1"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_help" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
