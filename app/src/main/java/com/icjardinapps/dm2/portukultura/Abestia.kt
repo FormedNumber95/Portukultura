@@ -1,4 +1,5 @@
 package com.icjardinapps.dm2.portukultura
+import android.content.Intent
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
@@ -10,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 /**
  * Actividad principal para gestionar la edición y validación de textos en un entorno interactivo.
+ *
+ * @author Aketza
  */
 class Abestia : AppCompatActivity() {
 
@@ -23,6 +26,7 @@ class Abestia : AppCompatActivity() {
     /**
      * Configura la actividad al crearse.
      *
+     * @author Aketza
      * @param savedInstanceState estado guardado de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +49,7 @@ class Abestia : AppCompatActivity() {
         configurarAyuda()
     }
     /**
+     * @author Aketza
      * Cambia los TextView a EditText para permitir la edición de textos.
      */
     private fun switchToEditMode() {
@@ -60,6 +65,8 @@ class Abestia : AppCompatActivity() {
      * Valida los textos ingresados por el usuario.
      *
      * Muestra un mensaje de éxito si los textos son correctos; de lo contrario, muestra un mensaje de error.
+     *
+     * @author Aketza
      */
     private fun validateInputs() {
         val subeArribaInput = findViewById<EditText>(pantorrilla.id).text.toString()
@@ -81,11 +88,12 @@ class Abestia : AppCompatActivity() {
 
             // Configurar listener para el botón mapa
             val mapaButton = findViewById<Button>(R.id.mapa)
+            mapaButton.text=""
             mapaButton.setOnClickListener {
-                finish() // Cierra la actividad
+                val intent = Intent(this, OrdenarPalabra::class.java)
+                startActivity(intent)
+                finish()
             }
-
-            //Lanzar la siguiente actividad y no hacer finish
         } else {
             Toast.makeText(this, "Error en los textos, inténtalo de nuevo.", Toast.LENGTH_SHORT).show()
         }
@@ -93,6 +101,7 @@ class Abestia : AppCompatActivity() {
     /**
      * Reemplaza un TextView con un EditText en el diseño.
      *
+     * @author Aketza
      * @param textView el TextView que se reemplazará.
      * @param hint el texto de sugerencia para el EditText.
      */
@@ -106,6 +115,7 @@ class Abestia : AppCompatActivity() {
         parent.removeView(textView)
         parent.addView(editText)
     }
+    
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {
@@ -125,6 +135,13 @@ class Abestia : AppCompatActivity() {
             }
         }
     }
+
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
+
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
 

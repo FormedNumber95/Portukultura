@@ -18,6 +18,8 @@ import com.icjardinapps.dm2.portukultura.databinding.MapaBinding
  * Actividad que muestra un mapa interactivo con marcadores. Cada marcador está asociado a una actividad que se
  * lanza al hacer clic sobre un marcador de color amarillo.
  * Los marcadores cambian de color para indicar el marcador activo.
+ *
+ * @author Aketza
  */
 class Mapa : AppCompatActivity(), OnMapReadyCallback {
 
@@ -46,6 +48,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
      * Metodo llamado al crear la actividad.
      * Inicializa el mapa y configura el fragmento del mapa.
      *
+     *@author Aketza
      * @param savedInstanceState Estado guardado de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,6 +65,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
      * Metodo llamado cuando el mapa está listo para ser utilizado.
      * Configura los marcadores en el mapa y establece la lógica para interactuar con ellos.
      *
+     * @author Aketza
      * @param googleMap El mapa de Google.
      */
     override fun onMapReady(googleMap: GoogleMap) {
@@ -92,13 +96,14 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         // Mapa de actividades para los marcadores
         markerActivities = markersList.mapIndexed { index, marker ->
             val activity = when (index) {
-                0 -> SopaDeLetras::class.java
+                0 -> Act1::class.java
                 1 -> Puzzle::class.java
                 2 -> TrenGeltokiaGalderaErrepikagarriak::class.java
                 3 -> SopaDeLetras::class.java
                 4 -> Ejer5::class.java
-                5 -> SopaDeLetras::class.java
+                5 -> Act6Imagen::class.java
                 6 -> Abestia::class.java
+
                 //Nunca se va a dar este caso
                 else -> Class.forName("com.icjardinapps.dm2.portukultura.Ejemplo${index}") as Class<out AppCompatActivity>
             }
@@ -117,7 +122,10 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                 // Lanzar actividad si el marcador es amarillo
                 val activityClass = markerActivities[marker]
                 if (activityClass != null) {
-                    val intent = Intent(this, activityClass)
+                    val markerIndex = markersList.indexOf(marker)
+                    val intent = Intent(this, activityClass).apply {
+                        putExtra("MARKER_INDEX", markerIndex) // Enviar el índice del marcador
+                    }
                     startActivity(intent)
                 }
                 true
@@ -143,6 +151,8 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
     /**
      * Metodo llamado cuando la actividad vuelve a estar en primer plano.
      * Actualiza el color del marcador activo y cambia al siguiente marcador.
+     *
+     * @author Aketza
      */
     override fun onResume() {
         super.onResume()
@@ -165,6 +175,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
      * Metodo para guardar el estado de la actividad antes de que sea destruida.
      * Guarda el índice del marcador activo.
      *
+     * @author Aketza
      * @param outState Estado guardado.
      */
     override fun onSaveInstanceState(outState: Bundle) {
@@ -175,12 +186,18 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
      * Metodo para restaurar el estado de la actividad después de que haya sido destruida.
      * Restaura el índice del marcador activo.
      *
+     * @author Aketza
      * @param savedInstanceState Estado guardado.
      */
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         activeMarkerIndex = savedInstanceState.getInt("activeMarkerIndex", 0)
     }
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
 

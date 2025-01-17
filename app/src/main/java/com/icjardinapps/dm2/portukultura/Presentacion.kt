@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity
 /**
  * Clase Presentacion que representa la actividad de presentación inicial de la aplicación.
  * Muestra una interfaz para que el usuario ingrese sus datos en un cuadro de diálogo.
+ *
+ * @author Intissar
  */
 class Presentacion : AppCompatActivity() {
 
@@ -23,6 +25,7 @@ class Presentacion : AppCompatActivity() {
      * Metodo llamado al crear la actividad.
      * Configura la vista inicial y asigna un listener al botón para abrir el cuadro de diálogo.
      *
+     * @author Intissar
      * @param savedInstanceState Si la actividad se está recreando desde un estado anterior,
      * este parámetro contiene los datos más recientes suministrados.
      */
@@ -44,6 +47,8 @@ class Presentacion : AppCompatActivity() {
     /**
      * Muestra un cuadro de diálogo personalizado para que el usuario introduzca su nombre y apellido.
      * Valida los datos ingresados y, si son correctos, inicia la actividad Mapa.
+     *
+     * @author Intissar
      */
     private fun showInputDialog() {
         // Inflar el diseño del cuadro de diálogo personalizado
@@ -92,6 +97,7 @@ class Presentacion : AppCompatActivity() {
         // Mostrar el cuadro de diálogo
         dialog.show()
     }
+
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {
@@ -111,6 +117,11 @@ class Presentacion : AppCompatActivity() {
             }
         }
     }
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
     }

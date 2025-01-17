@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrdenarPalabra">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gVer2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/letra1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/letra4"
+        app:layout_constraintEnd_toStartOf="@+id/letra2"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toTopOf="@+id/gHor2" />
+
+    <TextView
+        android:id="@+id/letra2"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/letra4"
+        app:layout_constraintEnd_toStartOf="@+id/letra3"
+        app:layout_constraintStart_toEndOf="@id/letra1"
+        app:layout_constraintTop_toTopOf="@+id/gHor2" />
+
+    <TextView
+        android:id="@+id/letra3"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/letra4"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintStart_toEndOf="@id/letra2"
+        app:layout_constraintTop_toTopOf="@+id/gHor2" />
+
+    <TextView
+        android:id="@+id/letra4"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gHor3"
+        app:layout_constraintEnd_toStartOf="@+id/letra5"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@id/letra1" />
+
+    <TextView
+        android:id="@+id/letra5"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gHor3"
+        app:layout_constraintEnd_toStartOf="@+id/letra6"
+        app:layout_constraintStart_toEndOf="@id/letra4"
+        app:layout_constraintTop_toBottomOf="@+id/letra1" />
+
+    <TextView
+        android:id="@+id/letra6"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gHor3"
+        app:layout_constraintEnd_toStartOf="@+id/letra7"
+        app:layout_constraintStart_toEndOf="@id/letra5"
+        app:layout_constraintTop_toBottomOf="@+id/letra1" />
+
+    <TextView
+        android:id="@+id/letra7"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gHor3"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintStart_toEndOf="@id/letra6"
+        app:layout_constraintTop_toBottomOf="@+id/letra1" />
+
+    <TextView
+        android:id="@+id/primeraLetra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text="@string/barrabaja"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/segundaLetra"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+    <TextView
+        android:id="@+id/segundaLetra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text="@string/barrabaja"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/terceraLetra"
+        app:layout_constraintStart_toEndOf="@+id/primeraLetra"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+    <TextView
+        android:id="@+id/terceraLetra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text="@string/barrabaja"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/cuartaLetra"
+        app:layout_constraintStart_toEndOf="@+id/segundaLetra"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+    <TextView
+        android:id="@+id/cuartaLetra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text="@string/barrabaja"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/quintaLetra"
+        app:layout_constraintStart_toEndOf="@+id/terceraLetra"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+    <TextView
+        android:id="@+id/quintaLetra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text="@string/barrabaja"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/sextaLetra"
+        app:layout_constraintStart_toEndOf="@+id/cuartaLetra"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+    <TextView
+        android:id="@+id/sextaLetra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text="@string/barrabaja"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/septimaLetra"
+        app:layout_constraintStart_toEndOf="@+id/quintaLetra"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+    <TextView
+        android:id="@+id/septimaLetra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text="@string/barrabaja"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintStart_toEndOf="@+id/sextaLetra"
+        app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
