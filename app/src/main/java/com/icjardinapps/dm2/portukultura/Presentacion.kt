@@ -97,7 +97,12 @@ class Presentacion : AppCompatActivity() {
         // Mostrar el cuadro de diálogo
         dialog.show()
     }
-
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {

@@ -64,9 +64,11 @@ class Abestia : AppCompatActivity() {
     /**
      * Valida los textos ingresados por el usuario.
      *
-     * Muestra un mensaje de éxito si los textos son correctos; de lo contrario, muestra un mensaje de error.
+     * Si los textos son correctos, muestra un mensaje de éxito y cambia a la vista correspondiente.
+     * Además, muestra la letra correspondiente y configura el botón de mapa para regresar a la actividad anterior.
+     * Al hacer clic en el ícono de ayuda, se muestra una ventana emergente con información sobre el juego.
      *
-     * @author Aketza
+     * @author Aketza, Intissar
      */
     private fun validateInputs() {
         val subeArribaInput = findViewById<EditText>(pantorrilla.id).text.toString()
@@ -74,8 +76,11 @@ class Abestia : AppCompatActivity() {
         val pantorrillaInput = findViewById<EditText>(subeArriba.id).text.toString()
         val chiquitinInput = findViewById<EditText>(queMeMareo.id).text.toString()
 
-        if (subeArribaInput.trim().lowercase().equals("sube arriba") && queMeMareoInput.trim().lowercase().equals("que me mareo") &&
-            pantorrillaInput.trim().lowercase().equals("pantorrilla") && chiquitinInput.trim().lowercase().equals("chiquitin")) {
+        // Validar los textos ingresados
+        if (subeArribaInput.trim().lowercase() == "sube arriba" &&
+            queMeMareoInput.trim().lowercase() == "que me mareo" &&
+            pantorrillaInput.trim().lowercase() == "pantorrilla" &&
+            chiquitinInput.trim().lowercase() == "chiquitin") {
 
             Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
             setContentView(R.layout.letra) // Cambiar al diseño letra.xml
@@ -83,16 +88,34 @@ class Abestia : AppCompatActivity() {
             // Modificar el texto de textLetra si está vacío
             val textLetra = findViewById<TextView>(R.id.textLetra)
             if (textLetra.text.isEmpty()) {
-                textLetra.text = "D LORTU DUZUE"
+                textLetra.text = getString(R.string.d_lortu_duzue)
             }
 
             // Configurar listener para el botón mapa
             val mapaButton = findViewById<Button>(R.id.mapa)
-            mapaButton.text=""
             mapaButton.setOnClickListener {
-                val intent = Intent(this, OrdenarPalabra::class.java)
-                startActivity(intent)
                 finish()
+            }
+
+            // Configurar el ícono de ayuda
+            val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+            imagenAyuda.setOnClickListener {
+                // Crear una ventana emergente
+                val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+                val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setView(ayudaView)
+                    .create()
+                ayudaDialog.show()
+
+                // Cambiar el texto en el layout de ayuda
+                val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+                textoAyuda.text =
+                    getString(R.string.helburu_finalerako_letra_bat_lortu_duzu_itzuli_mapa_atzera_nahi_baduzu_sakatu_mapa_botoia)
+                // Configurar el botón "cerrar" para cerrar la ventana emergente
+                val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+                cerrar.setOnClickListener {
+                    ayudaDialog.dismiss() // Cierra solo la ventana emergente
+                }
             }
         } else {
             Toast.makeText(this, "Error en los textos, inténtalo de nuevo.", Toast.LENGTH_SHORT).show()
