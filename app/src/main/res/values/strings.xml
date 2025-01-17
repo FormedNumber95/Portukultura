@@ -79,4 +79,5 @@
     <string name="d_lortu_duzue">D LORTU DUZUE</string>
     <string name="r_lortu_duzue">R LORTU DUZUE</string>
     <string name="e_lortu_duzue">E LORTU DUZUE</string>
+    <string name="mapa_behatu_jarduerak_egiteko_puntuaren_kolorea_kontuan_hartu_behar_duzu_horia_kolorea_duen_puntu_batek_adierazten_du_jarduera_jolastera_prest_dagoela_berde_kolorea_duten_puntuek_esan_nahi_dute_dagoeneko_egindako_jarduerak_direla_gorria_kolorea_duten_puntuek_adierazten_dute_oraindik_egitekoak_diren_jarduerak_daudela_jolastu_eta_jarduera_guztiak_bete">Mapa behatu. Jarduerak egiteko, puntuaren kolorea kontuan hartu behar duzu. **Horia** kolorea duen puntu batek adierazten du jarduera jolastera prest dagoela. **Berde** kolorea duten puntuek esan nahi dute dagoeneko egindako jarduerak direla. **Gorria** kolorea duten puntuek adierazten dute oraindik egitekoak diren jarduerak daudela. Jolastu eta jarduera guztiak bete!</string>
 </resources>
