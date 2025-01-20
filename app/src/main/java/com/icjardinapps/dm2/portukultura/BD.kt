@@ -99,7 +99,7 @@ class BD (context: Context) {
      * @param añoNacimiento El año de nacimiento del alumno.
      * @return true si la inserción fue exitosa, false si hubo algún error.
      */
-    fun guardarEnMariaDB(usuario: String, nombre: String, añoNacimiento: Int): Boolean {
+    fun guardarAlumnoEnMariaDB(usuario: String, nombre: String, añoNacimiento: Int): Boolean {
         val conexion = obtenerConexion()
         if (conexion != null) {
             try {
@@ -112,6 +112,27 @@ class BD (context: Context) {
                 statement.setString(4, null)
                 statement.setDate(5, null)
                 statement.setDate(6, null)
+                statement.executeUpdate()
+                return true
+            } catch (e: SQLException) {
+                e.printStackTrace()
+                return false
+            } finally {
+                conexion.close()
+            }
+        }
+        return false
+    }
+
+    fun guardarPuntuacion(usuario:String):Boolean{
+        val conexion = obtenerConexion()
+        if (conexion != null) {
+            try {
+                val query =
+                    "INSERT INTO puntuacion (usuario,id_aplicacion) VALUES (?, ?)"
+                val statement: PreparedStatement = conexion.prepareStatement(query)
+                statement.setString(1, usuario)
+                statement.setInt(2,1)
                 statement.executeUpdate()
                 return true
             } catch (e: SQLException) {

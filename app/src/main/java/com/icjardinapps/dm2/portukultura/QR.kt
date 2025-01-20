@@ -27,7 +27,7 @@ class QR : AppCompatActivity() {
             Thread {
                 var usuario=intent.getStringExtra("nombre").toString() + intent.getStringExtra("apellido")
                     .toString()
-                var insertSuccess: Boolean = bd.guardarEnMariaDB(
+                var insertSuccess: Boolean = bd.guardarAlumnoEnMariaDB(
                     usuario,
                     intent.getStringExtra("nombre")
                         .toString() + " " + intent.getStringExtra("apellido").toString(),
@@ -36,7 +36,7 @@ class QR : AppCompatActivity() {
                 if (!insertSuccess) {
                     var num = 1
                     do {
-                        insertSuccess = bd.guardarEnMariaDB(
+                        insertSuccess = bd.guardarAlumnoEnMariaDB(
                             usuario + num,
                             intent.getStringExtra("nombre")
                                 .toString() + " " + intent.getStringExtra("apellido").toString(),
@@ -47,7 +47,7 @@ class QR : AppCompatActivity() {
                     usuario+=(num-1)
                 }
                 //ya esta el usuario deseado
-
+                bd.guardarPuntuacion(usuario)
             }.start()
         }
     }
