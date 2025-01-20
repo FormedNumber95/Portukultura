@@ -119,9 +119,11 @@ class Video : AppCompatActivity() {
             else -> TimerConfig(
                 timeMillis = 1000, // 145 segundos = 2min 25s
                 buttonAction = {
+                    val nombre=intent.getStringExtra("nombre").toString()
+                    val apellido=intent.getStringExtra("apellido").toString()
                     val intent = Intent(this, Abestia::class.java)
-                    intent.putExtra("nombre",intent.getStringExtra("nombre").toString())
-                    intent.putExtra("apelldio",intent.getStringExtra("apellido").toString())
+                    intent.putExtra("nombre",nombre)
+                    intent.putExtra("apellido",apellido)
                     startActivity(intent)
                     finish()
                 }

@@ -1,7 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 /**
@@ -26,9 +25,10 @@ class QR : AppCompatActivity() {
         img.setOnClickListener {
             img.setImageResource(R.drawable.fin)
             Thread {
+                var usuario=intent.getStringExtra("nombre").toString() + intent.getStringExtra("apellido")
+                    .toString()
                 var insertSuccess: Boolean = bd.guardarEnMariaDB(
-                    intent.getStringExtra("nombre").toString() + intent.getStringExtra("apellido")
-                        .toString(),
+                    usuario,
                     intent.getStringExtra("nombre")
                         .toString() + " " + intent.getStringExtra("apellido").toString(),
                     1
@@ -37,15 +37,17 @@ class QR : AppCompatActivity() {
                     var num = 1
                     do {
                         insertSuccess = bd.guardarEnMariaDB(
-                            intent.getStringExtra("nombre")
-                                .toString() + intent.getStringExtra("apellido").toString() + num,
+                            usuario + num,
                             intent.getStringExtra("nombre")
                                 .toString() + " " + intent.getStringExtra("apellido").toString(),
                             1
                         )
                         num++
                     } while (!insertSuccess)
+                    usuario+=(num-1)
                 }
+                //ya esta el usuario deseado
+
             }.start()
         }
     }

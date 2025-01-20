@@ -113,9 +113,11 @@ class OrdenarPalabra : AppCompatActivity() {
     private fun checkCompletion() {
         if (remainingPairs == 0) {
             // Si no quedan pares, cerramos la actividad
+            val nombre=intent.getStringExtra("nombre").toString()
+            val apellido=intent.getStringExtra("apellido").toString()
             val intent = Intent(this, QR::class.java)
-            intent.putExtra("nombre",intent.getStringExtra("nombre").toString())
-            intent.putExtra("apelldio",intent.getStringExtra("apellido").toString())
+            intent.putExtra("nombre",nombre)
+            intent.putExtra("apellido",apellido)
             startActivity(intent)
             finish()
         }

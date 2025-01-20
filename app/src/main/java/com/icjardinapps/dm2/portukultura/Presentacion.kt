@@ -12,8 +12,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import java.io.File
-import java.util.logging.Logger
 
 /**
  * Clase Presentacion que representa la actividad de presentación inicial de la aplicación.
