@@ -18,9 +18,12 @@ import androidx.appcompat.app.AppCompatActivity
  * Muestra una interfaz para que el usuario ingrese sus datos en un cuadro de diálogo.
  *
  * @author Intissar
+ * @version 1.1
  */
 class Presentacion : AppCompatActivity() {
 
+    private lateinit var nombre:String
+    private lateinit var apellido:String
     /**
      * Metodo llamado al crear la actividad.
      * Configura la vista inicial y asigna un listener al botón para abrir el cuadro de diálogo.
@@ -74,8 +77,8 @@ class Presentacion : AppCompatActivity() {
         dialog.setOnShowListener {
             val buttonComenzar = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
             buttonComenzar.setOnClickListener {
-                val nombre = editTextNombre.text.toString().trim()
-                val apellido = editTextApellido.text.toString().trim()
+                nombre = editTextNombre.text.toString().trim()
+                apellido = editTextApellido.text.toString().trim()
 
                 if (nombre.isEmpty() || apellido.isEmpty()) {
                     // Mostrar un mensaje de error si los campos están vacíos
@@ -83,13 +86,14 @@ class Presentacion : AppCompatActivity() {
                 } else {
                     // Mostrar un mensaje de éxito con los datos ingresados
                     Toast.makeText(this, getString(R.string.datos_guardados) +"$nombre $apellido", Toast.LENGTH_SHORT).show()
-
                     // Crear un Intent para iniciar la actividad Mapa
                     val intent = Intent(this, Mapa::class.java)
+                    intent.putExtra("nombre",nombre)
+                    intent.putExtra("apellido",apellido)
                     startActivity(intent)
-
                     // Cerrar el cuadro de diálogo
                     dialog.dismiss()
+                    finish()
                 }
             }
         }
@@ -98,6 +102,11 @@ class Presentacion : AppCompatActivity() {
         dialog.show()
     }
 
+    /**
+     * Configura la ventana de ayuda, mostrando una descripción en pantalla y un botón para cerrarla.
+     *
+     * @author Intissar
+     */
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {

@@ -20,8 +20,12 @@ import com.icjardinapps.dm2.portukultura.databinding.MapaBinding
  * Los marcadores cambian de color para indicar el marcador activo.
  *
  * @author Aketza
+ * @version 1.1
  */
 class Mapa : AppCompatActivity(), OnMapReadyCallback {
+
+    private lateinit var nombre:String
+    private lateinit var apellido:String
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: MapaBinding
@@ -60,6 +64,8 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        nombre= intent.getStringExtra("nombre").toString()
+        apellido= intent.getStringExtra("apellido").toString()
     }
     /**
      * Metodo llamado cuando el mapa está listo para ser utilizado.
@@ -125,6 +131,10 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                     val markerIndex = markersList.indexOf(marker)
                     val intent = Intent(this, activityClass).apply {
                         putExtra("MARKER_INDEX", markerIndex) // Enviar el índice del marcador
+                        if(markerIndex==6) {
+                            putExtra("nombre", nombre)
+                            putExtra("apellido", apellido)
+                        }
                     }
                     startActivity(intent)
                 }
