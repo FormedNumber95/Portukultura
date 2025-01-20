@@ -20,6 +20,7 @@ import com.icjardinapps.dm2.portukultura.databinding.MapaBinding
  * Los marcadores cambian de color para indicar el marcador activo.
  *
  * @author Aketza
+ * @version 1.1
  */
 class Mapa : AppCompatActivity(), OnMapReadyCallback {
 

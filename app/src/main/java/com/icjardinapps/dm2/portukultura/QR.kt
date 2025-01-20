@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -7,12 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
  * Clase QR que maneja la funcionalidad relacionada con el código QR y su interacción.
  *
  * @author Aketza
- * @version 1.0
+ * @version 1.1
  */
 class QR : AppCompatActivity() {
     /**
      * Metodo llamado al crear la actividad.
-     * Configura la vista y maneja la interacción con el código QR.
+     * Configura la vista y maneja la interacción con el código QR y la conexion con la base de datos.
      *
      * @author Aketza
      * @param savedInstanceState Información sobre el estado previo de la actividad.
@@ -50,5 +51,14 @@ class QR : AppCompatActivity() {
                 bd.guardarPuntuacion(usuario)
             }.start()
         }
+    }
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }

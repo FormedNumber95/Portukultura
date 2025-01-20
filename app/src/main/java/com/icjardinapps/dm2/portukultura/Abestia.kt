@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
  * Actividad principal para gestionar la edición y validación de textos en un entorno interactivo.
  *
  * @author Aketza
+ * @version 1.1
  */
 class Abestia : AppCompatActivity() {
 

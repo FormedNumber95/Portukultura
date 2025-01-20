@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
  * Muestra una interfaz para que el usuario ingrese sus datos en un cuadro de diálogo.
  *
  * @author Intissar
- * @version 1.0
+ * @version 1.1
  */
 class Presentacion : AppCompatActivity() {
 
