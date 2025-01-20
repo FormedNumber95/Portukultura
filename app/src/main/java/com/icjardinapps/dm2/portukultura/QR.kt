@@ -1,6 +1,7 @@
 package com.icjardinapps.dm2.portukultura
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 /**
@@ -18,20 +19,34 @@ class QR : AppCompatActivity() {
      * @param savedInstanceState Información sobre el estado previo de la actividad.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
-        val bd=BD()
+        val bd=BD(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.qr)
         val img:ImageView=findViewById(R.id.imgQR)
         img.setOnClickListener {
             img.setImageResource(R.drawable.fin)
-            var insertSuccess:Boolean = bd.guardarEnMariaDB(intent.getStringExtra("nombre").toString()+intent.getStringExtra("apellido").toString(),intent.getStringExtra("nombre").toString()+" "+intent.getStringExtra("apellido").toString(), 1)
-            if (!insertSuccess) {
-                var num=1
-                do{
-                    insertSuccess=bd.guardarEnMariaDB(intent.getStringExtra("nombre").toString()+intent.getStringExtra("apellido").toString()+num,intent.getStringExtra("nombre").toString()+" "+intent.getStringExtra("apellido").toString(), 1)
-                    num++
-                }while (!insertSuccess)
-            }
+            Thread {
+                var insertSuccess: Boolean = bd.guardarEnMariaDB(
+                    intent.getStringExtra("nombre").toString() + intent.getStringExtra("apellido")
+                        .toString(),
+                    intent.getStringExtra("nombre")
+                        .toString() + " " + intent.getStringExtra("apellido").toString(),
+                    1
+                )
+                if (!insertSuccess) {
+                    var num = 1
+                    do {
+                        insertSuccess = bd.guardarEnMariaDB(
+                            intent.getStringExtra("nombre")
+                                .toString() + intent.getStringExtra("apellido").toString() + num,
+                            intent.getStringExtra("nombre")
+                                .toString() + " " + intent.getStringExtra("apellido").toString(),
+                            1
+                        )
+                        num++
+                    } while (!insertSuccess)
+                }
+            }.start()
         }
     }
 }

@@ -1,15 +1,12 @@
 package com.icjardinapps.dm2.portukultura
 
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileNotFoundException
+import android.content.Context
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
 import java.util.Properties
-import java.util.logging.Logger
 
 /**
  * Clase que gestiona las operaciones con la base de datos utilizando configuración de conexión
@@ -20,15 +17,27 @@ import java.util.logging.Logger
  * @author Aketza
  * @version 1.0
  */
-class BD {
+class BD (context: Context) {
     private val dbUrl:String
     private val dbUser:String
     private val dbPassword:String
 
 
     init {
-        var properties = Properties()
+        // Crear instancia de Properties
+        val properties = Properties()
 
+        // Cargar el archivo .properties
+        try {
+            // Usar el Context para acceder a assets
+            val inputStream = context.assets.open("config.properties")
+            properties.load(inputStream)
+            inputStream.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        // Obtener valores de las propiedades
         dbUrl = properties.getProperty("db_url") ?: throw IllegalArgumentException("db_url no definido")
         dbUser = properties.getProperty("db_user") ?: throw IllegalArgumentException("db_user no definido")
         dbPassword = properties.getProperty("db_password") ?: throw IllegalArgumentException("db_password no definido")
@@ -94,7 +103,8 @@ class BD {
         val conexion = obtenerConexion()
         if (conexion != null) {
             try {
-                val query = "INSERT INTO alumno (usuario, nombre, año_nacimiento, idioma, fecha_alta, fecha_baja) VALUES (?, ?, ?, ?, ?, ?)"
+                val query =
+                    "INSERT INTO alumno (usuario, nombre, año_nacimiento, idioma, fecha_alta, fecha_baja) VALUES (?, ?, ?, ?, ?, ?)"
                 val statement: PreparedStatement = conexion.prepareStatement(query)
                 statement.setString(1, usuario)
                 statement.setString(2, nombre)
