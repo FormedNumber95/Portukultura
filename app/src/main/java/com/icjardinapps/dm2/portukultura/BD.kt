@@ -15,7 +15,7 @@ import java.util.Properties
  * Proporciona métodos para obtener registros y guardar nuevos datos en las tablas de la base de datos.
  *
  * @author Aketza
- * @version 1.0
+ * @version 1.1
  */
 class BD (context: Context) {
     private val dbUrl:String
@@ -59,47 +59,15 @@ class BD (context: Context) {
     }
 
     /**
-     * Obtiene registros de la tabla "registros".
-     *
-     * @author Aketza
-     * @return Una lista de mapas donde cada mapa representa una fila de la tabla con los valores de las columnas.
-     */
-    fun obtenerRegistros(): List<Map<String, String>> {
-        val registros = mutableListOf<Map<String, String>>()
-        val conexion = obtenerConexion()
-        if (conexion != null) {
-            try {
-                val query = "SELECT * FROM registros"
-                val statement = conexion.createStatement()
-                val resultSet: ResultSet = statement.executeQuery(query)
-                while (resultSet.next()) {
-                    registros.add(
-                        mapOf(
-                            "id" to resultSet.getString("id"),
-                            "nombre" to resultSet.getString("nombre"),
-                            "email" to resultSet.getString("email")
-                        )
-                    )
-                }
-            } catch (e: SQLException) {
-                e.printStackTrace()
-            } finally {
-                conexion.close()
-            }
-        }
-        return registros
-    }
-
-    /**
      * Inserta un nuevo registro en la tabla "alumno".
      *
      * @author Aketza
      * @param usuario El nombre de usuario.
      * @param nombre El nombre del alumno.
-     * @param añoNacimiento El año de nacimiento del alumno.
+     * @param anioNacimiento El año de nacimiento del alumno.
      * @return true si la inserción fue exitosa, false si hubo algún error.
      */
-    fun guardarAlumnoEnMariaDB(usuario: String, nombre: String, añoNacimiento: Int): Boolean {
+    fun guardarAlumnoEnMariaDB(usuario: String, nombre: String, anioNacimiento: Int): Boolean {
         val conexion = obtenerConexion()
         if (conexion != null) {
             try {
@@ -108,7 +76,7 @@ class BD (context: Context) {
                 val statement: PreparedStatement = conexion.prepareStatement(query)
                 statement.setString(1, usuario)
                 statement.setString(2, nombre)
-                statement.setInt(3, añoNacimiento)
+                statement.setInt(3, anioNacimiento)
                 statement.setString(4, null)
                 statement.setDate(5, null)
                 statement.setDate(6, null)
@@ -124,6 +92,13 @@ class BD (context: Context) {
         return false
     }
 
+    /**
+     * Inserta un nuevo registro en la tabla "puntuacion".
+     *
+     * @author Aketza
+     * @param usuario El nombre de usuario.
+     * @return true si la inserción fue exitosa, false si hubo algún error.
+     */
     fun guardarPuntuacion(usuario:String):Boolean{
         val conexion = obtenerConexion()
         if (conexion != null) {
