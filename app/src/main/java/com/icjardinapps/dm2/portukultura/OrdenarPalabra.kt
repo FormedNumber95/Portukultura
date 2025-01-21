@@ -1,5 +1,6 @@
 package com.icjardinapps.dm2.portukultura
 
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.Intent
 import android.os.Bundle
@@ -10,11 +11,27 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+ * Clase OrdenarPalabra que representa una actividad donde los usuarios deben ordenar letras
+ * para formar una palabra específica mediante una interacción de arrastrar y soltar.
+ *
+ * @author Aketza
+ * @version 1.0
+ */
 class OrdenarPalabra : AppCompatActivity() {
 
     private val letras:Array<Char> = arrayOf('O','N','D','A','R','E','A')
     private var remainingPairs = 7
 
+    /**
+     * Metodo llamado al crear la actividad.
+     * Configura las vistas iniciales, asigna letras de manera aleatoria y permite
+     * que los TextView sean arrastrables y dropeables.
+     *
+     * @param savedInstanceState Si la actividad se está recreando desde un estado anterior,
+     * este parámetro contiene los datos más recientes suministrados.
+     * @author Aketza
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ordenar_palabra)
@@ -66,6 +83,7 @@ class OrdenarPalabra : AppCompatActivity() {
      * Hace que un TextView sea arrastrable.
      *
      * @param view la vista que será arrastrable.
+     * @author Aketza
      */
     private fun setDraggable(view: TextView) {
         view.setOnTouchListener { v, event ->
@@ -76,6 +94,14 @@ class OrdenarPalabra : AppCompatActivity() {
         }
     }
 
+    /**
+     * Configura un TextView como una zona donde se pueden soltar elementos.
+     * Comprueba si el texto arrastrado coincide con el requerido.
+     *
+     * @param target El TextView que actuará como objetivo de drop.
+     * @param matchingText El texto que debe coincidir para que el drop sea válido.
+     * @author Aketza
+     */
     private fun setDroppable(target: TextView, matchingText: String) {
         target.setOnDragListener { v, event ->
             when (event.action) {
@@ -91,7 +117,7 @@ class OrdenarPalabra : AppCompatActivity() {
                 DragEvent.ACTION_DROP -> {
                     v.alpha = 1.0f
                     val draggedView = event.localState as? TextView
-                    if (draggedView?.text == matchingText) {
+                    if (draggedView?.text == matchingText&&(v as TextView).text=="_") {
                         // Si el texto coincide, ocultamos ambas vistas
                         (v as TextView).text=draggedView.text
                         draggedView.text=""
@@ -136,14 +162,28 @@ class OrdenarPalabra : AppCompatActivity() {
     /**
      * Verifica si todos los pares han sido emparejados correctamente.
      * Si es así, cierra la actividad.
+     * @author Aketza
      */
     private fun checkCompletion() {
         if (remainingPairs == 0) {
             // Si no quedan pares, cerramos la actividad
+            val nombre=intent.getStringExtra("nombre").toString()
+            val apellido=intent.getStringExtra("apellido").toString()
             val intent = Intent(this, QR::class.java)
+            intent.putExtra("nombre",nombre)
+            intent.putExtra("apellido",apellido)
             startActivity(intent)
             finish()
         }
+    }
+
+    /**
+     * Funcion vacia que elimina el uso del boton  de retroceso
+     * @author Intissar
+     */
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 
 }

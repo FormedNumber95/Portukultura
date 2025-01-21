@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 /**
  * Clase que gestiona la reproducción de videos y la ejecución de temporizadores para realizar diferentes actividades.
  * El comportamiento del temporizador y la acción del botón varían según el índice del marcador recibido.
+ *
+ * @author Aketza
+ * @version 1.1
  */
 class Video : AppCompatActivity() {
 
@@ -20,6 +23,8 @@ class Video : AppCompatActivity() {
     private lateinit var videoView:VideoView
     /**
      * Metodo que se ejecuta al crear la actividad.
+     *
+     * @author Aketza
      * @param savedInstanceState instancia previa de la actividad (si la hay).
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +61,7 @@ class Video : AppCompatActivity() {
     /**
      * Devuelve la configuración del temporizador, la acción del botón y el video según el índice del marcador.
      *
+     * @author Aketza
      * @param markerIndex índice del marcador que determina el video y la actividad a realizar.
      * @return una instancia de [TimerConfig] con la duración del temporizador y la acción del botón.
      */
@@ -78,9 +84,9 @@ class Video : AppCompatActivity() {
         return when (markerIndex) {
             //Actividad 1
             0 -> TimerConfig(
-                timeMillis = 71000, // 71 segundos = 1min 11s
+                timeMillis = 81000, // 81 segundos = 1min 21s
                 buttonAction = {
-                    val intent = Intent(this, SopaDeLetras::class.java)
+                    val intent = Intent(this, Act1::class.java)
                     startActivity(intent)
                     finish()
                 }
@@ -116,13 +122,18 @@ class Video : AppCompatActivity() {
             else -> TimerConfig(
                 timeMillis = 145000, // 145 segundos = 2min 25s
                 buttonAction = {
+                    val nombre=intent.getStringExtra("nombre").toString()
+                    val apellido=intent.getStringExtra("apellido").toString()
                     val intent = Intent(this, Abestia::class.java)
+                    intent.putExtra("nombre",nombre)
+                    intent.putExtra("apellido",apellido)
                     startActivity(intent)
                     finish()
                 }
             )
         }
     }
+
     /**
      * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
      * Incluye un botón "cerrar" para cerrar la ventana.
@@ -154,9 +165,6 @@ class Video : AppCompatActivity() {
      * Funcion vacia que elimina el uso del boton  de retroceso
      * @author Intissar
      */
-
     @SuppressLint("MissingSuperCall")
-    override fun onBackPressed() {
-
-    }
+    override fun onBackPressed() {}
 }

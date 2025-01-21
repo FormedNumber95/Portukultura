@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
  * Actividad principal para gestionar la edición y validación de textos en un entorno interactivo.
  *
  * @author Aketza
+ * @version 1.1
  */
 class Abestia : AppCompatActivity() {
 
@@ -75,25 +76,28 @@ class Abestia : AppCompatActivity() {
         val queMeMareoInput = findViewById<EditText>(chiquitin.id).text.toString()
         val pantorrillaInput = findViewById<EditText>(subeArriba.id).text.toString()
         val chiquitinInput = findViewById<EditText>(queMeMareo.id).text.toString()
-
         // Validar los textos ingresados
-        if (subeArribaInput.trim().lowercase() == "sube arriba" &&
-            queMeMareoInput.trim().lowercase() == "que me mareo" &&
-            pantorrillaInput.trim().lowercase() == "pantorrilla" &&
-            chiquitinInput.trim().lowercase() == "chiquitin") {
+        if (subeArribaInput.trim().lowercase().equals("sube arriba") && queMeMareoInput.trim().lowercase().equals("que me mareo") &&
+            pantorrillaInput.trim().lowercase().equals("pantorrilla") && (chiquitinInput.trim().lowercase().equals("chiquitin")||chiquitinInput.trim().lowercase().equals("chiquitín"))) {
 
-            Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
             setContentView(R.layout.letra) // Cambiar al diseño letra.xml
 
             // Modificar el texto de textLetra si está vacío
             val textLetra = findViewById<TextView>(R.id.textLetra)
             if (textLetra.text.isEmpty()) {
-                textLetra.text = getString(R.string.d_lortu_duzue)
+                textLetra.text = getString(R.string.a_lortu_duzue)
             }
 
             // Configurar listener para el botón mapa
             val mapaButton = findViewById<Button>(R.id.mapa)
+            mapaButton.text= getString(R.string.hitza_osatu)
             mapaButton.setOnClickListener {
+                val nombre=intent.getStringExtra("nombre").toString()
+                val apellido=intent.getStringExtra("apellido").toString()
+                val intent = Intent(this, OrdenarPalabra::class.java)
+                intent.putExtra("nombre",nombre)
+                intent.putExtra("apellido",apellido)
+                startActivity(intent)
                 finish()
             }
 
@@ -118,7 +122,7 @@ class Abestia : AppCompatActivity() {
                 }
             }
         } else {
-            Toast.makeText(this, "Error en los textos, inténtalo de nuevo.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.txarto_egin_duzu_saiatu_berriro), Toast.LENGTH_SHORT).show()
         }
     }
     /**

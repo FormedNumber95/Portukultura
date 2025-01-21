@@ -20,8 +20,12 @@ import com.icjardinapps.dm2.portukultura.databinding.MapaBinding
  * Los marcadores cambian de color para indicar el marcador activo.
  *
  * @author Aketza
+ * @version 1.1
  */
 class Mapa : AppCompatActivity(), OnMapReadyCallback {
+
+    private lateinit var nombre:String
+    private lateinit var apellido:String
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: MapaBinding
@@ -60,6 +64,8 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        nombre= intent.getStringExtra("nombre").toString()
+        apellido= intent.getStringExtra("apellido").toString()
     }
     /**
      * Metodo llamado cuando el mapa está listo para ser utilizado.
@@ -96,13 +102,13 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         // Mapa de actividades para los marcadores
         markerActivities = markersList.mapIndexed { index, marker ->
             val activity = when (index) {
-                0 -> Act1::class.java
-                1 -> Puzzle::class.java
-                2 -> TrenGeltokiaGalderaErrepikagarriak::class.java
+                0 -> Video::class.java
+                1 -> Video::class.java
+                2 -> Video::class.java
                 3 -> SopaDeLetras::class.java
-                4 -> Ejer5::class.java
+                4 -> Video::class.java
                 5 -> Act6Imagen::class.java
-                6 -> Abestia::class.java
+                6 -> Video::class.java
 
                 //Nunca se va a dar este caso
                 else -> Class.forName("com.icjardinapps.dm2.portukultura.Ejemplo${index}") as Class<out AppCompatActivity>
@@ -125,6 +131,10 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
                     val markerIndex = markersList.indexOf(marker)
                     val intent = Intent(this, activityClass).apply {
                         putExtra("MARKER_INDEX", markerIndex) // Enviar el índice del marcador
+                        if(markerIndex==6) {
+                            putExtra("nombre", nombre)
+                            putExtra("apellido", apellido)
+                        }
                     }
                     startActivity(intent)
                 }

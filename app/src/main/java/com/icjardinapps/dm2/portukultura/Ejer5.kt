@@ -80,12 +80,12 @@ class Ejer5 : AppCompatActivity() {
             // Modificar el texto de textLetra si está vacío
             val textLetra = findViewById<TextView>(R.id.textLetra)
             if (textLetra.text.isEmpty()) {
-                textLetra.text = "R LORTU DUZUE"
-            }
-            // Configurar listener para el botón mapa
-            val mapaButton = findViewById<Button>(R.id.mapa)
-            mapaButton.setOnClickListener {
-                finish() // Cierra la actividad
+                textLetra.text = getString(R.string.r_lortu_duzue)
+                // Configurar listener para el botón mapa
+                val mapaButton = findViewById<Button>(R.id.mapa)
+                mapaButton.setOnClickListener {
+                    finish() // Cierra la actividad
+                }
             }
             // Configurar el ícono de ayuda
             val imagenAyuda: ImageView = findViewById(R.id.ayuda)
@@ -96,7 +96,6 @@ class Ejer5 : AppCompatActivity() {
                     .setView(ayudaView)
                     .create()
                 ayudaDialog.show()
-
                 // Cambiar el texto en el layout de ayuda
                 val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
                 textoAyuda.text =

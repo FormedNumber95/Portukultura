@@ -135,7 +135,7 @@ class Act6DnD : AppCompatActivity() {
             // Modificar el texto de textLetra si está vacío
             val textLetra = findViewById<TextView>(R.id.textLetra)
             if (textLetra.text.isEmpty()) {
-                textLetra.text = "E LORTU DUZUE"
+                textLetra.text = getString(R.string.e_lortu_duzue)
             }
 
             // Configurar listener para el botón mapa
