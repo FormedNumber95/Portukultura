@@ -70,6 +70,8 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         nombre= intent.getStringExtra("nombre").toString()
         apellido= intent.getStringExtra("apellido").toString()
         configurarAyuda()
+        val txtNombre:TextView=findViewById(R.id.textViewTop)
+        txtNombre.text=nombre+" "+apellido
     }
     /**
      * Metodo llamado cuando el mapa está listo para ser utilizado.
