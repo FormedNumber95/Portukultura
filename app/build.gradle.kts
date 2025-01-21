@@ -38,6 +38,12 @@ android {
         viewBinding = true
         buildConfig = true
     }
+    packaging {
+        resources {
+            excludes += "META-INF/AL2.0"
+            excludes += "META-INF/LGPL2.1"
+        }
+    }
 }
 
 secrets {
@@ -68,6 +74,7 @@ dependencies {
     implementation(libs.androidx.gridlayout)
     implementation(libs.play.services.maps)
     implementation(libs.androidx.foundation.android)
+    implementation(libs.mariadb.java.client)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

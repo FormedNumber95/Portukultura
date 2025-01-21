@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
  * El comportamiento del temporizador y la acción del botón varían según el índice del marcador recibido.
  *
  * @author Aketza
+ * @version 1.1
  */
 class Video : AppCompatActivity() {
 
@@ -119,7 +120,11 @@ class Video : AppCompatActivity() {
             else -> TimerConfig(
                 timeMillis = 145000, // 145 segundos = 2min 25s
                 buttonAction = {
+                    val nombre=intent.getStringExtra("nombre").toString()
+                    val apellido=intent.getStringExtra("apellido").toString()
                     val intent = Intent(this, Abestia::class.java)
+                    intent.putExtra("nombre",nombre)
+                    intent.putExtra("apellido",apellido)
                     startActivity(intent)
                     finish()
                 }

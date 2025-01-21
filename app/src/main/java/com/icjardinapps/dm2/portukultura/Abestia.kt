@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
  * Actividad principal para gestionar la edición y validación de textos en un entorno interactivo.
  *
  * @author Aketza
+ * @version 1.1
  */
 class Abestia : AppCompatActivity() {
 
@@ -89,7 +90,11 @@ class Abestia : AppCompatActivity() {
             val mapaButton = findViewById<Button>(R.id.mapa)
             mapaButton.text= getString(R.string.hitza_osatu)
             mapaButton.setOnClickListener {
+                val nombre=intent.getStringExtra("nombre").toString()
+                val apellido=intent.getStringExtra("apellido").toString()
                 val intent = Intent(this, OrdenarPalabra::class.java)
+                intent.putExtra("nombre",nombre)
+                intent.putExtra("apellido",apellido)
                 startActivity(intent)
                 finish()
             }
