@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Act1">
+    tools:context=".Act6DnD">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gVer1"
@@ -61,103 +61,85 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/fuente"
+        android:id="@+id/pan"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/palmeras"
+        app:layout_constraintBottom_toTopOf="@id/terraza"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
         app:layout_constraintTop_toTopOf="@+id/gHor1"
-        app:srcCompat="@drawable/fuente" />
+        app:srcCompat="@drawable/pan" />
 
     <ImageView
-        android:id="@+id/palmeras"
+        android:id="@+id/terraza"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:srcCompat="@drawable/palmeras"
+        app:layout_constraintBottom_toTopOf="@id/equipo"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
-        app:layout_constraintBottom_toTopOf="@id/buho"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
-        app:layout_constraintTop_toBottomOf="@+id/fuente" />
+        app:layout_constraintTop_toBottomOf="@+id/pan"
+        app:srcCompat="@drawable/terraza6" />
 
     <ImageView
-        android:id="@+id/buho"
+        android:id="@+id/equipo"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:srcCompat="@drawable/buho"
+        app:layout_constraintBottom_toTopOf="@id/casa"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
-        app:layout_constraintBottom_toTopOf="@id/monos"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
-        app:layout_constraintTop_toBottomOf="@+id/palmeras" />
+        app:layout_constraintTop_toBottomOf="@+id/terraza"
+        app:srcCompat="@drawable/equipo6" />
 
     <ImageView
-        android:id="@+id/monos"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:srcCompat="@drawable/monos"
-        app:layout_constraintEnd_toStartOf="@+id/gVer2"
-        app:layout_constraintBottom_toTopOf="@id/jardin"
-        app:layout_constraintStart_toStartOf="@+id/gVer1"
-        app:layout_constraintTop_toBottomOf="@+id/buho"/>
-
-    <ImageView
-        android:id="@+id/jardin"
+        android:id="@+id/casa"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/gHor2"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
-        app:layout_constraintTop_toBottomOf="@+id/monos"
-        app:srcCompat="@drawable/jardin" />
+        app:layout_constraintTop_toBottomOf="@+id/equipo"
+        app:srcCompat="@drawable/casa6" />
 
     <TextView
-        android:id="@+id/tximinoak"
+        android:id="@+id/arrautz_ospetsu_hau_pilota_forma_du_eta_ogiarekin_zerbitzatzen_da"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/tximinoak"
-        app:layout_constraintBottom_toTopOf="@id/palmondoak"
+        android:text="@string/arrautz_ospetsu_hau_pilota_forma_du_eta_ogiarekin_zerbitzatzen_da"
+        app:layout_constraintBottom_toTopOf="@id/taberna_honen_aurrean_canillako_tren_geltokia_dago"
         app:layout_constraintEnd_toStartOf="@+id/gVer4"
         app:layout_constraintStart_toStartOf="@+id/gVer3"
         app:layout_constraintTop_toTopOf="@+id/gHor1" />
 
     <TextView
-        android:id="@+id/palmondoak"
+        android:id="@+id/taberna_honen_aurrean_canillako_tren_geltokia_dago"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/palmondoak_eta_zuhaitzak"
-        app:layout_constraintEnd_toStartOf="@+id/gVer4"
-        app:layout_constraintBottom_toTopOf="@id/hontza"
-        app:layout_constraintStart_toStartOf="@+id/gVer3"
-        app:layout_constraintTop_toBottomOf="@id/tximinoak" />
-
-    <TextView
-        android:id="@+id/hontza"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/hontza"
-        app:layout_constraintBottom_toTopOf="@id/etxea"
+        android:text="@string/taberna_honen_aurrean_canillako_tren_geltokia_dago"
+        app:layout_constraintBottom_toTopOf="@id/taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute"
         app:layout_constraintEnd_toStartOf="@+id/gVer4"
         app:layout_constraintStart_toStartOf="@+id/gVer3"
-        app:layout_constraintTop_toBottomOf="@id/palmondoak" />
+        app:layout_constraintTop_toBottomOf="@id/arrautz_ospetsu_hau_pilota_forma_du_eta_ogiarekin_zerbitzatzen_da" />
 
     <TextView
-        android:id="@+id/etxea"
+        android:id="@+id/taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/etxea"
-        app:layout_constraintBottom_toTopOf="@id/iturria"
+        android:text="@string/taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute"
+        app:layout_constraintBottom_toTopOf="@id/taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago"
         app:layout_constraintEnd_toStartOf="@+id/gVer4"
         app:layout_constraintStart_toStartOf="@+id/gVer3"
-        app:layout_constraintTop_toBottomOf="@id/hontza" />
+        app:layout_constraintTop_toBottomOf="@id/taberna_honen_aurrean_canillako_tren_geltokia_dago" />
 
     <TextView
-        android:id="@+id/iturria"
+        android:id="@+id/taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/iturria"
+        android:text="@string/taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago"
         app:layout_constraintBottom_toTopOf="@id/gHor2"
         app:layout_constraintEnd_toStartOf="@+id/gVer4"
         app:layout_constraintStart_toStartOf="@+id/gVer3"
-        app:layout_constraintTop_toBottomOf="@id/etxea" />
+        app:layout_constraintTop_toBottomOf="@id/taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
