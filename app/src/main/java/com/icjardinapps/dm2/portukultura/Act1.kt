@@ -53,7 +53,7 @@ class Act1 : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_act1)
+        setContentView(R.layout.act1)
         fuente = findViewById(R.id.fuente)
         palmeras = findViewById(R.id.palmeras)
         buho = findViewById(R.id.buho)
@@ -64,7 +64,6 @@ class Act1 : AppCompatActivity() {
         hontza = findViewById(R.id.hontza)
         etxea = findViewById(R.id.etxea)
         iturria = findViewById(R.id.iturria)
-        mainLayout = findViewById(R.id.main)
 
         // Configuramos el arrastre
         setDraggable(fuente)
