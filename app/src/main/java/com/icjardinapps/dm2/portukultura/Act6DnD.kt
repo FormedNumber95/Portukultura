@@ -43,7 +43,7 @@ class Act6DnD : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_act6)
+        setContentView(R.layout.act6_dnd)
 
         pan = findViewById(R.id.pan)
         terraza = findViewById(R.id.terraza)
