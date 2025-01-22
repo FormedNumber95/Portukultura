@@ -90,13 +90,4 @@ class QR : AppCompatActivity() {
     override fun onBackPressed() {
 
     }
-
-    /**
-     * Funcion vacia que elimina el uso del boton  de retroceso
-     * @author Intissar
-     */
-    @SuppressLint("MissingSuperCall")
-    override fun onBackPressed() {
-
-    }
 }
