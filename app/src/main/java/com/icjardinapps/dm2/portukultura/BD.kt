@@ -15,7 +15,7 @@ import java.util.Properties
  * Proporciona métodos para obtener registros y guardar nuevos datos en las tablas de la base de datos.
  *
  * @author Aketza
- * @version 1.1
+ * @version 1.2
  */
 class BD (context: Context) {
     private val dbUrl:String
@@ -72,14 +72,12 @@ class BD (context: Context) {
         if (conexion != null) {
             try {
                 val query =
-                    "INSERT INTO alumno (usuario, nombre, año_nacimiento, idioma, fecha_alta, fecha_baja) VALUES (?, ?, ?, ?, ?, ?)"
+                    "INSERT INTO alumno (usuario, nombre, año_nacimiento, aplicacion_id_aplicacion) VALUES (?, ?, ?, ?)"
                 val statement: PreparedStatement = conexion.prepareStatement(query)
                 statement.setString(1, usuario)
                 statement.setString(2, nombre)
                 statement.setInt(3, anioNacimiento)
-                statement.setString(4, null)
-                statement.setDate(5, null)
-                statement.setDate(6, null)
+                statement.setInt(4, 1)
                 statement.executeUpdate()
                 return true
             } catch (e: SQLException) {
