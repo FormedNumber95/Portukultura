@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/nombre"
-        android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextText"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,6 +20,7 @@
 
     <EditText
         android:id="@+id/editTextText"
+        style="@style/EditTexts"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -36,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/apellido"
-        android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextText2"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +43,7 @@
 
     <EditText
         android:id="@+id/editTextText2"
+        style="@style/EditTexts"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"

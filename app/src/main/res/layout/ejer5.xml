@@ -35,18 +35,21 @@
 
         <RadioButton
             android:id="@+id/q1_a"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/a_konektatu_bi_kontinente" />
 
         <RadioButton
             android:id="@+id/q1_correct"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/b_portugalete_eta_getxo_lotzen_ditu" />
 
         <RadioButton
             android:id="@+id/q1_c"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/c_ibai_bat_eta_laku_bat_lotzen_ditu" />
@@ -81,18 +84,21 @@
 
         <RadioButton
             android:id="@+id/q2_a"
+            style="@style/RadioButtons"
             android:layout_width="208dp"
             android:layout_height="wrap_content"
             android:text="@string/a_lurpeko_zubi_bat" />
 
         <RadioButton
             android:id="@+id/q2_b"
+            style="@style/RadioButtons"
             android:layout_width="208dp"
             android:layout_height="wrap_content"
             android:text="@string/b_zubi_flotatzaile_bat" />
 
         <RadioButton
             android:id="@+id/q2_correct"
+            style="@style/RadioButtons"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:text="@string/c_zubi_transbordadore_bat" />
