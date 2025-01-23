@@ -3,6 +3,9 @@ package com.icjardinapps.dm2.portukultura
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -66,6 +69,9 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
         nombre= intent.getStringExtra("nombre").toString()
         apellido= intent.getStringExtra("apellido").toString()
+        configurarAyuda()
+        val txtNombre:TextView=findViewById(R.id.textViewTop)
+        txtNombre.text=nombre+" "+apellido
     }
     /**
      * Metodo llamado cuando el mapa está listo para ser utilizado.
@@ -203,7 +209,33 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         super.onRestoreInstanceState(savedInstanceState)
         activeMarkerIndex = savedInstanceState.getInt("activeMarkerIndex", 0)
     }
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
+    private fun configurarAyuda() {
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text =
+                getString(R.string.mapa_behatu_jarduerak_egiteko_puntuaren_kolorea_kontuan_hartu_behar_duzu_horia_kolorea_duen_puntu_batek_adierazten_du_jarduera_jolastera_prest_dagoela_berde_kolorea_duten_puntuek_esan_nahi_dute_dagoeneko_egindako_jarduerak_direla_gorria_kolorea_duten_puntuek_adierazten_dute_oraindik_egitekoak_diren_jarduerak_daudela_jolastu_eta_jarduera_guztiak_bete)
 
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
+        }
+    }
     /**
      * Funcion vacia que elimina el uso del boton  de retroceso
      * @author Intissar
