@@ -155,7 +155,7 @@ class SopaDeLetras : AppCompatActivity() {
      * Verifica si la palabra formada por las letras seleccionadas está en la lista de palabras.
      * Si la palabra es válida, la elimina de la lista y realiza las acciones correspondientes.
      *
-     * @author Aketza
+     * @author Aketza, Intissar
      */
     private fun verificarPalabra() {
         val palabraSeleccionada = seleccionados.joinToString("") { it.text.toString() }.lowercase()
@@ -190,6 +190,26 @@ class SopaDeLetras : AppCompatActivity() {
                 mapaButton.setOnClickListener {
                     finish() // Cierra la actividad
                 }
+                // Configurar el ícono de ayuda
+                val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+                imagenAyuda.setOnClickListener {
+                    // Crear una ventana emergente
+                    val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+                    val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                        .setView(ayudaView)
+                        .create()
+                    ayudaDialog.show()
+
+                    // Cambiar el texto en el layout de ayuda
+                    val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+                    textoAyuda.text =
+                        getString(R.string.helburu_finalerako_letra_bat_lortu_duzu_itzuli_mapa_atzera_nahi_baduzu_sakatu_mapa_botoia)
+                    // Configurar el botón "cerrar" para cerrar la ventana emergente
+                    val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+                    cerrar.setOnClickListener {
+                        ayudaDialog.dismiss() // Cierra solo la ventana emergente
+                    }
+                }
 
             }
         } else {
@@ -198,7 +218,12 @@ class SopaDeLetras : AppCompatActivity() {
         }
         seleccionados.clear()
     }
-    @SuppressLint("SetTextI18n")
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {
@@ -210,7 +235,8 @@ class SopaDeLetras : AppCompatActivity() {
             ayudaDialog.show()
             // Cambiar el texto en el layout de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text = "HITZ ZOPA: Aurkitu hitz zopan dauden hitzak. Aurkitzen duzun bakoitzean, marraztuta agertuko da."
+            textoAyuda.text =
+                getString(R.string.hitz_zopa_aurkitu_hitz_zopan_dauden_hitzak_aurkitzen_duzun_bakoitzean_marraztuta_agertuko_da)
             // Configurar el botón "cerrar" para cerrar la ventana emergente
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
             cerrar.setOnClickListener {

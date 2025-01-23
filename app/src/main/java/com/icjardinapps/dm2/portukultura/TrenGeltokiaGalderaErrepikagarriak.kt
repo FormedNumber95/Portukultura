@@ -101,6 +101,12 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
         mediaPlayer.start()
         Toast.makeText(this, getString(R.string.txarto_egin_duzu_saiatu_berriro), Toast.LENGTH_SHORT).show()
     }
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {
@@ -112,7 +118,8 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
             ayudaDialog.show()
             // Cambiar el texto en el layout de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text = "Irakurri galderak arretaz eta aukeratu zure iritziz egokiena den aukera."
+            textoAyuda.text =
+                getString(R.string.irakurri_galderak_arretaz_eta_aukeratu_zure_iritziz_egokiena_den_aukera)
 
             // Configurar el botón "cerrar" para cerrar la ventana emergente
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)

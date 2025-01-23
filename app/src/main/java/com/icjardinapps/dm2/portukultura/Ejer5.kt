@@ -87,8 +87,25 @@ class Ejer5 : AppCompatActivity() {
                     finish() // Cierra la actividad
                 }
             }
-
-
+            // Configurar el ícono de ayuda
+            val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+            imagenAyuda.setOnClickListener {
+                // Crear una ventana emergente
+                val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+                val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setView(ayudaView)
+                    .create()
+                ayudaDialog.show()
+                // Cambiar el texto en el layout de ayuda
+                val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+                textoAyuda.text =
+                    getString(R.string.helburu_finalerako_letra_bat_lortu_duzu_itzuli_mapa_atzera_nahi_baduzu_sakatu_mapa_botoia)
+                // Configurar el botón "cerrar" para cerrar la ventana emergente
+                val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+                cerrar.setOnClickListener {
+                    ayudaDialog.dismiss() // Cierra solo la ventana emergente
+                }
+            }
         }
 
     }
@@ -102,7 +119,12 @@ class Ejer5 : AppCompatActivity() {
         mediaPlayer.start()
         Toast.makeText(this, getString(R.string.txarto_egin_duzu_saiatu_berriro), Toast.LENGTH_SHORT).show()
     }
-
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {

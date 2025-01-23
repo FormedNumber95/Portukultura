@@ -150,7 +150,26 @@ class Puzzle : AppCompatActivity() {
         mapaButton.setOnClickListener {
             finish() // Cierra la actividad
         }
+        // Configurar el ícono de ayuda
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
 
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text =
+                getString(R.string.helburu_finalerako_letra_bat_lortu_duzu_itzuli_mapa_atzera_nahi_baduzu_sakatu_mapa_botoia)
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
+        }
     }
 
     /**
@@ -182,7 +201,12 @@ class Puzzle : AppCompatActivity() {
             isEvenInversions
         }
     }
-
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {
@@ -194,7 +218,8 @@ class Puzzle : AppCompatActivity() {
             ayudaDialog.show()
             // Cambiar el texto en el layout de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text = "Joko honek irudi baten puzzle bat osatzen du. Zure helburua puzzleko piezak ondo ordenatzea da irudia osatzeko. Pieza bat mugitzen baduzu, besterik gabe, egin klik zuriaren ondoan dagoen irudian, eta automatikoki bere tokian jarriko da."
+            textoAyuda.text =
+                getString(R.string.joko_honek_irudi_baten_puzzle_bat_osatzen_du_zure_helburua_puzzleko_piezak_ondo_ordenatzea_da_irudia_osatzeko_pieza_bat_mugitzen_baduzu_besterik_gabe_egin_klik_zuriaren_ondoan_dagoen_irudian_eta_automatikoki_bere_tokian_jarriko_da)
 
             // Configurar el botón "cerrar" para cerrar la ventana emergente
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)

@@ -103,7 +103,8 @@ class Presentacion : AppCompatActivity() {
     }
 
     /**
-     * Configura la ventana de ayuda, mostrando una descripción en pantalla y un botón para cerrarla.
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
      *
      * @author Intissar
      */
@@ -118,7 +119,8 @@ class Presentacion : AppCompatActivity() {
             ayudaDialog.show()
             // Cambiar el texto en el layout de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text = "Ongi etorri jokoaren aurkezpenera. Testua irakurri eta ulertu ondoren, 'Erregistratu' botoian klik egin dezakezu jolasten hasi eta puntu irabazteko."
+            textoAyuda.text =
+                getString(R.string.ongi_etorri_jokoaren_aurkezpenera_testua_irakurri_eta_ulertu_ondoren_erregistratu_botoian_klik_egin_dezakezu_jolasten_hasi_eta_puntu_irabazteko)
             // Configurar el botón "cerrar" para cerrar la ventana emergente
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
             cerrar.setOnClickListener {

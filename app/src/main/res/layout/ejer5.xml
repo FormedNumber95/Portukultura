@@ -8,11 +8,10 @@
     tools:context=".Ejer5">
 
 
-
     <TextView
         android:id="@+id/question1_text"
-        android:layout_width="291dp"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:paddingBottom="8dp"
         android:text="@string/zer_lotzen_du_portugaleteko_zubi_esekiak"
         android:textSize="18sp"
@@ -24,11 +23,12 @@
 
     <RadioGroup
         android:id="@+id/question1_group"
-        android:layout_width="307dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/gVer4"
+        app:layout_constraintHorizontal_bias="0.229"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
         app:layout_constraintTop_toBottomOf="@id/question1_text">
 
         <RadioButton
@@ -52,8 +52,8 @@
 
     <TextView
         android:id="@+id/question2_text"
-        android:layout_width="296dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:paddingBottom="8dp"
         android:text="@string/zer_egitura_mota_du_portugaleteko_zubi_esekiak"
         android:textSize="18sp"
@@ -67,8 +67,8 @@
 
     <RadioGroup
         android:id="@+id/question2_group"
-        android:layout_width="284dp"
-        android:layout_height="161dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/gHor2"
         app:layout_constraintEnd_toStartOf="@+id/gVer4"
         app:layout_constraintHorizontal_bias="0.0"

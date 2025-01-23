@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 /**
@@ -25,13 +27,40 @@ class Act6Imagen : AppCompatActivity() {
         setContentView(R.layout.act6_imagen) // Reemplazar con el nombre correcto del archivo XML
 
         val continueButton: Button = findViewById(R.id.btnContinuar)
-
+        configurarAyuda()
         // Configura el botón para navegar a la siguiente actividad
         continueButton.setOnClickListener {
             val intent = Intent(this, Act6Preguntas::class.java)
             startActivity(intent)
 
             finish()
+        }
+
+    }
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
+    private fun configurarAyuda() {
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text =
+                getString(R.string.irakurri_testua_eta_klikatu_hurrengo_botoian_jarraitzeko)
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
         }
     }
     /**

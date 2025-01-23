@@ -78,6 +78,7 @@ class Act1 : AppCompatActivity() {
         setDroppable(hontza, buho)
         setDroppable(tximinoak, monos)
         setDroppable(etxea, jardin)
+        configurarAyuda()
     }
 
     /**
@@ -139,7 +140,7 @@ class Act1 : AppCompatActivity() {
      * Verifica si todos los pares han sido emparejados correctamente.
      * Si no quedan pares, finaliza la actividad.
      *
-     * @author Diego
+     * @author Diego, Intissar
      */
     private fun checkCompletion() {
         if (remainingPairs == 0) {
@@ -160,8 +161,52 @@ class Act1 : AppCompatActivity() {
                 finish() // Cierra la actividad
             }
         }
-    }
+        // Configurar el ícono de ayuda
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
 
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text =
+                getString(R.string.helburu_finalerako_letra_bat_lortu_duzu_itzuli_mapa_atzera_nahi_baduzu_sakatu_mapa_botoia)
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
+        }
+    }
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
+    private fun configurarAyuda() {
+        val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+        imagenAyuda.setOnClickListener {
+            // Crear una ventana emergente
+            val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+            val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(ayudaView)
+                .create()
+            ayudaDialog.show()
+            // Cambiar el texto en el layout de ayuda
+            val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+            textoAyuda.text = getString(R.string.arrastatu_irudiak_dagokien_hitzera)
+            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+            cerrar.setOnClickListener {
+                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+            }
+        }
+    }
     /**
      * Funcion vacia que elimina el uso del boton  de retroceso
      * @author Intissar

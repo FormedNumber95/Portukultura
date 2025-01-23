@@ -65,16 +65,18 @@ class Abestia : AppCompatActivity() {
     /**
      * Valida los textos ingresados por el usuario.
      *
-     * Muestra un mensaje de éxito si los textos son correctos; de lo contrario, muestra un mensaje de error.
+     * Si los textos son correctos, muestra un mensaje de éxito y cambia a la vista correspondiente.
+     * Además, muestra la letra correspondiente y configura el botón de mapa para regresar a la actividad anterior.
+     * Al hacer clic en el ícono de ayuda, se muestra una ventana emergente con información sobre el juego.
      *
-     * @author Aketza
+     * @author Aketza, Intissar
      */
     private fun validateInputs() {
         val subeArribaInput = findViewById<EditText>(pantorrilla.id).text.toString()
         val queMeMareoInput = findViewById<EditText>(chiquitin.id).text.toString()
         val pantorrillaInput = findViewById<EditText>(subeArriba.id).text.toString()
         val chiquitinInput = findViewById<EditText>(queMeMareo.id).text.toString()
-
+        // Validar los textos ingresados
         if (subeArribaInput.trim().lowercase().equals("sube arriba") && queMeMareoInput.trim().lowercase().equals("que me mareo") &&
             pantorrillaInput.trim().lowercase().equals("pantorrilla") && (chiquitinInput.trim().lowercase().equals("chiquitin")||chiquitinInput.trim().lowercase().equals("chiquitín"))) {
 
@@ -98,6 +100,27 @@ class Abestia : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
+
+            // Configurar el ícono de ayuda
+            val imagenAyuda: ImageView = findViewById(R.id.ayuda)
+            imagenAyuda.setOnClickListener {
+                // Crear una ventana emergente
+                val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
+                val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setView(ayudaView)
+                    .create()
+                ayudaDialog.show()
+
+                // Cambiar el texto en el layout de ayuda
+                val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
+                textoAyuda.text =
+                    getString(R.string.helburu_finalerako_letra_bat_lortu_duzu_itzuli_mapa_atzera_nahi_baduzu_sakatu_mapa_botoia)
+                // Configurar el botón "cerrar" para cerrar la ventana emergente
+                val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
+                cerrar.setOnClickListener {
+                    ayudaDialog.dismiss() // Cierra solo la ventana emergente
+                }
+            }
         } else {
             Toast.makeText(this, getString(R.string.txarto_egin_duzu_saiatu_berriro), Toast.LENGTH_SHORT).show()
         }
@@ -119,7 +142,12 @@ class Abestia : AppCompatActivity() {
         parent.removeView(textView)
         parent.addView(editText)
     }
-    
+    /**
+     * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
+     * Incluye un botón "cerrar" para cerrar la ventana.
+     *
+     * @author Intissar
+     */
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {
@@ -131,7 +159,8 @@ class Abestia : AppCompatActivity() {
             ayudaDialog.show()
             // Cambiar el texto en el layout de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text = "Abestia: Testua ondo irakurri eta ondoren agertzen diren hitz desordenatuak. Irakurri ondoren, 'Hasi' botoian klik egin dezakezu hutsuneak hitz egokiekin betetzeko."
+            textoAyuda.text =
+                getString(R.string.abestia_testua_ondo_irakurri_eta_ondoren_agertzen_diren_hitz_desordenatuak_irakurri_ondoren_hasi_botoian_klik_egin_dezakezu_hutsuneak_hitz_egokiekin_betetzeko)
             // Configurar el botón "cerrar" para cerrar la ventana emergente
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
             cerrar.setOnClickListener {
