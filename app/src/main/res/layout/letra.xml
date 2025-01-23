@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <androidx.constraintlayout.widget.Guideline
@@ -50,6 +50,7 @@
 
     <TextView
         android:id="@+id/textLetra"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -64,6 +65,7 @@
 
     <Button
         android:id="@+id/mapa"
+        style="@style/Botones"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/mapa"
@@ -85,12 +87,11 @@
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="186dp"
-        android:layout_height="304dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/gHor2"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
-
+        app:layout_constraintTop_toBottomOf="@id/textLetra"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
-
         app:srcCompat="@drawable/navegante_ae" />
 </androidx.constraintlayout.widget.ConstraintLayout>

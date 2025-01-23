@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Fondo"
     tools:context=".Act6DnD">
 
     <androidx.constraintlayout.widget.Guideline
@@ -102,6 +103,7 @@
 
     <TextView
         android:id="@+id/arrautz_ospetsu_hau_pilota_forma_du_eta_ogiarekin_zerbitzatzen_da"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/arrautz_ospetsu_hau_pilota_forma_du_eta_ogiarekin_zerbitzatzen_da"
@@ -112,6 +114,7 @@
 
     <TextView
         android:id="@+id/taberna_honen_aurrean_canillako_tren_geltokia_dago"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/taberna_honen_aurrean_canillako_tren_geltokia_dago"
@@ -122,6 +125,7 @@
 
     <TextView
         android:id="@+id/taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute"
@@ -132,6 +136,7 @@
 
     <TextView
         android:id="@+id/taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago"

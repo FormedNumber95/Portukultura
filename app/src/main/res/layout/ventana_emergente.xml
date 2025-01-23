@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Fondo"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/textView3"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/nombre"
-        android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextText"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,6 +20,7 @@
 
     <EditText
         android:id="@+id/editTextText"
+        style="@style/EditTexts"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -30,11 +31,11 @@
 
     <TextView
         android:id="@+id/textView2"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/apellido"
-        android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextText2"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +43,7 @@
 
     <EditText
         android:id="@+id/editTextText2"
+        style="@style/EditTexts"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"

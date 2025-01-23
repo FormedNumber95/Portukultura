@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Fondo"
     tools:context=".TrenGeltokiaGalderaErrepikagarriak">
 
     <RadioGroup
@@ -20,18 +21,21 @@
 
         <RadioButton
             android:id="@+id/rad1890"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_1890" />
 
         <RadioButton
             android:id="@+id/rad1889"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_1889" />
 
         <RadioButton
             android:id="@+id/rad1888"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_1888" />
@@ -50,18 +54,21 @@
 
         <RadioButton
             android:id="@+id/radAldeZaharrean"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/alde_zaharrean" />
 
         <RadioButton
             android:id="@+id/radZubian"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/zubian" />
 
         <RadioButton
             android:id="@+id/radAurrekoAukerakEzDiraEgokiak"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/aurreko_aukerak_ez_dira_egokiak" />
@@ -80,12 +87,14 @@
 
         <RadioButton
             android:id="@+id/radBai"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bai" />
 
         <RadioButton
             android:id="@+id/radEz"
+            style="@style/RadioButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ez" />
@@ -129,6 +138,7 @@
 
     <TextView
         android:id="@+id/primeraPregunta"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/primeraPregunta3_2"
@@ -141,6 +151,7 @@
 
     <TextView
         android:id="@+id/segundaPregunta"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/non_dago_canilla_kolokatuta"
@@ -154,6 +165,7 @@
 
     <TextView
         android:id="@+id/terceraPregunta"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/turismo_ofizina_bat_izan_zen"

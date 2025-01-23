@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Fondo"
     tools:context=".Act6Imagen">
 
         <androidx.constraintlayout.widget.Guideline
@@ -64,6 +65,7 @@
 
         <Button
             android:id="@+id/btnContinuar"
+            style="@style/Botones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/aurrera"
