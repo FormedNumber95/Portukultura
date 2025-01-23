@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Fondo"
     tools:context=".Act1">
 
     <androidx.constraintlayout.widget.Guideline
@@ -112,6 +113,7 @@
 
     <TextView
         android:id="@+id/tximinoak"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/tximinoak"
@@ -122,6 +124,7 @@
 
     <TextView
         android:id="@+id/palmondoak"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/palmondoak_eta_zuhaitzak"
@@ -132,6 +135,7 @@
 
     <TextView
         android:id="@+id/hontza"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/hontza"
@@ -142,6 +146,7 @@
 
     <TextView
         android:id="@+id/etxea"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/etxea"
@@ -152,6 +157,7 @@
 
     <TextView
         android:id="@+id/iturria"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/iturria"

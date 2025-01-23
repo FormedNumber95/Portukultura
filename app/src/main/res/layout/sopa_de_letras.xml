@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Fondo"
     tools:context=".SopaDeLetras">
 
     <androidx.constraintlayout.widget.Guideline
@@ -66,6 +67,7 @@
 
     <TextView
         android:id="@+id/onena"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onena"
@@ -77,6 +79,7 @@
 
     <TextView
         android:id="@+id/jarrillero"
+        style="@style/Textos"
         android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,6 +91,7 @@
 
     <TextView
         android:id="@+id/ospetsua"
+        style="@style/Textos"
         android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,6 +103,7 @@
 
     <TextView
         android:id="@+id/portugalete"
+        style="@style/Textos"
         android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -110,6 +115,7 @@
 
     <TextView
         android:id="@+id/ardoa"
+        style="@style/Textos"
         android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

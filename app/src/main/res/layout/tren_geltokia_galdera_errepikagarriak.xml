@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Fondo"
     tools:context=".TrenGeltokiaGalderaErrepikagarriak">
 
     <RadioGroup
@@ -129,6 +130,7 @@
 
     <TextView
         android:id="@+id/primeraPregunta"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/primeraPregunta3_2"
@@ -141,6 +143,7 @@
 
     <TextView
         android:id="@+id/segundaPregunta"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/non_dago_canilla_kolokatuta"
@@ -154,6 +157,7 @@
 
     <TextView
         android:id="@+id/terceraPregunta"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/turismo_ofizina_bat_izan_zen"

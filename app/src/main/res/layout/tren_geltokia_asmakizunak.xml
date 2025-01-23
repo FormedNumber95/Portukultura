@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Fondo"
     tools:context=".TrenGeltokiaAsmakizunak">
 
     <androidx.constraintlayout.widget.Guideline
@@ -63,8 +64,9 @@
 
     <TextView
         android:id="@+id/Asmakizuna1"
+        style="@style/Textos"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/asmakizuna1"
         app:layout_constraintBottom_toTopOf="@id/Asmakizuna2"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
@@ -73,8 +75,9 @@
 
     <TextView
         android:id="@+id/Asmakizuna2"
+        style="@style/Textos"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/asmakizuna2"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintBottom_toTopOf="@id/Asmakizuna3"
@@ -83,8 +86,9 @@
 
     <TextView
         android:id="@+id/Asmakizuna3"
+        style="@style/Textos"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/asmakizuna3"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintBottom_toTopOf="@id/Asmakizuna4"
@@ -93,8 +97,9 @@
 
     <TextView
         android:id="@+id/Asmakizuna4"
+        style="@style/Textos"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/asmakizuna4"
         app:layout_constraintBottom_toTopOf="@+id/gHor2"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
@@ -103,6 +108,7 @@
 
     <TextView
         android:id="@+id/objeto1"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/leihatila"
@@ -113,6 +119,7 @@
 
     <TextView
         android:id="@+id/objeto2"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tren_bagoi_bat"
@@ -123,6 +130,7 @@
 
     <TextView
         android:id="@+id/objeto3"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/erlojua"
@@ -133,6 +141,7 @@
 
     <TextView
         android:id="@+id/objeto4"
+        style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/gHor2"

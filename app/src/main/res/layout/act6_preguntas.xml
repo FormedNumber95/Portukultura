@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Fondo"
     tools:context=".Act6Preguntas">
 
     <androidx.constraintlayout.widget.Guideline
@@ -54,6 +55,7 @@
 
     <TextView
         android:id="@+id/non_dago_taberna_ospetsua"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/non_dago_taberna_ospetsua"
@@ -77,6 +79,7 @@
 
     <TextView
         android:id="@+id/zein_dira_osagaiak"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/zein_dira_osagaiak"
@@ -100,6 +103,7 @@
 
     <TextView
         android:id="@+id/zein_da_saltza_berezia"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/zein_da_saltza_berezia"
@@ -123,6 +127,7 @@
 
     <TextView
         android:id="@+id/zeren_ondoan_dago_taberna_kokatuta"
+        style="@style/Textos"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/zeren_ondoan_dago_taberna_kokatuta"
@@ -147,6 +152,7 @@
 
     <Button
         android:id="@+id/btnContinuar"
+        style="@style/Botones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/aurrera"
