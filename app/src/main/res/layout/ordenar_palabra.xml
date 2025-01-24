@@ -32,7 +32,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintGuide_begin="73dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gHor7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="160dp"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -135,9 +144,9 @@
         style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
         android:text="@string/barrabaja"
-        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/gHor7"
         app:layout_constraintEnd_toStartOf="@+id/segundaLetra"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
         app:layout_constraintTop_toTopOf="@+id/gHor1" />
@@ -147,9 +156,9 @@
         style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
         android:text="@string/barrabaja"
-        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/gHor7"
         app:layout_constraintEnd_toStartOf="@+id/terceraLetra"
         app:layout_constraintStart_toEndOf="@+id/primeraLetra"
         app:layout_constraintTop_toTopOf="@+id/gHor1" />
@@ -159,9 +168,9 @@
         style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
         android:text="@string/barrabaja"
-        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/gHor7"
         app:layout_constraintEnd_toStartOf="@+id/cuartaLetra"
         app:layout_constraintStart_toEndOf="@+id/segundaLetra"
         app:layout_constraintTop_toTopOf="@+id/gHor1" />
@@ -171,9 +180,9 @@
         style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
         android:text="@string/barrabaja"
-        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/gHor7"
         app:layout_constraintEnd_toStartOf="@+id/quintaLetra"
         app:layout_constraintStart_toEndOf="@+id/terceraLetra"
         app:layout_constraintTop_toTopOf="@+id/gHor1" />
@@ -183,9 +192,9 @@
         style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
         android:text="@string/barrabaja"
-        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/gHor7"
         app:layout_constraintEnd_toStartOf="@+id/sextaLetra"
         app:layout_constraintStart_toEndOf="@+id/cuartaLetra"
         app:layout_constraintTop_toTopOf="@+id/gHor1" />
@@ -195,9 +204,9 @@
         style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
         android:text="@string/barrabaja"
-        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/gHor7"
         app:layout_constraintEnd_toStartOf="@+id/septimaLetra"
         app:layout_constraintStart_toEndOf="@+id/quintaLetra"
         app:layout_constraintTop_toTopOf="@+id/gHor1" />
@@ -207,12 +216,13 @@
         style="@style/Textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
         android:text="@string/barrabaja"
-        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintStart_toEndOf="@+id/sextaLetra"
         app:layout_constraintTop_toTopOf="@+id/gHor1" />
+
     <ImageView
         android:id="@+id/ayuda"
         android:layout_width="wrap_content"
@@ -223,5 +233,15 @@
         app:layout_constraintStart_toStartOf="@+id/gVer1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_help" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toTopOf="@+id/gHor7"
+        app:srcCompat="@drawable/navegante_ae" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
