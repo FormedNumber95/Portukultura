@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.9"
+        app:layout_constraintGuide_percent="0.95"
         app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Contenedor horizontal para imágenes -->
@@ -113,13 +113,13 @@
         android:text="@string/aurrera"
         app:layout_constraintBottom_toTopOf="@+id/gHor3"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
-        app:layout_constraintStart_toStartOf="@+id/gVer1"
-        app:layout_constraintTop_toTopOf="@+id/gHor2" />
+        app:layout_constraintStart_toStartOf="@+id/gVer1" />
 
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.6"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:textAlignment="center"
@@ -133,6 +133,7 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:padding="5"
         app:layout_constraintBottom_toTopOf="@+id/btnAurrera"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
