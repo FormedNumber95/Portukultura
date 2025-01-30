@@ -9,12 +9,13 @@
     <!-- Contenedor horizontal para imágenes -->
     <LinearLayout
         android:id="@+id/logos"
-        android:layout_width="155dp"
-        android:layout_height="73dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.35"
         android:gravity="left"
         android:orientation="horizontal"
         android:padding="13dp"
-        app:layout_constraintBottom_toTopOf="@id/gHor1"
+        app:layout_constraintBottom_toTopOf="@+id/gHor1"
         app:layout_constraintHeight_percent="0.15"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -30,7 +31,7 @@
         <ImageView
             android:id="@+id/upv"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:src="@drawable/upv" />
@@ -38,9 +39,10 @@
         <ImageView
             android:id="@+id/icjardin"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/logo" />
+
     </LinearLayout>
 
     <TextView
