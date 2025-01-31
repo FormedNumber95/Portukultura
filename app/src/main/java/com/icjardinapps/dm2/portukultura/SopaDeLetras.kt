@@ -4,12 +4,18 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
 import androidx.gridlayout.widget.GridLayout
+import kotlin.math.min
+import kotlin.math.abs
+
 
 /**
  * Esta clase representa la actividad de una sopa de letras en una aplicación Android.
@@ -43,6 +49,8 @@ class SopaDeLetras : AppCompatActivity() {
 
     private lateinit var grid: GridLayout
 
+    private var inicial: Pair<Int, Int>? = null
+
     /**
      * Metodo de inicialización que configura la actividad y carga la sopa de letras.
      *
@@ -58,6 +66,26 @@ class SopaDeLetras : AppCompatActivity() {
 
     }
 
+    fun getCeldas(start: Pair<Int, Int>, end: Pair<Int, Int>): Sequence<View> {
+        val x = end.first - start.first
+        val y = end.second - start.second
+        if (x == 0) {
+            val minY = min(start.second, end.second)
+            return grid.children
+                .chunked(grid.columnCount)
+                .map { it[start.first] }
+                .drop(minY)
+                .take(abs(y) + 1)
+        }
+        if (y == 0) {
+            val minX = min(start.first, end.first)
+            return grid.children
+                .drop(minX + grid.columnCount * start.second)
+                .take(abs(x) + 1)
+        }
+        return emptySequence()
+    }
+
     /**
      * Carga la sopa de letras en el GridLayout y configura el listener de interacción táctil.
      *
@@ -65,8 +93,9 @@ class SopaDeLetras : AppCompatActivity() {
      */
     private fun cargarSopaDeLetras() {
         grid = findViewById(R.id.gridSopaLetras)
-        for (fila: Array<Char> in sopaDeLetras) {
-            for (letra: Char in fila) {
+        for (rowIndex in sopaDeLetras.indices) {
+            for (colIndex in sopaDeLetras[rowIndex].indices) {
+                val letra = sopaDeLetras[rowIndex][colIndex]
                 val textView: TextView = TextView(this).apply {
                     text = letra.toString()
                     textSize = 18f
@@ -74,6 +103,7 @@ class SopaDeLetras : AppCompatActivity() {
                     textAlignment = TextView.TEXT_ALIGNMENT_CENTER
                     setBackgroundColor(Color.WHITE)
                     isEnabled = true
+                    tag = Pair(colIndex, rowIndex)
                 }
 
                 val params: GridLayout.LayoutParams = GridLayout.LayoutParams().apply {
@@ -101,6 +131,7 @@ class SopaDeLetras : AppCompatActivity() {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 seleccionados.clear()
+
                 detectarLetra(event)
             }
             MotionEvent.ACTION_MOVE -> {
@@ -108,6 +139,7 @@ class SopaDeLetras : AppCompatActivity() {
             }
             MotionEvent.ACTION_UP -> {
                 verificarPalabra()
+                inicial=null
             }
         }
         return true
@@ -120,12 +152,12 @@ class SopaDeLetras : AppCompatActivity() {
      * @param event el evento táctil detectado.
      */
     private fun detectarLetra(event: MotionEvent) {
-        val x = event.rawX
-        val y = event.rawY
-
+        val x = event.rawX.toInt()
+        val y = event.rawY.toInt()
         for (i in 0 until grid.childCount) {
             val child = grid.getChildAt(i)
             if (child is TextView && child.isEnabled) {
+                var pairEnviar=child.tag as Pair<Int, Int>?
                 val location = IntArray(2)
                 child.getLocationOnScreen(location)
                 val left = location[0]
@@ -134,7 +166,12 @@ class SopaDeLetras : AppCompatActivity() {
                 val bottom = top + child.height
 
                 if (x >= left && x <= right && y >= top && y <= bottom && !seleccionados.contains(child)) {
-                    seleccionarLetra(child)
+                    if(inicial==null){
+                        inicial= child.tag as Pair<Int, Int>?
+                    }
+                    if (pairEnviar != null) {
+                        seleccionarLetra(child,pairEnviar)
+                    }
                 }
             }
         }
@@ -146,9 +183,11 @@ class SopaDeLetras : AppCompatActivity() {
      * @author Aketza
      * @param view el TextView seleccionado.
      */
-    private fun seleccionarLetra(view: TextView) {
-        view.setBackgroundColor(Color.YELLOW)
-        seleccionados.add(view)
+    private fun seleccionarLetra(view: TextView,pair:Pair<Int,Int>) {
+        seleccionados.forEach { it.setBackgroundColor(Color.WHITE)}
+        getCeldas(inicial!!, pair).forEach { it.setBackgroundColor(Color.YELLOW) }
+        seleccionados.clear()
+        seleccionados.addAll(getCeldas(inicial!!, pair) as Sequence<TextView>)
     }
 
     /**
