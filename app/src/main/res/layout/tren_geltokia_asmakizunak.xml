@@ -62,13 +62,52 @@
         app:layout_constraintGuide_percent="0.9"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Contenedor horizontal para imágenes -->
+    <LinearLayout
+        android:id="@+id/logos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.35"
+        android:gravity="left"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/gHor1"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toStartOf="@id/gVer1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Imágenes horizontales -->
+        <ImageView
+            android:id="@+id/icjardin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:src="@drawable/icjardin" />
+
+        <ImageView
+            android:id="@+id/upv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:src="@drawable/upv" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/Asmakizuna1"
         style="@style/Textos"
         android:layout_width="0dp"
-        android:textSize="13sp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:text="@string/asmakizuna1"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@id/Asmakizuna2"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
@@ -77,34 +116,34 @@
     <TextView
         android:id="@+id/Asmakizuna2"
         style="@style/Textos"
-        android:textSize="13sp"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:text="@string/asmakizuna2"
-        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@id/Asmakizuna3"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
         app:layout_constraintTop_toBottomOf="@+id/Asmakizuna1" />
 
     <TextView
         android:id="@+id/Asmakizuna3"
         style="@style/Textos"
-        android:textSize="13sp"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:text="@string/asmakizuna3"
-        app:layout_constraintEnd_toStartOf="@+id/gVer2"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@id/Asmakizuna4"
+        app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
         app:layout_constraintTop_toBottomOf="@+id/Asmakizuna2" />
 
     <TextView
         android:id="@+id/Asmakizuna4"
         style="@style/Textos"
-        android:textSize="13sp"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:text="@string/asmakizuna4"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/gHor2"
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintStart_toStartOf="@+id/gVer1"

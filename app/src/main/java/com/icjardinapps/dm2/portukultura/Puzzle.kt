@@ -53,9 +53,9 @@ class Puzzle : AppCompatActivity() {
         puzzlePieces[15] = R.drawable.puzle_blanco
 
         // Mezclar las piezas de manera que el puzzle sea resolvible
-        do {
-            puzzlePieces.shuffle()
-        } while (!isSolvable(puzzlePieces) || puzzlePieces[15] != R.drawable.puzle_blanco)
+        //do {
+        //    puzzlePieces.shuffle()
+        //} while (!isSolvable(puzzlePieces) || puzzlePieces[15] != R.drawable.puzle_blanco)
 
         // Encuentra el índice del espacio vacío en la disposición inicial
         emptyIndex = puzzlePieces.indexOf(R.drawable.puzle_blanco)
