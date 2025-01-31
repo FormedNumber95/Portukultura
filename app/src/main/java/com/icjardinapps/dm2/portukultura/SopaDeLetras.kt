@@ -23,6 +23,7 @@ import kotlin.math.abs
  * y realiza diversas acciones según las palabras encontradas.
  *
  * @author Aketza
+ * @version 1.1
  */
 class SopaDeLetras : AppCompatActivity() {
 
@@ -66,6 +67,20 @@ class SopaDeLetras : AppCompatActivity() {
 
     }
 
+    /**
+     * Obtiene una secuencia de vistas dentro de una cuadrícula, basándose en dos puntos de inicio y fin.
+     *
+     * Este método devuelve una secuencia de celdas (vistas) dentro de un GridPane, seleccionando
+     * las celdas en una línea vertical u horizontal entre los puntos dados. Si los puntos no están
+     * alineados en una de estas direcciones, se devuelve una secuencia vacía.
+     *
+     * @param start Coordenadas de la celda inicial como un par (columna, fila).
+     * @param end Coordenadas de la celda final como un par (columna, fila).
+     * @return Una secuencia de vistas que representa las celdas en la dirección especificada.
+     *         Devuelve una secuencia vacía si los puntos no forman una línea recta.
+     *
+     * @author Aketza
+     */
     fun getCeldas(start: Pair<Int, Int>, end: Pair<Int, Int>): Sequence<View> {
         val x = end.first - start.first
         val y = end.second - start.second
