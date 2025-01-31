@@ -2,6 +2,7 @@ package com.icjardinapps.dm2.portukultura
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.GridLayout
 import android.widget.ImageView
@@ -90,6 +91,7 @@ class Puzzle : AppCompatActivity() {
             imageView.layoutParams=params
             imageView.scaleType=ImageView.ScaleType.FIT_XY
             puzzleGrid.addView(imageView)
+            Log.e("PAKO","PAKPO")
         }
     }
     /**

@@ -15,21 +15,25 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.system.exitProcess
 
 /**
- * Clase Presentacion que representa la actividad de presentación inicial de la aplicación.
- * Muestra una interfaz para que el usuario ingrese sus datos en un cuadro de diálogo.
+ * Clase Presentacion que representa la actividad inicial de la aplicación.
+ * Muestra una interfaz donde el usuario puede ingresar sus datos para registrarse.
+ * También proporciona funcionalidades adicionales como la visualización de las credenciales
+ * de los autores y el cambio de idioma.
  *
  * @author Intissar
  * @version 1.2
  */
 class Presentacion : AppCompatActivity() {
+    private lateinit var credenciales: ImageView
+    private lateinit var idioma: ImageView
+    private lateinit var nombre: String
+    private lateinit var apellido: String
 
-    private lateinit var nombre:String
-    private lateinit var apellido:String
     /**
      * Metodo llamado al crear la actividad.
-     * Configura la vista inicial y asigna un listener al botón para abrir el cuadro de diálogo.
+     * Configura la vista inicial, asigna listeners a los botones y configura funcionalidades
+     * adicionales como el cuadro de diálogo de registro y la ayuda.
      *
-     * @author Intissar
      * @param savedInstanceState Si la actividad se está recreando desde un estado anterior,
      * este parámetro contiene los datos más recientes suministrados.
      */
@@ -37,25 +41,33 @@ class Presentacion : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.presentacion)
 
-        // Obtener referencia al botón en la interfaz
+        // Obtener referencia al botón "Registrarse" y asignar un listener
         val boton: Button = findViewById(R.id.btnRegistrarse)
-
-        // Asignar un listener para mostrar el cuadro de diálogo al hacer clic
         boton.setOnClickListener {
             showInputDialog()
         }
-        // Configurar la funcionalidad de ayuda
+
+        // Configurar la funcionalidad del botón de ayuda
         configurarAyuda()
+         credenciales = findViewById(R.id.credenciales)
+        // Configurar los botones de "credenciales" e "idioma"
+        credenciales.setOnClickListener {
+            mostrarCredenciales()
+        }
+        idioma = findViewById(R.id.idioma)
+        idioma.setOnClickListener {
+            cambiarIdioma()
+        }
     }
 
     /**
-     * Muestra un cuadro de diálogo personalizado para que el usuario introduzca su nombre y apellido.
-     * Valida los datos ingresados y, si son correctos, inicia la actividad Mapa.
+     * Muestra un cuadro de diálogo personalizado para que el usuario ingrese su nombre y apellido.
+     * Valida los datos ingresados y, si son correctos, inicia la actividad Mapa con los datos.
      *
      * @author Intissar
      */
     private fun showInputDialog() {
-        // Inflar el diseño del cuadro de diálogo personalizado
+        // Inflar el diseño del cuadro de diálogo
         val inflater = LayoutInflater.from(this)
         val dialogView: View = inflater.inflate(R.layout.ventana_emergente, null)
 
@@ -67,14 +79,14 @@ class Presentacion : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setView(dialogView)
         builder.setTitle(getString(R.string.dialog_title))
-        builder.setPositiveButton(getString(R.string.dialog_comenzar), null) // Listener configurado después para validación
+        builder.setPositiveButton(getString(R.string.dialog_comenzar), null)
         builder.setNegativeButton(getString(R.string.dialog_cancelar)) { dialog, _ ->
-            dialog.dismiss() // Cierra el cuadro de diálogo si se cancela
+            dialog.dismiss()
         }
 
         val dialog = builder.create()
 
-        // Configurar el listener del botón "Comenzar" después de crear el cuadro de diálogo
+        // Configurar el listener del botón "Comenzar"
         dialog.setOnShowListener {
             val buttonComenzar = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
             buttonComenzar.setOnClickListener {
@@ -82,15 +94,13 @@ class Presentacion : AppCompatActivity() {
                 apellido = editTextApellido.text.toString().trim()
 
                 if (nombre.isEmpty() || apellido.isEmpty()) {
-                    // Mostrar un mensaje de error si los campos están vacíos
+                    // Mostrar mensaje de error si los campos están vacíos
                     Toast.makeText(this, getString(R.string.error_campos_vacios), Toast.LENGTH_SHORT).show()
                 } else {
-                    // Mostrar un mensaje de éxito con los datos ingresados
-                    Toast.makeText(this, getString(R.string.datos_guardados) +"$nombre $apellido", Toast.LENGTH_SHORT).show()
-                    // Crear un Intent para iniciar la actividad Mapa
+                    // Iniciar la actividad Mapa con los datos ingresados
                     val intent = Intent(this, Mapa::class.java)
-                    intent.putExtra("nombre",nombre)
-                    intent.putExtra("apellido",apellido)
+                    intent.putExtra("nombre", nombre)
+                    intent.putExtra("apellido", apellido)
                     startActivity(intent)
                     // Cerrar el cuadro de diálogo
                     dialog.dismiss()
@@ -105,33 +115,80 @@ class Presentacion : AppCompatActivity() {
 
     /**
      * Configura el botón de ayuda para mostrar una ventana emergente con instrucciones.
-     * Incluye un botón "cerrar" para cerrar la ventana.
+     * La ventana incluye un botón para cerrar la ventana de ayuda.
      *
      * @author Intissar
      */
     private fun configurarAyuda() {
         val imagenAyuda: ImageView = findViewById(R.id.ayuda)
         imagenAyuda.setOnClickListener {
-            // Crear una ventana emergente
+            // Crear y mostrar la ventana emergente de ayuda
             val ayudaView = layoutInflater.inflate(R.layout.ayuda, null)
             val ayudaDialog = androidx.appcompat.app.AlertDialog.Builder(this)
                 .setView(ayudaView)
                 .create()
             ayudaDialog.show()
-            // Cambiar el texto en el layout de ayuda
+
+            // Configurar el texto de ayuda
             val textoAyuda: TextView = ayudaView.findViewById(R.id.ayudaTexto)
-            textoAyuda.text =
-                getString(R.string.ongi_etorri_jokoaren_aurkezpenera_testua_irakurri_eta_ulertu_ondoren_erregistratu_botoian_klik_egin_dezakezu_jolasten_hasi_eta_puntu_irabazteko)
-            // Configurar el botón "cerrar" para cerrar la ventana emergente
+            textoAyuda.text = getString(R.string.ongi_etorri_jokoaren_aurkezpenera_testua_irakurri_eta_ulertu_ondoren_erregistratu_botoian_klik_egin_dezakezu_jolasten_hasi_eta_puntu_irabazteko)
+
+            // Configurar el botón "cerrar" para cerrar la ventana de ayuda
             val cerrar: Button = ayudaView.findViewById(R.id.cerrar)
             cerrar.setOnClickListener {
-                ayudaDialog.dismiss() // Cierra solo la ventana emergente
+                ayudaDialog.dismiss()
             }
         }
     }
 
     /**
-     * Funcion vacia que elimina el uso del boton  de retroceso
+     * Muestra un cuadro de diálogo con las credenciales de los autores.
+     * Esta función se ejecuta cuando el usuario hace clic en el botón de "Credenciales".
+     * Muestra los nombres de los autores.
+     *
+     * @author Intissar
+     * @see AlertDialog.Builder
+     */
+    private fun mostrarCredenciales() {
+        val mensaje = getString(R.string.desarrolladores)+
+                "\n"+
+                "Intissar Balouk Anakar,\n" +
+                "Aketza Gonzalez Rey\n" +
+                "Diego Fernandez Garcia\n"+
+                "\n"+
+                getString(R.string.clientes)+
+                "\n"+
+                "Goizane Barragán \n"+
+                "Naia Bravo de Medina \n"+
+                "Nerea Camacho \n"+
+                "Oihane Fernández\n"+
+                "Maialen Fernandez  \n"
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.credenciales))
+        builder.setMessage(mensaje)
+        builder.setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.show()
+    }
+
+    /**
+     * Función para cambiar el idioma de la aplicación.
+     * Aún no implementada, pero se necesita lógica adicional para manejar el cambio de idioma.
+     *
+     * @author Intissar
+     * @see Toast
+     */
+    private fun cambiarIdioma() {
+        // Este es un ejemplo básico de cómo cambiar el idioma.
+        // La implementación completa debería manejar la configuración regional de la app.
+        Toast.makeText(this, "Función de cambio de idioma aún no implementada", Toast.LENGTH_SHORT).show()
+    }
+
+    /**
+     * Sobrescribe el comportamiento del botón de retroceso.
+     * Actualmente no realiza ninguna acción al presionar el botón de retroceso.
+     *
      * @author Intissar
      */
     @SuppressLint("MissingSuperCall")

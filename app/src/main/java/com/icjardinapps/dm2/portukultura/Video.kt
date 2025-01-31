@@ -71,7 +71,7 @@ class Video : AppCompatActivity() {
         val videoResId = when (markerIndex) {
             0 -> R.raw.video_act1 // Video para Actividad 1
             1 -> R.raw.video_act2 // Video para Actividad 2
-            2 -> R.raw.video_act2 // Video para Actividad 3
+            2 -> R.raw.video_act3 // Video para Actividad 3
             4 -> R.raw.video_act5 // Video para Actividad 5
             else -> R.raw.video_act7   // Video por defecto para otras actividades
         }
@@ -86,7 +86,7 @@ class Video : AppCompatActivity() {
         return when (markerIndex) {
             //Actividad 1
             0 -> TimerConfig(
-                timeMillis = 81000, // 81 segundos = 1min 21s
+                timeMillis = 1000, // 81 segundos = 1min 21s
                 buttonAction = {
                     val intent = Intent(this, Act1::class.java)
                     startActivity(intent)

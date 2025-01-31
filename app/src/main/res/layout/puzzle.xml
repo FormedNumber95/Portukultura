@@ -44,15 +44,19 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/logo" />
-
-        <GridLayout
-            android:id="@+id/puzzleGrid"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:columnCount="4"
-            android:padding="0dp"
-            android:rowCount="4" />
     </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/puzzleGrid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:columnCount="4"
+        android:padding="0dp"
+        android:rowCount="4"
+        app:layout_constraintTop_toTopOf="@id/backgroundImage"
+        app:layout_constraintBottom_toBottomOf="@id/backgroundImage"
+        app:layout_constraintStart_toStartOf="@id/backgroundImage"
+        app:layout_constraintEnd_toEndOf="@id/backgroundImage"/>
 
     <ImageView
         android:id="@+id/backgroundImage"
