@@ -10,12 +10,14 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.system.exitProcess
 
 /**
  * Clase principal de la aplicación que representa un quiz con dos preguntas.
  * Reproduce un sonido y muestra un mensaje en caso de respuesta incorrecta.
  *
  * @author Intissar
+ * @version 1.1
  */
 class Ejer5 : AppCompatActivity() {
 
@@ -153,4 +155,26 @@ class Ejer5 : AppCompatActivity() {
     override fun onBackPressed() {
 
     }
+    /**
+     * Se llama cuando la actividad entra en estado de pausa.
+     * Este metodo cierra todas las actividades de la aplicación, finalizando su ejecución.
+     *
+     * @author Aketza
+     */
+    override fun onPause() {
+        super.onPause()
+        finishAffinity() // Cierra todas las actividades de la aplicación
+    }
+
+    /**
+     * Se llama cuando la actividad entra en estado detenido.
+     * Este metodo finaliza el proceso de la aplicación de manera forzada.
+     *
+     * @author Aketza
+     */
+    override fun onStop() {
+        super.onStop()
+        exitProcess(0) // Finaliza el proceso de la aplicación
+    }
+
 }

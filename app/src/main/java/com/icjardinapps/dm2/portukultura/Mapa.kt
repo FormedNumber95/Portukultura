@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import kotlin.system.exitProcess
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -23,7 +24,7 @@ import com.icjardinapps.dm2.portukultura.databinding.MapaBinding
  * Los marcadores cambian de color para indicar el marcador activo.
  *
  * @author Aketza
- * @version 1.1
+ * @version 1.2
  */
 class Mapa : AppCompatActivity(), OnMapReadyCallback {
 
@@ -243,5 +244,27 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
 
+    }
+
+    /**
+     * Se llama cuando la actividad entra en estado de pausa.
+     * Este metodo cierra todas las actividades de la aplicación, finalizando su ejecución.
+     *
+     * @author Aketza
+     */
+    override fun onPause() {
+        super.onPause()
+        finishAffinity() // Cierra todas las actividades de la aplicación
+    }
+
+    /**
+     * Se llama cuando la actividad entra en estado detenido.
+     * Este metodo finaliza el proceso de la aplicación de manera forzada.
+     *
+     * @author Aketza
+     */
+    override fun onStop() {
+        super.onStop()
+        exitProcess(0) // Finaliza el proceso de la aplicación
     }
 }
