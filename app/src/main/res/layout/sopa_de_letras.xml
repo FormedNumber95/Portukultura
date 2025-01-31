@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.15"
+        app:layout_constraintGuide_percent="0.1"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.75"
+        app:layout_constraintGuide_percent="0.7"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -80,7 +80,7 @@
 
         <!-- Imágenes horizontales -->
         <ImageView
-            android:id="@+id/logo"
+            android:id="@+id/icjardin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
@@ -96,7 +96,7 @@
             android:src="@drawable/upv" />
 
         <ImageView
-            android:id="@+id/icjardin"
+            android:id="@+id/logo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
