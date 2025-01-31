@@ -69,7 +69,7 @@ class Video : AppCompatActivity() {
         val videoResId = when (markerIndex) {
             0 -> R.raw.video_act1 // Video para Actividad 1
             1 -> R.raw.video_act2 // Video para Actividad 2
-            2 -> R.raw.video_act2 // Video para Actividad 3
+            2 -> R.raw.video_act3 // Video para Actividad 3
             4 -> R.raw.video_act5 // Video para Actividad 5
             else -> R.raw.video_act7   // Video por defecto para otras actividades
         }
@@ -93,7 +93,7 @@ class Video : AppCompatActivity() {
             )
             //Actividad 2
             1 -> TimerConfig(
-                timeMillis = 1000, // 93 segundos = 1min 33s
+                timeMillis = 93000, // 93 segundos = 1min 33s
                 buttonAction = {
                     val intent = Intent(this, Puzzle::class.java)
                     startActivity(intent)
@@ -102,7 +102,7 @@ class Video : AppCompatActivity() {
             )
             //Actividad 3
             2 -> TimerConfig(
-                timeMillis = 1000, // 555 segundos = 9min 15s
+                timeMillis = 555000, // 555 segundos = 9min 15s
                 buttonAction = {
                     val intent = Intent(this, TrenGeltokiaGalderaErrepikagarriak::class.java)
                     startActivity(intent)
@@ -111,7 +111,7 @@ class Video : AppCompatActivity() {
             )
             //Actividad 5
             4 -> TimerConfig(
-                timeMillis = 1000, // 330 segundos = 5min 30s
+                timeMillis = 330000, // 330 segundos = 5min 30s
                 buttonAction = {
                     val intent = Intent(this, Ejer5::class.java)
                     startActivity(intent)
@@ -120,7 +120,7 @@ class Video : AppCompatActivity() {
             )
             //Actividad 7
             else -> TimerConfig(
-                timeMillis = 1000, // 145 segundos = 2min 25s
+                timeMillis = 145000, // 145 segundos = 2min 25s
                 buttonAction = {
                     val nombre=intent.getStringExtra("nombre").toString()
                     val apellido=intent.getStringExtra("apellido").toString()
