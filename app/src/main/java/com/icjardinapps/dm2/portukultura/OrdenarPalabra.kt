@@ -10,13 +10,14 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.system.exitProcess
 
 /**
  * Clase OrdenarPalabra que representa una actividad donde los usuarios deben ordenar letras
  * para formar una palabra específica mediante una interacción de arrastrar y soltar.
  *
  * @author Aketza
- * @version 1.0
+ * @version 1.1
  */
 class OrdenarPalabra : AppCompatActivity() {
 
@@ -184,6 +185,28 @@ class OrdenarPalabra : AppCompatActivity() {
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
 
+    }
+
+    /**
+     * Se llama cuando la actividad entra en estado de pausa.
+     * Este metodo cierra todas las actividades de la aplicación, finalizando su ejecución.
+     *
+     * @author Aketza
+     */
+    override fun onPause() {
+        super.onPause()
+        finishAffinity() // Cierra todas las actividades de la aplicación
+    }
+
+    /**
+     * Se llama cuando la actividad entra en estado detenido.
+     * Este metodo finaliza el proceso de la aplicación de manera forzada.
+     *
+     * @author Aketza
+     */
+    override fun onStop() {
+        super.onStop()
+        exitProcess(0) // Finaliza el proceso de la aplicación
     }
 
 }

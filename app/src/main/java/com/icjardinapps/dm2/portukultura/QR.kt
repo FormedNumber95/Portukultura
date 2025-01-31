@@ -6,11 +6,13 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.system.exitProcess
+
 /**
  * Clase QR que maneja la funcionalidad relacionada con el código QR y su interacción.
  *
  * @author Aketza
- * @version 1.1
+ * @version 1.2
  */
 class QR : AppCompatActivity() {
     /**
@@ -90,4 +92,27 @@ class QR : AppCompatActivity() {
     override fun onBackPressed() {
 
     }
+
+    /**
+     * Se llama cuando la actividad entra en estado de pausa.
+     * Este metodo cierra todas las actividades de la aplicación, finalizando su ejecución.
+     *
+     * @author Aketza
+     */
+    override fun onPause() {
+        super.onPause()
+        finishAffinity() // Cierra todas las actividades de la aplicación
+    }
+
+    /**
+     * Se llama cuando la actividad entra en estado detenido.
+     * Este metodo finaliza el proceso de la aplicación de manera forzada.
+     *
+     * @author Aketza
+     */
+    override fun onStop() {
+        super.onStop()
+        exitProcess(0) // Finaliza el proceso de la aplicación
+    }
+
 }

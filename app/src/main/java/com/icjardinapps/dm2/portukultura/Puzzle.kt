@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.system.exitProcess
+
 /**
  * Actividad para gestionar un juego de puzzle interactivo en una cuadrícula.
  * La actividad permite mover las piezas del puzzle de forma que el jugador
@@ -53,9 +55,9 @@ class Puzzle : AppCompatActivity() {
         puzzlePieces[15] = R.drawable.puzle_blanco
 
         // Mezclar las piezas de manera que el puzzle sea resolvible
-        //do {
-        //    puzzlePieces.shuffle()
-        //} while (!isSolvable(puzzlePieces) || puzzlePieces[15] != R.drawable.puzle_blanco)
+        do {
+            puzzlePieces.shuffle()
+        } while (!isSolvable(puzzlePieces) || puzzlePieces[15] != R.drawable.puzle_blanco)
 
         // Encuentra el índice del espacio vacío en la disposición inicial
         emptyIndex = puzzlePieces.indexOf(R.drawable.puzle_blanco)
@@ -236,5 +238,27 @@ class Puzzle : AppCompatActivity() {
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
 
+    }
+
+    /**
+     * Se llama cuando la actividad entra en estado de pausa.
+     * Este metodo cierra todas las actividades de la aplicación, finalizando su ejecución.
+     *
+     * @author Aketza
+     */
+    override fun onPause() {
+        super.onPause()
+        finishAffinity() // Cierra todas las actividades de la aplicación
+    }
+
+    /**
+     * Se llama cuando la actividad entra en estado detenido.
+     * Este metodo finaliza el proceso de la aplicación de manera forzada.
+     *
+     * @author Aketza
+     */
+    override fun onStop() {
+        super.onStop()
+        exitProcess(0) // Finaliza el proceso de la aplicación
     }
 }

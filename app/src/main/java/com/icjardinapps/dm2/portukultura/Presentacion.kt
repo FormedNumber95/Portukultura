@@ -12,13 +12,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.system.exitProcess
 
 /**
  * Clase Presentacion que representa la actividad de presentación inicial de la aplicación.
  * Muestra una interfaz para que el usuario ingrese sus datos en un cuadro de diálogo.
  *
  * @author Intissar
- * @version 1.1
+ * @version 1.2
  */
 class Presentacion : AppCompatActivity() {
 
@@ -135,5 +136,27 @@ class Presentacion : AppCompatActivity() {
      */
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
+    }
+
+    /**
+     * Se llama cuando la actividad entra en estado de pausa.
+     * Este metodo cierra todas las actividades de la aplicación, finalizando su ejecución.
+     *
+     * @author Aketza
+     */
+    override fun onPause() {
+        super.onPause()
+        finishAffinity() // Cierra todas las actividades de la aplicación
+    }
+
+    /**
+     * Se llama cuando la actividad entra en estado detenido.
+     * Este metodo finaliza el proceso de la aplicación de manera forzada.
+     *
+     * @author Aketza
+     */
+    override fun onStop() {
+        super.onStop()
+        exitProcess(0) // Finaliza el proceso de la aplicación
     }
 }
