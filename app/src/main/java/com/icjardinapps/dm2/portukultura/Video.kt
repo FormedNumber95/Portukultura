@@ -1,7 +1,8 @@
 package com.icjardinapps.dm2.portukultura
-
+import android.graphics.Matrix
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -9,6 +10,8 @@ import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+
 /**
  * Clase que gestiona la reproducción de videos y la ejecución de temporizadores para realizar diferentes actividades.
  * El comportamiento del temporizador y la acción del botón varían según el índice del marcador recibido.
@@ -17,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity
  * @version 1.1
  */
 class Video : AppCompatActivity() {
+    private lateinit var btnAgrandar: Button // Agregar referencia al nuevo botón
 
     private lateinit var timerController: TimerController
     private lateinit var btnAurrera: Button
@@ -35,6 +39,7 @@ class Video : AppCompatActivity() {
         btnAurrera = findViewById(R.id.btnAurrera)
         btnAurrera.isEnabled = false
         videoView=findViewById(R.id.videoView)
+        btnAgrandar = findViewById(R.id.btnAgrandar) // Inicializar el botón
 
         // Obtener el índice del marcador
         val markerIndex = intent.getIntExtra("MARKER_INDEX", -1)
@@ -55,9 +60,29 @@ class Video : AppCompatActivity() {
         btnAurrera.setOnClickListener {
             timerConfig.buttonAction()
         }
+        // Configurar el comportamiento del botón para cambiar a modo paisaje
+        btnAgrandar.setOnClickListener {
+            // Aplicar la rotación del video (90 grados en este caso)
+            val matrix = Matrix()
+            matrix.postRotate(90f)  // Rota el video 90 grados en el sentido de las agujas del reloj
+
+            // Aplicar la transformación al VideoView
+            val surfaceHolder = videoView.holder
+            surfaceHolder.setTransform(matrix)
+
+            // Ajustar el tamaño del VideoView para que ocupe toda la pantalla
+            val params = videoView.layoutParams as ConstraintLayout.LayoutParams
+            params.width = ConstraintLayout.LayoutParams.MATCH_PARENT  // Ocupa todo el ancho
+            params.height = ConstraintLayout.LayoutParams.MATCH_PARENT // Ocupa todo el alto
+            videoView.layoutParams = params
+        }
         configurarAyuda()
     }
-
+    override fun onPause() {
+        super.onPause()
+        // Restablecer la orientación al volver a la actividad (por si se quiere revertir)
+       // requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+    }
     /**
      * Devuelve la configuración del temporizador, la acción del botón y el video según el índice del marcador.
      *
@@ -69,7 +94,8 @@ class Video : AppCompatActivity() {
         val videoResId = when (markerIndex) {
             0 -> R.raw.video_act1 // Video para Actividad 1
             1 -> R.raw.video_act2 // Video para Actividad 2
-            2 -> R.raw.video_act3 // Video para Actividad 3
+
+            2 -> R.raw.video_act2 // Video para Actividad 3
             4 -> R.raw.video_act5 // Video para Actividad 5
             else -> R.raw.video_act7   // Video por defecto para otras actividades
         }

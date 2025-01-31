@@ -51,6 +51,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.9"
         app:layout_constraintStart_toStartOf="parent" />
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/gHor2"
+        app:layout_constraintEnd_toStartOf="@id/gVer2"
+        app:layout_constraintStart_toStartOf="@+id/gVer1"
+        app:layout_constraintTop_toBottomOf="@+id/txtTiempo"
+        app:layout_constraintVertical_bias="0" />
 
     <TextView
         android:id="@+id/txtTiempo"
@@ -75,6 +86,13 @@
         app:layout_constraintEnd_toStartOf="@+id/gVer2"
         app:layout_constraintStart_toStartOf="@+id/gVer1"
         app:layout_constraintTop_toTopOf="@+id/gHor2" />
+    <Button
+        android:id="@+id/btnAgrandar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agrandar Video"
+        app:layout_constraintTop_toBottomOf="@+id/btnAurrera"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <VideoView
         android:id="@+id/videoView"
