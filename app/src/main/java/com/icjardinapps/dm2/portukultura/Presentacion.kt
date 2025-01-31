@@ -165,7 +165,7 @@ class Presentacion : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(getString(R.string.credenciales))
         builder.setMessage(mensaje)
-        builder.setPositiveButton("OK") { dialog, _ ->
+        builder.setPositiveButton(getString(R.string.ok)) { dialog, _ ->
             dialog.dismiss()
         }
         builder.show()
