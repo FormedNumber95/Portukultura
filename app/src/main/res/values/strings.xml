@@ -62,8 +62,6 @@
     <string name="taberna_honen_aurrean_canillako_tren_geltokia_dago">Taberna honen aurrean Canillako Tren Geltokia dago.</string>
     <string name="taberna_honen_jabeak_beraien_bezeroak_oso_ondo_zaintzeaz_ospea_dute">Taberna honen jabeak, beraien bezeroak oso ondo zaintzeaz ospea dute.</string>
     <string name="taberna_hau_santa_maria_basilikaren_beheko_aldean_kokatuta_dago">Taberna hau Santa Maria Basilikaren beheko aldean kokatuta dago.</string>
-    <string name="continuar">Continuar</string>
-    <string name="continuar2">Continuar</string>
     <string name="non_dago_taberna_ospetsua">Non dago taberna ospetsua?</string>
     <string name="zein_dira_osagaiak">Zein dira osagaiak?</string>
     <string name="zein_da_saltza_berezia">Zein da saltza berezia?</string>
@@ -76,7 +74,7 @@
     <string name="antolatu_letra_hauek_zuzenean_hitza_lortzeko">Antolatu letra hauek zuzenean hitza lortzeko.</string>
     <string name="helburu_finalerako_letra_bat_lortu_duzu_itzuli_mapa_atzera_nahi_baduzu_sakatu_mapa_botoia">Helburu finalerako letra bat lortu duzu. Itzuli mapa atzera nahi baduzu, sakatu \'Mapa\' botoia.</string>
     <string name="bideoa_ikusi_ondoren_hasieratu_botoia_aktibatuko_da_hasteko">"Bideoa ikusi ondoren, 'Hasieratu' botoia aktibatuko da hasteko. "</string>
-    <string name="qr_a_klikatu_behar_du_irudia_ikusteko">" QR-a klikatu behar du irudia ikusteko."</string>
+    <string name="qr_a_klikatu_behar_du_irudia_ikusteko">" QR-a klikatu behar duzu irudia ikusteko."</string>
     <string name="abestia_testua_ondo_irakurri_eta_ondoren_agertzen_diren_hitz_desordenatuak_irakurri_ondoren_hasi_botoian_klik_egin_dezakezu_hutsuneak_hitz_egokiekin_betetzeko">Abestia: Testua ondo irakurri eta ondoren agertzen diren hitz desordenatuak. Irakurri ondoren, \'Hasi\' botoian klik egin dezakezu hutsuneak hitz egokiekin betetzeko.</string>
     <string name="arrastatu_irudiak_dagokien_hitzera">Arrastatu irudiak dagokien hitzera.</string>
     <string name="ongi_etorri_jokoaren_aurkezpenera_testua_irakurri_eta_ulertu_ondoren_erregistratu_botoian_klik_egin_dezakezu_jolasten_hasi_eta_puntu_irabazteko">Ongi etorri jokoaren aurkezpenera. Testua irakurri eta ulertu ondoren, \'Erregistratu\' botoian klik egin dezakezu jolasten hasi eta puntu irabazteko.</string>
@@ -85,15 +83,16 @@
     <string name="joko_honek_testua_dagokion_esaldira_arrastatzea_du_helburu">Joko honek testua dagokion esaldira arrastatzea du helburu.</string>
     <string name="irakurri_galderak_arretaz_eta_aukeratu_zure_iritziz_egokiena_den_aukera">Irakurri galderak arretaz eta aukeratu zure iritziz egokiena den aukera.</string>
     <string name="hitza_osatu">Hitza osatu</string>
-    <string name="a_lortu_duzue">A LORTU DUZUE</string>
-    <string name="o_lortu_duzue">O LORTU DUZUE</string>
-    <string name="n_lortu_duzue">N LORTU DUZUE</string>
-    <string name="d_lortu_duzue">D LORTU DUZUE</string>
-    <string name="r_lortu_duzue">R LORTU DUZUE</string>
-    <string name="e_lortu_duzue">E LORTU DUZUE</string>
+    <string name="a_lortu_duzue">"A" LORTU DUZU</string>
+    <string name="o_lortu_duzue">"O" LORTU DUZU</string>
+    <string name="n_lortu_duzue">"N" LORTU DUZU</string>
+    <string name="d_lortu_duzue">"D" LORTU DUZU</string>
+    <string name="r_lortu_duzue">"R" LORTU DUZU</string>
+    <string name="e_lortu_duzue">"E" LORTU DUZU</string>
     <string name="mapa_behatu_jarduerak_egiteko_puntuaren_kolorea_kontuan_hartu_behar_duzu_horia_kolorea_duen_puntu_batek_adierazten_du_jarduera_jolastera_prest_dagoela_berde_kolorea_duten_puntuek_esan_nahi_dute_dagoeneko_egindako_jarduerak_direla_gorria_kolorea_duten_puntuek_adierazten_dute_oraindik_egitekoak_diren_jarduerak_daudela_jolastu_eta_jarduera_guztiak_bete">Mapa behatu. Jarduerak egiteko, puntuaren kolorea kontuan hartu behar duzu. **Horia** kolorea duen puntu batek adierazten du jarduera jolastera prest dagoela. **Berde** kolorea duten puntuek esan nahi dute dagoeneko egindako jarduerak direla. **Gorria** kolorea duten puntuek adierazten dute oraindik egitekoak diren jarduerak daudela. Jolastu eta jarduera guztiak bete!</string>
     <string name="credenciales">Kredentzialak</string>
     <string name="clientes">Bezero: \n</string>
     <string name="desarrolladores">Garatzaileak:\n</string>
     <string name="ok">OK</string>
+    <string name="itxi">ITXI</string>
 </resources>

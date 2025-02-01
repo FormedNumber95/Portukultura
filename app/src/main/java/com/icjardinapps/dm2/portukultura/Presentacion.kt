@@ -1,7 +1,9 @@
 package com.icjardinapps.dm2.portukultura
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import java.util.Locale
 import kotlin.system.exitProcess
 
 /**
@@ -21,7 +24,7 @@ import kotlin.system.exitProcess
  * de los autores y el cambio de idioma.
  *
  * @author Intissar
- * @version 1.3
+ * @version 1.4
  */
 class Presentacion : AppCompatActivity() {
     private lateinit var credenciales: ImageView
@@ -174,16 +177,37 @@ class Presentacion : AppCompatActivity() {
 
     /**
      * Función para cambiar el idioma de la aplicación.
-     * Aún no implementada, pero se necesita lógica adicional para manejar el cambio de idioma.
      *
-     * @author Intissar
-     * @see Toast
+     * @author Aketza
      */
-    private fun cambiarIdioma() {
-        // Este es un ejemplo básico de cómo cambiar el idioma.
-        // La implementación completa debería manejar la configuración regional de la app.
-        Toast.makeText(this, "Función de cambio de idioma aún no implementada", Toast.LENGTH_SHORT).show()
+    fun cambiarIdioma() {
+        // Obtener el idioma actual desde SharedPreferences
+        val prefs = getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
+        val idiomaActual = prefs.getString("Idioma", "eu")  // Default: euskera
+
+        // Determinar el nuevo idioma
+        val nuevoIdioma = when (idiomaActual) {
+            "es" -> "eu" // Cambiar a euskera
+            "eu" -> "es" // Cambiar a español
+            else -> "eu"
+        }
+
+        // Guardar el nuevo idioma en SharedPreferences
+        prefs.edit().putString("Idioma", nuevoIdioma).apply()
+
+        // Cambiar el Locale de la aplicación
+        val locale = Locale(nuevoIdioma)
+        Locale.setDefault(locale)
+
+        val config = Configuration()
+        config.setLocale(locale)
+
+        resources.updateConfiguration(config, resources.displayMetrics)
+
+        // Reiniciar la actividad para aplicar los cambios
+        recreate()
     }
+
 
     /**
      * Sobrescribe el comportamiento del botón de retroceso.
