@@ -24,7 +24,7 @@ import kotlin.system.exitProcess
  * y realiza diversas acciones según las palabras encontradas.
  *
  * @author Aketza
- * @version 1.2
+ * @version 1.3
  */
 class SopaDeLetras : AppCompatActivity() {
 
@@ -328,7 +328,9 @@ class SopaDeLetras : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -339,6 +341,8 @@ class SopaDeLetras : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 }

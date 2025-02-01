@@ -17,7 +17,7 @@ import kotlin.system.exitProcess
  * Configura los elementos interactivos y maneja la lógica de arrastrar y soltar.
  *
  * @author Diego
- * @version 1.1
+ * @version 1.2
  */
 class Act1 : AppCompatActivity() {
 
@@ -224,7 +224,9 @@ class Act1 : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -235,6 +237,8 @@ class Act1 : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 }

@@ -16,7 +16,7 @@ import kotlin.system.exitProcess
  * Configura los elementos interactivos y la lógica del juego.
  *
  * @author Diego
- * @version 1.1
+ * @version 1.2
  */
 class Act6DnD : AppCompatActivity() {
 
@@ -199,6 +199,7 @@ class Act6DnD : AppCompatActivity() {
      */
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {}
+
     /**
      * Se llama cuando la actividad entra en estado de pausa.
      * Este metodo cierra todas las actividades de la aplicación, finalizando su ejecución.
@@ -207,7 +208,9 @@ class Act6DnD : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -218,7 +221,9 @@ class Act6DnD : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 
 }

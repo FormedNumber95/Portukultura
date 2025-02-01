@@ -24,7 +24,7 @@ import com.icjardinapps.dm2.portukultura.databinding.MapaBinding
  * Los marcadores cambian de color para indicar el marcador activo.
  *
  * @author Aketza
- * @version 1.2
+ * @version 1.3
  */
 class Mapa : AppCompatActivity(), OnMapReadyCallback {
 
@@ -254,7 +254,9 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -264,7 +266,9 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
      * @author Aketza
      */
     override fun onStop() {
-        super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+       super.onStop()
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 }

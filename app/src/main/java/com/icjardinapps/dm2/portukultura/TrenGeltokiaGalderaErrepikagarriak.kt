@@ -2,6 +2,7 @@ package com.icjardinapps.dm2.portukultura
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
@@ -17,13 +18,14 @@ import kotlin.system.exitProcess
  * Actividad principal para gestionar un cuestionario con preguntas.
  *
  * @author Aketza
- * @version 1.1
+ * @version 1.2
  */
 class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
 
     private var radio1Ok:Boolean=false
     private var radio2Ok:Boolean=false
     private var radio3Ok:Boolean=false
+    private var animationDrawable: AnimationDrawable? =null
 
     /**
      * Configura la actividad al crearse.
@@ -34,6 +36,9 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tren_geltokia_galdera_errepikagarriak)
+        val avatar = findViewById<ImageView>(R.id.avatar)
+        avatar.setImageResource(R.drawable.animacion_hablar)
+        animationDrawable = avatar.drawable as AnimationDrawable
         val incorrectSound = MediaPlayer.create(this, R.raw.txarto_egin)
         val radioGroupPregunta1 = findViewById<RadioGroup>(R.id.radioGroupPregunta1)
         val radioGroupPregunta2 = findViewById<RadioGroup>(R.id.radioGroupPregunta2)
@@ -45,10 +50,20 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
                 if (selectedOption.id == R.id.rad1888) {
                     // Marcar la primera pregunta como respondida correctamente
                     radio1Ok = true
+                    avatar.setImageResource(R.drawable.animacion_hablar)
                     checkAllQuestionsCorrect()
                 } else {
                     // Reproducir sonido y mostrar mensaje de error
                     playIncorrectSound(incorrectSound)
+                    avatar.setImageResource(R.drawable.animacion_hablar)  // Reinicia la imagen
+                    animationDrawable = avatar.drawable as AnimationDrawable
+                    animationDrawable!!.start()
+                    // Programa la detención después de 10 segundos
+                    avatar.postDelayed({
+                        animationDrawable!!.stop()
+                        avatar.setImageResource(R.drawable.animacion_hablar_triste)
+                        animationDrawable = avatar.drawable as AnimationDrawable
+                    }, 3000) // 3000 milisegundos = 3 segundo
                 }
             }
         }
@@ -58,10 +73,20 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
                 if (selectedOption.id == R.id.radAldeZaharrean) {
                     // Marcar la primera pregunta como respondida correctamente
                     radio2Ok = true
+                    avatar.setImageResource(R.drawable.animacion_hablar)
                     checkAllQuestionsCorrect()
                 } else {
                     // Reproducir sonido y mostrar mensaje de error
                     playIncorrectSound(incorrectSound)
+                    avatar.setImageResource(R.drawable.animacion_hablar)  // Reinicia la imagen
+                    animationDrawable = avatar.drawable as AnimationDrawable
+                    animationDrawable!!.start()
+                    // Programa la detención después de 10 segundos
+                    avatar.postDelayed({
+                        animationDrawable!!.stop()
+                        avatar.setImageResource(R.drawable.animacion_hablar_triste)
+                        animationDrawable = avatar.drawable as AnimationDrawable
+                    }, 3000) // 3000 milisegundos = 3 segundo
                 }
             }
         }
@@ -71,10 +96,20 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
                 if (selectedOption.id == R.id.radBai) {
                     // Marcar la primera pregunta como respondida correctamente
                     radio3Ok = true
+                    avatar.setImageResource(R.drawable.animacion_hablar)
                     checkAllQuestionsCorrect()
                 } else {
                     // Reproducir sonido y mostrar mensaje de error
                     playIncorrectSound(incorrectSound)
+                    avatar.setImageResource(R.drawable.animacion_hablar)  // Reinicia la imagen
+                    animationDrawable = avatar.drawable as AnimationDrawable
+                    animationDrawable!!.start()
+                    // Programa la detención después de 10 segundos
+                    avatar.postDelayed({
+                        animationDrawable!!.stop()
+                        avatar.setImageResource(R.drawable.animacion_hablar_triste)
+                        animationDrawable = avatar.drawable as AnimationDrawable
+                    }, 3000) // 3000 milisegundos = 3 segundo
                 }
             }
         }
@@ -149,7 +184,9 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -160,6 +197,8 @@ class TrenGeltokiaGalderaErrepikagarriak : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 }

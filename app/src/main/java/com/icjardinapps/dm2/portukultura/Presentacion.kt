@@ -21,7 +21,7 @@ import kotlin.system.exitProcess
  * de los autores y el cambio de idioma.
  *
  * @author Intissar
- * @version 1.2
+ * @version 1.3
  */
 class Presentacion : AppCompatActivity() {
     private lateinit var credenciales: ImageView
@@ -203,7 +203,9 @@ class Presentacion : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -214,6 +216,8 @@ class Presentacion : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 }

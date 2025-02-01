@@ -16,7 +16,7 @@ import kotlin.system.exitProcess
  * El comportamiento del temporizador y la acción del botón varían según el índice del marcador recibido.
  *
  * @author Aketza
- * @version 1.2
+ * @version 1.3
  */
 class Video : AppCompatActivity() {
 
@@ -86,7 +86,7 @@ class Video : AppCompatActivity() {
         return when (markerIndex) {
             //Actividad 1
             0 -> TimerConfig(
-                timeMillis = 1000, // 81 segundos = 1min 21s
+                timeMillis = 81000, // 81 segundos = 1min 21s
                 buttonAction = {
                     val intent = Intent(this, Act1::class.java)
                     startActivity(intent)
@@ -122,7 +122,7 @@ class Video : AppCompatActivity() {
             )
             //Actividad 7
             else -> TimerConfig(
-                timeMillis = 145000, // 145 segundos = 2min 25s
+                timeMillis = 1000, // 145 segundos = 2min 25s
                 buttonAction = {
                     val nombre=intent.getStringExtra("nombre").toString()
                     val apellido=intent.getStringExtra("apellido").toString()
@@ -178,7 +178,9 @@ class Video : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -189,6 +191,8 @@ class Video : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 }

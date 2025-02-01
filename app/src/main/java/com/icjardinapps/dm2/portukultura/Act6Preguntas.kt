@@ -17,7 +17,7 @@ import kotlin.system.exitProcess
  * Permite al usuario avanzar a la siguiente actividad.
  *
  * @author Diego
- * @version 1.1
+ * @version 1.2
  */
 class Act6Preguntas : AppCompatActivity() {
     /**
@@ -81,7 +81,9 @@ class Act6Preguntas : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -92,6 +94,8 @@ class Act6Preguntas : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 }

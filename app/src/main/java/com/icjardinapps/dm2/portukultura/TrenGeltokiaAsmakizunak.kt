@@ -16,7 +16,7 @@ import kotlin.system.exitProcess
  * Actividad principal que implementa un juego de emparejar.
  *
  * @author Aketza
- * @version 1.1
+ * @version 1.2
  */
 class TrenGeltokiaAsmakizunak : AppCompatActivity() {
     /**
@@ -215,7 +215,9 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -226,6 +228,8 @@ class TrenGeltokiaAsmakizunak : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 }

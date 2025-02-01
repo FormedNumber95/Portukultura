@@ -2,7 +2,6 @@ package com.icjardinapps.dm2.portukultura
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.GridLayout
 import android.widget.ImageView
@@ -17,6 +16,7 @@ import kotlin.system.exitProcess
  * pueda resolverlo moviendo las piezas adyacentes al espacio vacío.
  *
  * @author Intissar
+ * @version 1.2
  */
 class Puzzle : AppCompatActivity() {
 
@@ -91,7 +91,6 @@ class Puzzle : AppCompatActivity() {
             imageView.layoutParams=params
             imageView.scaleType=ImageView.ScaleType.FIT_XY
             puzzleGrid.addView(imageView)
-            Log.e("PAKO","PAKPO")
         }
     }
     /**
@@ -250,7 +249,9 @@ class Puzzle : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -261,6 +262,8 @@ class Puzzle : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 }

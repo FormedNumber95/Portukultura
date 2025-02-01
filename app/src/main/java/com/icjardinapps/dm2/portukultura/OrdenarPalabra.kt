@@ -17,7 +17,7 @@ import kotlin.system.exitProcess
  * para formar una palabra específica mediante una interacción de arrastrar y soltar.
  *
  * @author Aketza
- * @version 1.1
+ * @version 1.2
  */
 class OrdenarPalabra : AppCompatActivity() {
 
@@ -195,7 +195,9 @@ class OrdenarPalabra : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -206,7 +208,9 @@ class OrdenarPalabra : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 
 }

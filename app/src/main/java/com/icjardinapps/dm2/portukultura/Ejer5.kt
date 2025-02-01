@@ -1,6 +1,7 @@
 package com.icjardinapps.dm2.portukultura
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.AnimationDrawable
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
@@ -17,12 +18,13 @@ import kotlin.system.exitProcess
  * Reproduce un sonido y muestra un mensaje en caso de respuesta incorrecta.
  *
  * @author Intissar
- * @version 1.1
+ * @version 1.2
  */
 class Ejer5 : AppCompatActivity() {
 
     private var question1AnsweredCorrectly = false
     private var question2AnsweredCorrectly = false
+    private var animationDrawable: AnimationDrawable? =null
 
     /**
      * Metodo llamado al crear la actividad. Configura los grupos de preguntas y el manejo de respuestas.
@@ -33,6 +35,9 @@ class Ejer5 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ejer5)
+        val avatar = findViewById<ImageView>(R.id.avatar)
+        avatar.setImageResource(R.drawable.animacion_hablar)
+        animationDrawable = avatar.drawable as AnimationDrawable
 
         // Cargar el archivo de sonido para respuestas incorrectas
         val incorrectSound = MediaPlayer.create(this, R.raw.txarto_egin)
@@ -49,10 +54,20 @@ class Ejer5 : AppCompatActivity() {
                 if (selectedOption.id == R.id.q1_correct) {
                     // Marcar la primera pregunta como respondida correctamente
                     question1AnsweredCorrectly = true
+                    avatar.setImageResource(R.drawable.animacion_hablar)
                     checkAllQuestionsCorrect()
                 } else {
                     // Reproducir sonido y mostrar mensaje de error
                     playIncorrectSound(incorrectSound)
+                    avatar.setImageResource(R.drawable.animacion_hablar)  // Reinicia la imagen
+                    animationDrawable = avatar.drawable as AnimationDrawable
+                    animationDrawable!!.start()
+                    // Programa la detención después de 10 segundos
+                    avatar.postDelayed({
+                        animationDrawable!!.stop()
+                        avatar.setImageResource(R.drawable.animacion_hablar_triste)
+                        animationDrawable = avatar.drawable as AnimationDrawable
+                    }, 3000) // 3000 milisegundos = 3 segundo
                 }
             }
         }
@@ -64,10 +79,20 @@ class Ejer5 : AppCompatActivity() {
                 if (selectedOption.id == R.id.q2_correct) {
                     // Marcar la segunda pregunta como respondida correctamente
                     question2AnsweredCorrectly = true
+                    avatar.setImageResource(R.drawable.animacion_hablar)
                     checkAllQuestionsCorrect()
                 } else {
                     // Reproducir sonido y mostrar mensaje de error
                     playIncorrectSound(incorrectSound)
+                    avatar.setImageResource(R.drawable.animacion_hablar)  // Reinicia la imagen
+                    animationDrawable = avatar.drawable as AnimationDrawable
+                    animationDrawable!!.start()
+                    // Programa la detención después de 10 segundos
+                    avatar.postDelayed({
+                        animationDrawable!!.stop()
+                        avatar.setImageResource(R.drawable.animacion_hablar_triste)
+                        animationDrawable = avatar.drawable as AnimationDrawable
+                    }, 3000) // 3000 milisegundos = 3 segundo
                 }
             }
         }
@@ -155,6 +180,7 @@ class Ejer5 : AppCompatActivity() {
     override fun onBackPressed() {
 
     }
+
     /**
      * Se llama cuando la actividad entra en estado de pausa.
      * Este metodo cierra todas las actividades de la aplicación, finalizando su ejecución.
@@ -163,7 +189,9 @@ class Ejer5 : AppCompatActivity() {
      */
     override fun onPause() {
         super.onPause()
-        finishAffinity() // Cierra todas las actividades de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            finishAffinity() // Cierra todas las actividades de la aplicación
+        }
     }
 
     /**
@@ -174,7 +202,9 @@ class Ejer5 : AppCompatActivity() {
      */
     override fun onStop() {
         super.onStop()
-        exitProcess(0) // Finaliza el proceso de la aplicación
+        if(!AppUtils.isAppInForeground(applicationContext)) {
+            exitProcess(0) // Finaliza el proceso de la aplicación
+        }
     }
 
 }
