@@ -102,7 +102,7 @@ class BD (context: Context) {
         if (conexion != null) {
             try {
                 val query =
-                    "INSERT INTO puntuacion (usuario,id_aplicacion) VALUES (?, ?)"
+                    "INSERT INTO puntuacion (alumno_usuario,aplicacion_id_aplicacion) VALUES (?, ?)"
                 val statement: PreparedStatement = conexion.prepareStatement(query)
                 statement.setString(1, usuario)
                 statement.setInt(2,1)
