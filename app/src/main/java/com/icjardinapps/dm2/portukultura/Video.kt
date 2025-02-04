@@ -122,7 +122,7 @@ class Video : AppCompatActivity() {
             )
             //Actividad 7
             else -> TimerConfig(
-                timeMillis = 1000, // 145 segundos = 2min 25s
+                timeMillis = 145000, // 145 segundos = 2min 25s
                 buttonAction = {
                     val nombre=intent.getStringExtra("nombre").toString()
                     val apellido=intent.getStringExtra("apellido").toString()
